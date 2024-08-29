@@ -1,0 +1,50 @@
+project:
+  type: book
+
+execute:
+  freeze: auto
+
+book:
+  title: "iabookMaquiloca"
+  author: "Javier Flores"
+  date: today
+  downloads: ["pdf", "epub"]
+  url: "https://xavierflore.com.mx/iabookMaquiloca"
+  reader-mode: true
+  description: "A Quarto book for iabookMaquiloca"
+  language: es
+  sidebar:
+    style: docked
+    background: light
+  search: true
+  repo-url: "https://github.com/javierflores/iabookMaquiloca"
+  sharing: ['facebook', 'twitter', 'linkedin']  
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - 01-fundamentos.qmd
+    - 02-industria-maquiladora.qmd
+    - 03-casos-estudio.qmd
+    - 04-aplicaciones-ia.qmd
+    - 05-impacto-economico.qmd
+    - 06-futuro-ia.qmd
+    - 07-conclusiones-recomendaciones.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    bookup-html:
+        toc: true
+        toc-depth: 3
+
+  pdf:
+    documentclass: scrreprt
+    margin-left: 30mm
+    margin-right: 30mm
+    margin-top: 30mm
+    
+
+

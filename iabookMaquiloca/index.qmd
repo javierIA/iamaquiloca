@@ -1,0 +1,37 @@
+# Preface El Futuro se Escribe en la Frontera {.unnumbered}
+
+## Introducción {-}
+
+Ciudad Juárez, crisol de culturas y encrucijada de industrias, se encuentra en el umbral de una nueva era. La inteligencia artificial, esa fuerza transformadora que redefine los límites de lo posible, está llegando a las entrañas de la maquiladora, prometiendo una revolución silenciosa pero profunda.
+
+Este libro es un viaje a través de esa revolución. Exploraremos cómo la IA está cambiando la forma en que se produce, se innova y se compite en la frontera. Desde los robots que comparten espacio con los trabajadores en la línea de montaje, hasta los algoritmos que predicen la demanda del mercado con una precisión asombrosa, la IA está dejando su huella en cada rincón de la industria.
+
+Pero este libro no es solo sobre tecnología. Es sobre las personas que dan vida a la maquiladora, los hombres y mujeres cuya labor diaria construye el futuro de Juárez. Es sobre cómo la IA puede empoderarlos, liberándolos de tareas repetitivas y peligrosas, y permitiéndoles desarrollar todo su potencial creativo.
+
+Y es, sobre todo, un homenaje a Ciudad Juárez, mi ciudad, esa tierra indomable que siempre ha sabido reinventarse frente a la adversidad. Que este libro sea un testimonio de su espíritu innovador, de su capacidad para abrazar el cambio y forjar un futuro más próspero para todos.
+
+## Dedicatoria {-}
+
+A Ciudad Juárez, mi hogar, mi inspiración. A su gente trabajadora y resiliente, que día a día construye un futuro mejor. Y a la memoria de mi novia Alejandra Mendez, quien siempre creyó en mí y en el potencial de esta ciudad.
+
+## Agradecimientos {-}
+
+Al equipo del IACenter, especialmente a Eduardo Castillo y Joam Ricon, por su apoyo incondicional y su visión compartida. A todos los expertos y profesionales que contribuyeron con sus conocimientos y experiencias a este libro. Y a mi familia y amigos, por su amor y aliento constantes.
+
+## Público Objetivo {-}
+
+Este libro está dirigido a dos grandes grupos: los que están al mando en la industria maquiladora de Ciudad Juárez, como los gerentes y administradores, y también a los estudiantes que están empezando a meterse en este mundo. ¿Por qué? Pues porque aquí vas a encontrar la mezcla perfecta entre lo que necesitas saber para mantener tu maquila en la cima y una introducción a los conceptos que están revolucionando la industria, pero sin entrar en tanto rollo técnico.
+
+Para los jefes y líderes, este libro es una guía para entender cómo la inteligencia artificial y otras tecnologías están cambiando el juego, con estrategias claras para que sigan rifando en un mercado cada vez más competitivo. Pero también es un recurso para los estudiantes, aquellos que quieren saber de qué va la cosa sin perderse en detalles demasiado técnicos. Verán cómo la IA se está aplicando en la maquila, pero de una manera que podrán digerir fácil.
+
+Eso sí, hay que estar al tiro, porque la inteligencia artificial se mueve rapidísimo. Hoy estamos hablando de cómo implementar ciertas tecnologías, pero no se sorprendan si en seis meses hay una forma mucho más fácil de hacerlo, especialmente para las empresas pequeñas que apenas empiezan a montarse en la ola digital. Este libro te da las bases, pero la realidad es que el juego cambia constantemente, y estar al tanto de las nuevas herramientas será clave para mantenerse en la jugada.
+
+### Por Qué Escribo Así: Términos Juarenses en Este Libro {-}
+
+Este libro está escrito de una manera que mezcla lo técnico con lo cotidiano, y no es casualidad que se usen términos y expresiones propias de Ciudad Juárez. ¿Por qué? Pues porque cuando hablamos de la maquila y su impacto en nuestra región, no podemos desligar la historia de la gente que la ha hecho posible: los juarenses. La maquila no es solo máquinas y producción, es también el esfuerzo, la lucha y la identidad de la gente que día a día se rifa en este ambiente.
+
+Al usar jerga juarense, quiero que el libro se sienta cercano, como si estuvieras platicando con un compa que sabe del tema. Es una forma de hacer que los conceptos no se sientan tan lejanos o técnicos, sino más bien como algo que está al alcance de todos, algo que puedes entender y aplicar sin sentir que estás leyendo un manual aburrido.
+
+Además, el uso de esta jerga es un homenaje a nuestra cultura fronteriza. La forma en que hablamos aquí es única, refleja nuestra historia y nuestra realidad. Al usar estas expresiones, estoy diciendo que este libro no es solo para expertos de laboratorio o para aquellos que manejan conceptos complicados, sino para la gente de Juárez, que vive y respira la maquila, y que entiende las cosas mejor cuando se les habla en su propio idioma.
+
+Así que, si en algún momento te encuentras con términos o expresiones que te suenan muy de aquí, no te saques de onda. Es parte de lo que somos, y de lo que quiero compartir contigo en este libro.

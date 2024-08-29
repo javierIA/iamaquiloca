@@ -1,0 +1,23 @@
+# References {.unnumbered}
+
+::: {#refs}
+
+
+### Referencias
+
+1. Oscar Martínez, *Ciudad Juárez: El auge de una ciudad fronteriza a partir de 1848*, FCE, México, 1982.
+2. "La Frontera norte, diagnóstico y perspectivas", Dirección General de Estadística, S.I.C. s/f, mimeo.
+3. Thomas Madison, *Reseña anual de la industria maquiladora*, SUGUMEX, México, 1990.
+4. Bass Zavala, Sonia. "El crecimiento urbano en Ciudad Juárez, 1950-2000. Un acercamiento socio-histórico a la evolución desordenada de una ciudad de la frontera norte." *Chihuahua Hoy* (2013): 247-289.
+5. "La Frontera norte, diagnóstico y perspectivas", Dirección General de Estadística, S.I.C. s/f, mimeo.
+6. Diario de Juárez, 21 a 24 de agosto de 1981.
+7. El Fronterizo, 25 de agosto de 1974.
+8. Guadalupe Ramos, Norte, 9 de febrero de 1994, p. 4A.
+9. Diario de Juárez, 22 de mayo de 1991.
+10. Diario de Juárez, 7 de febrero de 1991.
+11. Declaración de José Manuel Luna, promotor de AMACH, *Novedades*, 20 de enero de 1985.
+12. Vega, Luis. "La transformación de la industria maquiladora en la era digital." *El Financiero*, 2023.
+13. Secretaría de Economía. "Informe Anual sobre la Industria Maquiladora". Gobierno de México, 2022.
+
+
+:::
