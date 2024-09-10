@@ -1,0 +1,79 @@
+/*-- scss:defaults --*/
+
+/* Base document styles for good reading */
+$body-bg: #fdfdfd;
+/* Light background for good contrast */
+$body-color: #333333;
+/* Dark text for readability */
+$font-family-sans-serif: 'Georgia', 'Times New Roman', serif;
+/* A serif font for a book-like feel */
+$font-size-root: 1.125rem;
+/* Slightly larger font size for comfortable reading */
+$line-height-base: 1.75;
+/* Increased line spacing for better readability */
+$headings-font-family: 'Merriweather', 'Georgia', serif;
+/* Stylish serif font for headings */
+$headings-font-weight: 600;
+/* Medium boldness for headers */
+
+/* Link styles */
+$link-color: #0066cc;
+/* Dark blue for hyperlinks */
+$link-hover-color: #004999;
+/* Slightly darker on hover */
+$link-decoration: underline;
+/* Underlined links for clarity */
+
+/* Code block customization */
+$code-bg: #f3f3f3;
+/* Light gray background for code blocks */
+$code-color: #c7254e;
+/* Red text for code elements */
+$code-block-border-left: #eaeaea;
+/* Subtle left border for code blocks */
+$code-block-border-left-size: 3px;
+/* Border size */
+$code-block-bg-alpha: 0.1;
+/* Transparent background for code blocks */
+$code-block-padding-left: 0.8em;
+/* Padding for readability */
+
+/* Blockquote styles */
+$blockquote-border-left: 5px solid #dfe2e5;
+/* Subtle left border for blockquotes */
+$blockquote-color: #555555;
+/* Lighter gray text color for blockquotes */
+$blockquote-bg: #f9f9f9;
+/* Light gray background to separate blockquotes */
+$blockquote-padding: 1rem;
+/* Padding around blockquotes */
+
+/* Table of contents */
+$toc-font-size: 1rem;
+/* Regular font size for TOC */
+$toc-color: #333333;
+/* Same color as body text for consistency */
+$toc-active-border: #0066cc;
+/* Active TOC item border color */
+
+/* Navbar and footer customization */
+$navbar-bg: #ffffff;
+/* White background for navbar */
+$navbar-fg: #333333;
+/* Dark text for navbar */
+$footer-bg: #f1f1f1;
+/* Light gray footer background */
+$footer-fg: #333333;
+/* Dark text for footer */
+
+/* Button styles */
+$btn-code-copy-color: #0066cc;
+/* Button color for code copy */
+$btn-code-copy-color-active: #004999;
+/* Hover/active color */
+
+/* Inline code */
+$code-bg: #eaeaea;
+/* Light background for inline code */
+$code-color: #c7254e;
+/* Red text for inline code */

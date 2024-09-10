@@ -4,6 +4,7 @@
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
+  10pt,
   letterpaper,
 ]{book}
 
@@ -39,6 +40,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\usepackage[a5paper,top=2.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
@@ -124,6 +126,30 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
+% Cargar fuentes y paquetes de estilo
+\usepackage{fontspec}
+\setmainfont{IBM Plex Serif}          % Fuente principal para el texto del libro
+\setsansfont{IBM Plex Sans}           % Fuente sans-serif para los títulos
+\setmonofont{IBM Plex Mono}           % Fuente para código
+\usepackage{xcolor}
+\definecolor{highlight}{RGB}{29, 120, 200} % Color para enlaces
+
+% Paquete para soporte de idiomas
+\usepackage{polyglossia}
+\setmainlanguage{spanish}  % Define español como idioma principal
+\usepackage{microtype}      % Mejorar la legibilidad
+
+% Paquete para la personalización del título
+\usepackage{titling}
+
+% Encabezados y pies de página elegantes
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}  % Número de página en las esquinas
+\fancyhead[RE]{\nouppercase{\leftmark}}  % Nombre del capítulo
+\fancyhead[LO]{\nouppercase{\rightmark}} % Nombre de la sección
+\fancyfoot[C]{\thepage}
 \makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
@@ -180,25 +206,34 @@
   pdftitle={iabookMaquiloca},
   pdfauthor={Javier Flores},
   colorlinks=true,
-  linkcolor={Maroon},
+  linkcolor={highlight},
   filecolor={Maroon},
   citecolor={Blue},
-  urlcolor={Blue},
+  urlcolor={highlight},
   pdfcreator={LaTeX via pandoc}}
 
 
 \title{iabookMaquiloca}
 \author{Javier Flores}
-\date{2024-09-02}
+\date{2024-09-09}
 
 \begin{document}
 \frontmatter
 \maketitle
 
+% Página de título con estilo moderno
+\pretitle{\begin{center}\Huge\sffamily\bfseries}
+\posttitle{\end{center}}
+\preauthor{\begin{center}\large\sffamily}
+\postauthor{\end{center}}
+\predate{\begin{center}\large}
+\postdate{\end{center}\vspace{2cm}}
+\maketitle
+
 \renewcommand*\contentsname{Table of contents}
 {
 \hypersetup{linkcolor=}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{1}
 \tableofcontents
 }
 
@@ -513,10 +548,1112 @@ cada vez mayor en la innovación y la sostenibilidad.
 
 \chapter{Fundamentos}\label{fundamentos}
 
-\section{Todos jotos arriba las
-chivas}\label{todos-jotos-arriba-las-chivas}
+\section{Concepto}\label{concepto}
 
-\subsection{Putos}\label{putos}
+La Inteligencia Artificial (IA) es un término que ha sido parte de la
+conversación tecnológica desde hace décadas. Aunque a veces parece un
+concepto moderno, sus raíces vienen de los años 50, cuando pioneros como
+\textbf{John McCarthy} y \textbf{Herbert A. Simon} empezaron a hablar
+sobre la idea de hacer que las máquinas ``piensen'' de manera similar a
+los humanos. Según McCarthy, la IA se trata de ``la ciencia e ingeniería
+de hacer que las máquinas se comporten de manera inteligente.'' Pero,
+¿qué significa esto en términos más simples?
+
+En su libro clásico \textbf{``Las Ciencias de lo Artificial''} (1969),
+Simon describió la IA como la habilidad de una máquina para imitar el
+pensamiento humano en la toma de decisiones y la resolución de
+problemas. Estas ideas nos ayudan a entender que la IA no es magia, sino
+una tecnología diseñada para analizar datos, aprender de ellos, y actuar
+en consecuencia, a menudo siguiendo reglas o patrones.
+
+\section{Ramas de Inteligencia Artificial
+(IA)}\label{ramas-de-inteligencia-artificial-ia}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{Img/taxonomia.jpg}
+
+}
+
+\caption{Ramas}
+
+\end{figure}%
+
+Esta imagen presenta una \textbf{taxonomía de la Inteligencia Artificial
+(IA)}, organizada en dominios y subdominios, que abarca tanto aspectos
+\textbf{centrales (Core)} como \textbf{transversales (Transversal)} de
+la IA. Aquí te explico cada sección:
+
+\subsection{Dominio Central (Core):}\label{dominio-central-core}
+
+Estos son los fundamentos o los componentes clave de la IA, que abarcan
+desde cómo razona una máquina hasta cómo percibe e interactúa con el
+mundo.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Reasoning (Razonamiento)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Knowledge Representation}: Representación del conocimiento.
+    Se refiere a cómo una máquina organiza y almacena la información de
+    manera que pueda usarla para tomar decisiones o resolver problemas.
+  \item
+    \textbf{Automated Reasoning}: Razonamiento automatizado. La
+    capacidad de la IA para derivar conclusiones y resolver problemas
+    complejos basados en las reglas y el conocimiento almacenado.
+  \item
+    \textbf{Common Sense Reasoning}: Razonamiento de sentido común. La
+    IA intenta razonar como lo haría una persona, utilizando
+    conocimientos que los humanos damos por sentado, pero que las
+    máquinas deben aprender o codificar.
+  \end{itemize}
+\item
+  \textbf{Planning (Planificación)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Planning and Scheduling}: Planificación y programación. La
+    capacidad de la IA para organizar tareas o recursos en función de
+    objetivos, optimizando tiempos y recursos.
+  \item
+    \textbf{Searching}: Búsqueda. IA encuentra soluciones a problemas o
+    información relevante entre un conjunto de opciones.
+  \item
+    \textbf{Optimisation}: Optimización. Aquí la IA busca la mejor
+    solución entre múltiples alternativas, ajustando variables para
+    obtener el mejor rendimiento o eficiencia.
+  \end{itemize}
+\item
+  \textbf{Learning (Aprendizaje)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Machine Learning}: Aprendizaje automático. Esta es la
+    capacidad de las máquinas para aprender a partir de datos sin ser
+    programadas explícitamente para cada tarea. Es una de las áreas más
+    destacadas y utilizadas en la IA actual.
+  \end{itemize}
+\item
+  \textbf{Communication (Comunicación)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Natural Language Processing}: Procesamiento del lenguaje
+    natural. La IA comprende, interpreta y genera lenguaje humano,
+    facilitando la interacción entre humanos y máquinas mediante el
+    habla o el texto.
+  \end{itemize}
+\item
+  \textbf{Perception (Percepción)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Computer Vision}: Visión por computadora. La IA percibe el
+    mundo visualmente, analizando imágenes o videos para detectar
+    patrones, objetos o reconocer caras.
+  \item
+    \textbf{Audio Processing}: Procesamiento de audio. Similar a la
+    visión por computadora, pero en este caso, la IA procesa y entiende
+    sonidos, como la voz o música.
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Dominio Transversal:}\label{dominio-transversal}
+
+Estas áreas complementan los dominios centrales, ofreciendo integración,
+interacción y aspectos filosóficos o éticos.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Integration and Interaction (Integración e Interacción)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Multi-agent Systems}: Sistemas multiagente. Conjunto de IA
+    que trabajan juntas, colaborando o compitiendo para resolver
+    problemas más complejos.
+  \item
+    \textbf{Robotics and Automation}: Robótica y automatización. Integra
+    la IA con robots y sistemas automatizados para realizar tareas
+    físicas, como ensamblar productos en fábricas.
+  \item
+    \textbf{Connected and Automated Vehicles}: Vehículos conectados y
+    automatizados. Implica el uso de IA para controlar vehículos
+    autónomos y conectados que operan sin intervención humana.
+  \end{itemize}
+\item
+  \textbf{Services (Servicios)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{AI Services}: Servicios de IA. Herramientas y plataformas
+    basadas en IA que las empresas y personas pueden utilizar para
+    resolver problemas o mejorar procesos (por ejemplo, asistentes
+    virtuales, análisis predictivos).
+  \end{itemize}
+\item
+  \textbf{Ethics and Philosophy (Ética y Filosofía)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{AI Ethics}: Ética de la IA. Se ocupa de las cuestiones
+    éticas relacionadas con el uso y el desarrollo de la IA, como la
+    privacidad, la equidad y el impacto social.
+  \item
+    \textbf{Philosophy of AI}: Filosofía de la IA. Reflexiones más
+    profundas sobre el papel de la IA en la sociedad y qué significa
+    para las máquinas tener inteligencia similar a la humana.
+  \end{itemize}
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Resumen:}\label{resumen}
+
+La taxonomía de la IA presentada en esta imagen divide los conceptos
+fundamentales en dominios que abarcan \textbf{razonamiento},
+\textbf{planificación}, \textbf{aprendizaje}, \textbf{comunicación} y
+\textbf{percepción}. Estos conceptos son claves para entender cómo la IA
+interactúa y aprende del mundo. Los dominios transversales complementan
+estas capacidades con aspectos como la \textbf{integración}, los
+\textbf{servicios de IA} y las \textbf{cuestiones éticas}, que son
+fundamentales para asegurar un uso responsable y eficaz de la
+inteligencia artificial en el mundo real.
+
+\section{IA Simbólica}\label{ia-simbuxf3lica}
+
+La Inteligencia Artificial Simbólica es un enfoque de la IA que se basa
+en representar el conocimiento y el razonamiento a través de símbolos y
+reglas lógicas. En lugar de aprender a partir de datos como ocurre en el
+Machine Learning, la IA simbólica funciona siguiendo un conjunto de
+instrucciones predefinidas para resolver problemas o tomar decisiones.
+En este sistema, los programadores crean reglas claras que la máquina
+debe seguir, y la IA utiliza estas reglas para tomar decisiones basadas
+en relaciones lógicas de ``si-entonces'' o ``condiciones''.
+
+Este enfoque es como una receta: todo está previamente determinado, y la
+máquina sigue los pasos sin desviarse. Por ejemplo, un sistema de IA
+simbólica podría estar programado para diagnosticar fallos en una
+máquina si ciertas condiciones, como la temperatura o la vibración,
+exceden los límites establecidos. Cada condición está claramente
+definida, y la IA actúa según las reglas sin necesidad de adaptarse o
+aprender nuevas formas de solucionar el problema.
+
+La IA simbólica es particularmente útil en entornos donde los procesos
+son repetitivos o bien estructurados. En la maquiladora, se usa en casos
+como el control de calidad basado en reglas predefinidas o la gestión de
+tiempos de producción. Aunque no es flexible como el Machine Learning,
+la IA simbólica es extremadamente precisa y eficiente cuando se trata de
+ejecutar tareas que siguen un patrón fijo y bien entendido.
+
+La IA Simbólica se utiliza en situaciones donde las reglas y
+procedimientos están claramente definidos y son consistentes. Este
+enfoque es ideal para procesos repetitivos o controlados, donde se
+pueden establecer reglas lógicas y secuencias de pasos que la máquina
+debe seguir sin necesidad de aprender o adaptarse. En estos casos, la IA
+simbólica es altamente confiable porque sigue estrictamente las
+instrucciones que se le proporcionan. Por ejemplo, en una maquiladora,
+el ensamblaje de piezas con pasos fijos o la programación de tiempos de
+producción puede ser gestionado eficientemente por IA simbólica, ya que
+las condiciones no varían mucho y las decisiones se toman en base a
+reglas claras.
+
+Además, la IA simbólica se usa en aplicaciones como sistemas expertos,
+donde se requiere tomar decisiones basadas en conocimientos específicos,
+como el diagnóstico de fallos de máquinas. Aquí, se definen reglas de
+``si-entonces'' que guían la toma de decisiones: ``Si la temperatura del
+motor sube más de 80°C, entonces apaga la máquina''. Aunque este enfoque
+no es flexible ni aprende de los datos, es muy eficaz cuando los
+parámetros y resultados son predecibles, y se necesita precisión sin
+variaciones.
+
+La IA simbólica se adapta mejor a contextos donde el entorno es estable,
+los datos no cambian de manera dinámica, y las decisiones se pueden
+programar de antemano. Por eso, en áreas de la maquila como control de
+procesos, administración de turnos o mantenimiento bajo condiciones
+estándar, sigue siendo una opción confiable y eficiente.
+
+Este tipo de robot es un ejemplo de \textbf{IA Simbólica}, porque sigue
+un conjunto de reglas claras para completar la tarea. Cada paso está
+definido de manera precisa, y el robot simplemente sigue las
+instrucciones. Si la receta no cambia, el robot siempre hará el pastel
+de la misma manera, una y otra vez. No necesita aprender ni adaptarse
+porque todo está programado de antemano.
+
+En la industria maquiladora, este tipo de IA puede ser útil para tareas
+repetitivas como ensamblar piezas, donde las reglas del proceso son
+claras y no cambian con el tiempo. \textbf{Imagina} una línea de
+producción donde una máquina ensambla componentes electrónicos: coloca
+una pieza aquí, ajusta un tornillo allá. Siempre que las instrucciones
+sean las mismas, la IA simbólica funciona perfectamente.
+
+\subsubsection{Ejemplo 1: La Receta de Cocina (IA
+Simbólica)}\label{ejemplo-1-la-receta-de-cocina-ia-simbuxf3lica}
+
+\textbf{Imagina} que le das a un robot una receta detallada para hacer
+un pastel. Le das instrucciones específicas como: 1. Mezcla 200 gramos
+de harina con 100 gramos de azúcar. 2. Añade dos huevos y bate la mezcla
+por 5 minutos. 3. Coloca la mezcla en el horno a 180°C durante 30
+minutos.
+
+\subsubsection{Ejemplo 2: El Chef Aprendiz (Machine
+Learning)}\label{ejemplo-2-el-chef-aprendiz-machine-learning}
+
+Ahora, \textbf{imagina} que en lugar de seguir siempre la misma receta,
+tienes un robot que quiere convertirse en un chef experto. En lugar de
+seguir instrucciones precisas, este robot observa a diferentes cocineros
+haciendo pasteles y aprende de sus técnicas. Tal vez nota que algunos
+cocineros usan más azúcar, otros agregan ingredientes extra como
+vainilla, y algunos hornean el pastel por más tiempo dependiendo del
+tipo de horno. El robot comienza a \textbf{aprender} que, dependiendo de
+ciertos factores, puede ajustar la receta para hacer el mejor pastel
+posible.
+
+Este es un ejemplo de \textbf{Machine Learning}, donde la IA no sigue
+reglas predefinidas, sino que aprende a partir de los datos que
+recopila. En lugar de seguir la misma receta siempre, el robot adapta la
+receta según los datos que ha recopilado (temperatura ambiente, tipo de
+ingredientes, preferencias de sabor, etc.).
+
+En una maquiladora, un sistema de \textbf{Machine Learning} puede hacer
+lo mismo con tus datos de producción. \textbf{Imagina} que tienes una
+máquina que fabrica piezas de plástico, y las condiciones varían según
+la temperatura o el tipo de material que estás utilizando. Un sistema de
+Machine Learning puede observar estos factores y ajustar automáticamente
+los parámetros de la máquina para obtener el mejor rendimiento. Si nota
+que la calidad del producto disminuye cuando la temperatura sube más de
+cierto punto, aprenderá a ajustar la temperatura para mantener la
+calidad.
+
+\subsubsection{Comparando los Enfoques}\label{comparando-los-enfoques}
+
+\begin{itemize}
+\item
+  \textbf{IA Simbólica}: Es como el robot que sigue una receta fija.
+  Funciona bien en situaciones donde las reglas son claras y no cambian
+  mucho. Esto es útil en procesos repetitivos como el ensamblaje en una
+  maquila, donde los pasos son los mismos cada día.
+\item
+  \textbf{Machine Learning}: Es como el chef aprendiz. En lugar de
+  seguir reglas fijas, aprende y mejora con el tiempo a medida que
+  recopila más información. En la maquila, esto es útil en situaciones
+  donde hay variabilidad, como ajustes en las máquinas para mejorar la
+  calidad o la predicción de fallos en los equipos.
+\end{itemize}
+
+\subsubsection{Otro Ejemplo en la Maquiladora: Control de
+Calidad}\label{otro-ejemplo-en-la-maquiladora-control-de-calidad}
+
+\textbf{Imagina} que en tu maquila produces miles de piezas cada día, y
+necesitas asegurarte de que todas cumplan con los estándares de calidad.
+En lugar de tener a una persona revisando cada pieza (lo cual puede ser
+lento y propenso a errores), podrías usar \textbf{IA Simbólica} o
+\textbf{Machine Learning}.
+
+\begin{itemize}
+\item
+  Con \textbf{IA Simbólica}, podrías programar una máquina para revisar
+  cada pieza siguiendo reglas específicas. Por ejemplo: ``Si la pieza
+  tiene más de 0.5 mm de desviación, recházala''. Esto es eficiente,
+  pero solo funciona para detectar errores simples.
+\item
+  Con \textbf{Machine Learning}, podrías entrenar a una máquina para
+  detectar patrones más complejos. El sistema podría aprender a
+  reconocer qué tipo de defectos aparecen con mayor frecuencia y, con el
+  tiempo, predecir dónde y cuándo es más probable que aparezcan
+  defectos, ajustando la producción en consecuencia. Podría incluso
+  aprender de nuevos datos para mejorar la precisión a lo largo del
+  tiempo.
+\end{itemize}
+
+\subsubsection{Reflexión Final: Bajar la IA a lo
+Práctico}\label{reflexiuxf3n-final-bajar-la-ia-a-lo-pruxe1ctico}
+
+La IA, en su forma más simple, es una herramienta que ayuda a las
+máquinas a hacer tareas que normalmente haría un humano, pero con mayor
+precisión y eficiencia. No necesitas ser un experto para empezar a
+entender cómo puede mejorar tu maquila. Lo importante es reconocer que
+hay dos formas principales en que la IA puede ayudarte:
+\textbf{siguiendo reglas fijas (IA Simbólica)} o \textbf{aprendiendo de
+los datos (Machine Learning)}. Y aunque los conceptos técnicos puedan
+sonar complicados, los beneficios prácticos son claros: más eficiencia,
+menos errores, y una producción más ágil y adaptada a las necesidades
+del día a día.
+
+Al final del día, implementar IA en la maquila puede ser tan sencillo
+como hacer un pastel siguiendo una receta, o tan avanzado como un chef
+que mejora sus técnicas con cada plato que cocina. Lo importante es
+saber cuál enfoque se adapta mejor a tus necesidades y empezar a
+aprovecharlo para llevar tu operación al siguiente nivel. ¡A darle!s
+
+\subsection{IA Simbólica: Conceptos Claros con Diagramas de
+Flujo}\label{ia-simbuxf3lica-conceptos-claros-con-diagramas-de-flujo}
+
+La Inteligencia Artificial Simbólica es un enfoque donde la IA opera
+basándose en reglas predefinidas, es decir, un conjunto de condiciones
+lógicas establecidas por programadores que guían las acciones de la
+máquina. A continuación, te explico cómo se pueden usar elementos clave
+como los diagramas de flujo para implementar IA simbólica de manera
+clara y estructurada en un entorno práctico, como una maquiladora.
+
+\textbf{Concepto de IA Simbólica}
+
+La IA simbólica se fundamenta en reglas lógicas que siguen el esquema de
+``si-entonces'' (if-then). Esto significa que la máquina ejecutará una
+acción dependiendo de si una condición específica se cumple o no.
+
+Por ejemplo:
+
+\begin{itemize}
+\tightlist
+\item
+  Condición: Si la temperatura de la máquina supera los 80°C, entonces
+  envía una alerta.
+\item
+  Condición 2: Si el nivel de stock de un producto es menor a 100
+  unidades, entonces genera una orden de compra.
+\end{itemize}
+
+Este tipo de razonamiento es ideal para tareas automatizadas y procesos
+repetitivos donde las condiciones son predecibles.
+
+\textbf{Elementos Clave para Implementar IA Simbólica}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Diagrama de Flujo}
+\end{itemize}
+
+Un diagrama de flujo es una representación gráfica de un proceso. En el
+caso de la IA simbólica, se puede utilizar para ilustrar cómo las reglas
+lógicas guían el comportamiento del sistema.
+
+\emph{Ejemplo de un diagrama de flujo para IA simbólica:}
+
+\begin{itemize}
+\tightlist
+\item
+  Inicio: El sistema comienza a monitorear la temperatura de la máquina.
+\item
+  Condición 1: ¿La temperatura es mayor a 80°C?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Sí: Detener la máquina y enviar alerta al supervisor (acción A).
+  \item
+    No: Continuar monitoreando (acción B).
+  \end{itemize}
+\item
+  Condición 2: ¿El nivel de stock es menor a 100 unidades?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Sí: Generar orden de compra automáticamente (acción C).
+  \item
+    No: Seguir con el proceso de producción (acción D).
+  \end{itemize}
+\end{itemize}
+
+En este flujo, cada decisión está basada en una condición clara que
+lleva a una acción específica. Esto es exactamente cómo funciona la IA
+simbólica, ya que sigue reglas de este tipo sin necesidad de aprender o
+ajustarse con el tiempo.
+
+\textbf{Ejemplo Aplicado: Sistema de Control de Inventario}
+
+\begin{itemize}
+\item
+  Escenario: Imagina que en tu maquila tienes un sistema de control de
+  inventario. Este sistema necesita generar automáticamente una orden de
+  compra cuando el nivel de stock de cierto material cae por debajo de
+  un umbral.
+\item
+  Condiciones Predefinidas:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Regla 1: Si el stock es menor a 50 unidades, entonces enviar alerta.
+  \item
+    Regla 2: Si el stock es menor a 10 unidades, generar automáticamente
+    una orden de compra.
+  \end{itemize}
+\item
+  Diagrama de Flujo para la IA Simbólica del Inventario:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Inicio: El sistema verifica el nivel de stock.
+  \item
+    Condición 1: ¿El stock es menor a 50?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Sí: Envía alerta al responsable de inventarios.
+    \item
+      No: Continuar monitoreando.
+    \end{itemize}
+  \item
+    Condición 2: ¿El stock es menor a 10?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Sí: Generar orden de compra automáticamente.
+    \item
+      No: Mantener el inventario.
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\textbf{Referencia:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Russell, S. J., \& Norvig, P. (2020). \emph{Artificial
+  Intelligence: A Modern Approach (4th ed.)}. Pearson.} Este libro es
+  una referencia clásica en el campo de la Inteligencia Artificial y
+  proporciona una base sólida para comprender los diferentes enfoques,
+  incluyendo la IA simbólica. ¡Entiendo lo que estás buscando! Vamos a
+  darle un enfoque más \textbf{didáctico} y estructurado, usando listas
+  y secciones que faciliten la lectura y el entendimiento, mientras
+  mantenemos el mismo contenido. Aquí te dejo la nueva versión:
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Capítulo: Las Ventajas de la IA Simbólica: El Primer Paso
+Hacia la
+Automatización}\label{capuxedtulo-las-ventajas-de-la-ia-simbuxf3lica-el-primer-paso-hacia-la-automatizaciuxf3n}
+
+En cualquier organización, como una maquiladora, el conocimiento
+operativo a menudo está centralizado en una persona o en archivos que
+pocos pueden entender. Esto puede ser un riesgo significativo, ya que la
+dependencia de personas específicas o de sistemas manuales, como
+archivos de Excel, puede frenar la eficiencia de los procesos. La
+\textbf{IA Simbólica} ofrece una solución práctica para automatizar y
+descentralizar este conocimiento, permitiendo que los procesos se
+formalicen y ejecuten de manera coherente sin depender de un solo
+individuo.
+
+La IA Simbólica funciona mediante reglas predefinidas que permiten a las
+máquinas tomar decisiones basadas en condiciones claras, como el clásico
+``si-entonces'' (if-then). A continuación, exploramos las ventajas de la
+IA Simbólica y por qué representa el primer paso esencial hacia la
+automatización inteligente en una maquiladora.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{¿Por qué Usar IA Simbólica en Tu
+Maquiladora?}\label{por-quuxe9-usar-ia-simbuxf3lica-en-tu-maquiladora}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Automatización de Tareas Repetitivas}\\
+  La IA Simbólica es ideal para procesos donde las condiciones no
+  cambian mucho y las reglas pueden definirse claramente. Esto incluye
+  tareas como:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Gestión de Inventarios}: Automatizar las órdenes de compra
+    cuando los niveles de stock caen por debajo de un umbral.
+  \item
+    \textbf{Mantenimiento Preventivo}: Detener máquinas o enviar alertas
+    cuando ciertos parámetros, como la temperatura, superan los límites
+    seguros.
+  \end{itemize}
+\item
+  \textbf{Descentralización del Conocimiento}\\
+  Muchas veces, los procesos clave de la empresa dependen de una sola
+  persona o de archivos mal organizados. Con la IA Simbólica, la lógica
+  del negocio se transfiere a reglas claras y automatizadas, evitando
+  que el conocimiento esté centralizado en una sola fuente. Esto reduce
+  riesgos y asegura la continuidad del negocio, incluso si el personal
+  cambia.
+\item
+  \textbf{Claridad y Transparencia con Diagramas de Flujo}\\
+  Un gran beneficio de la IA Simbólica es la \textbf{visualización de
+  procesos} mediante \textbf{diagramas de flujo}. Estos diagramas
+  permiten a todos entender cómo se toman las decisiones dentro del
+  sistema, lo que facilita la comunicación y mejora la colaboración
+  entre departamentos. Un diagrama de flujo podría verse algo así:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Inicio}: El sistema comienza a monitorear la temperatura de
+    la máquina.
+  \item
+    \textbf{Condición 1}: ¿La temperatura es mayor a 80°C?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \textbf{Sí}: Detener la máquina y enviar una alerta al supervisor.
+    \item
+      \textbf{No}: Continuar monitoreando.
+    \end{itemize}
+  \item
+    \textbf{Condición 2}: ¿El nivel de stock es menor a 100 unidades?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \textbf{Sí}: Generar una orden de compra automáticamente.
+    \item
+      \textbf{No}: Continuar el proceso de producción.
+    \end{itemize}
+  \end{itemize}
+
+  \textbf{Conclusión:} Este enfoque permite que todos los miembros del
+  equipo, desde los operadores hasta los supervisores, entiendan
+  claramente cómo se toman las decisiones en cada etapa del proceso.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Ejemplo Práctico: Sistema de Control de
+Inventario}\label{ejemplo-pruxe1ctico-sistema-de-control-de-inventario}
+
+\textbf{Escenario:}\\
+Imagina que en tu maquiladora manejas grandes cantidades de inventario y
+necesitas automatizar el proceso de reabastecimiento. Tradicionalmente,
+un encargado del almacén revisa manualmente los niveles de stock y crea
+órdenes de compra cuando se está quedando sin material. Este proceso
+manual puede ser ineficiente, propenso a errores y muy dependiente de
+una sola persona.
+
+\textbf{Con IA Simbólica, este proceso puede automatizarse fácilmente
+mediante las siguientes reglas:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Condición 1}: Si el stock es menor a 50 unidades, enviar una
+  alerta.
+\item
+  \textbf{Condición 2}: Si el stock es menor a 10 unidades, generar
+  automáticamente una orden de compra.
+\end{itemize}
+
+\textbf{Ventajas para el Negocio:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Reducción de errores humanos}: No dependerás de que alguien se
+  acuerde de revisar los niveles de stock, ya que el sistema lo hará por
+  ti.
+\item
+  \textbf{Eficiencia mejorada}: Al automatizar las órdenes de compra, se
+  eliminan retrasos que podrían detener la producción.
+\item
+  \textbf{Descentralización del proceso}: No importa si el encargado de
+  inventarios está presente o no, el sistema seguirá funcionando
+  automáticamente.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Un mito Famoso en la Comunidad de
+Desarrolladores}\label{un-mito-famoso-en-la-comunidad-de-desarrolladores}
+
+Aquí es donde entra un meme que muchos desarrolladores de software
+comparten en tono de broma: el meme del programador que, después de
+realizar una tarea manual y repetitiva mil veces, finalmente decide
+crear un programa para automatizar esa tarea.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{Img/ia.jpg}
+
+}
+
+\caption{Meme}
+
+\end{figure}%
+
+La IA Simbólica es, en esencia, esa ``solución'' para las tareas
+repetitivas en la maquiladora. En lugar de depender de que alguien haga
+las mismas tareas una y otra vez, se implementan reglas claras que
+permiten que las máquinas lo hagan de forma automática. \textbf{Imagina
+la diferencia en eficiencia cuando ya no dependes de una persona que
+tenga que hacer manualmente cada ajuste o revisión.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Ventajas Principales de la IA Simbólica para Tu
+Maquiladora}\label{ventajas-principales-de-la-ia-simbuxf3lica-para-tu-maquiladora}
+
+Vamos a resumir las principales ventajas en una lista clara:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Automatización de procesos repetitivos}: Perfecto para tareas
+  donde las reglas no cambian con frecuencia.
+\item
+  \textbf{Descentralización del conocimiento}: Evita que el conocimiento
+  esté retenido por una sola persona o en un archivo difícil de manejar.
+\item
+  \textbf{Eficiencia y precisión}: Reduce los errores humanos y asegura
+  que las tareas se realicen de manera uniforme.
+\item
+  \textbf{Escalabilidad}: Es fácil modificar las reglas si el proceso o
+  las condiciones cambian, haciendo la solución flexible y adaptable.
+\item
+  \textbf{Mejor colaboración}: Los diagramas de flujo y las reglas son
+  fácilmente comprensibles para todos en la organización, facilitando la
+  integración entre equipos.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{¿Por Qué Empezar con la IA
+Simbólica?}\label{por-quuxe9-empezar-con-la-ia-simbuxf3lica}
+
+Si tu maquila aún no ha dado el salto hacia la automatización, la IA
+Simbólica es la mejor opción para comenzar. \textbf{Es simple de
+implementar, fácil de entender y muy efectiva} para automatizar procesos
+que sigan reglas claras. A medida que tu negocio crezca, puedes seguir
+construyendo sobre esta base, añadiendo más complejidad y flexibilidad,
+pero el primer paso es crucial para reducir la dependencia de sistemas
+manuales y asegurar que el conocimiento esté disponible para todos.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Conclusión: El Primer Paso Hacia la Automatización
+Inteligente}\label{conclusiuxf3n-el-primer-paso-hacia-la-automatizaciuxf3n-inteligente}
+
+La \textbf{IA Simbólica} es un paso esencial para que tu maquila avance
+hacia la automatización y la descentralización del conocimiento. Al
+establecer reglas claras y estructuradas, respaldadas por diagramas de
+flujo, puedes asegurar que todos los procesos se realicen de manera
+eficiente, sin depender de una sola persona o archivo.
+
+Si aún operas en un entorno donde la lógica de negocio está en manos de
+unos pocos o donde los procesos manuales dominan, la IA Simbólica es tu
+punto de partida ideal. \textbf{Es el primer paso hacia un futuro más
+ágil, eficiente y colaborativo.}
+
+\subsection{Perfil para Trabajar con IA Simbólica en una
+Maquiladora}\label{perfil-para-trabajar-con-ia-simbuxf3lica-en-una-maquiladora}
+
+Para implementar y gestionar la \textbf{IA Simbólica} en una
+maquiladora, se necesita un perfil multidisciplinario que combine
+habilidades técnicas con un profundo conocimiento de los procesos
+industriales. A continuación, te describo el perfil ideal para alguien
+que trabajará en la adopción y gestión de la IA simbólica en un entorno
+de producción.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{\textbf{1. Conocimiento Técnico en
+Programación y
+Lógica}}{1. Conocimiento Técnico en Programación y Lógica}}\label{conocimiento-tuxe9cnico-en-programaciuxf3n-y-luxf3gica}
+
+Dado que la IA simbólica se basa en reglas predefinidas y condiciones
+lógicas, es crucial que el candidato tenga sólidos conocimientos de
+\textbf{programación} y \textbf{lógica de procesos}. Estos son algunos
+de los requisitos técnicos:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lenguajes de Programación}: Competencia en lenguajes de
+  programación que permiten definir reglas y algoritmos, como
+  \textbf{Python}, \textbf{C++}, o lenguajes específicos de
+  automatización industrial (como \textbf{Ladder Logic} o
+  \textbf{Structured Text} para PLCs).
+\item
+  \textbf{Experiencia en Sistemas de Automatización}: Conocimiento de
+  sistemas SCADA o PLC (Controladores Lógicos Programables) que se
+  utilizan ampliamente en entornos industriales.
+\item
+  \textbf{Manejo de Reglas Lógicas}: Habilidad para diseñar y gestionar
+  reglas de ``si-entonces'' (if-then) y otros tipos de reglas lógicas
+  que determinan el comportamiento de los sistemas de IA simbólica.
+\item
+  \textbf{Diagramas de Flujo}: Capacidad para diseñar, interpretar y
+  modificar diagramas de flujo que describen el funcionamiento del
+  sistema de IA simbólica.
+\end{itemize}
+
+\subsection{\texorpdfstring{\textbf{2. Conocimiento en Procesos
+Industriales}}{2. Conocimiento en Procesos Industriales}}\label{conocimiento-en-procesos-industriales}
+
+Es fundamental que la persona tenga un buen entendimiento de los
+procesos específicos de la \textbf{industria maquiladora}. Esto
+permitirá al profesional identificar las áreas donde la IA simbólica
+puede ser más útil y generar un mayor impacto en la eficiencia y
+automatización de procesos.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Control de Calidad}: Comprender cómo funcionan los sistemas de
+  control de calidad en la línea de producción y cómo la IA puede
+  optimizar el proceso mediante reglas predefinidas para la detección de
+  defectos.
+\item
+  \textbf{Gestión de Inventarios}: Saber cómo operan los sistemas de
+  inventario y cómo las reglas lógicas pueden automatizar las órdenes de
+  compra y el reabastecimiento.
+\item
+  \textbf{Mantenimiento de Máquinas}: Conocimiento sobre los ciclos de
+  mantenimiento y cómo establecer reglas simbólicas para alertas y
+  paradas preventivas.
+\end{itemize}
+
+\subsection{\texorpdfstring{\textbf{3. Habilidad para Diseñar Sistemas
+Basados en
+Reglas}}{3. Habilidad para Diseñar Sistemas Basados en Reglas}}\label{habilidad-para-diseuxf1ar-sistemas-basados-en-reglas}
+
+Una de las tareas más importantes de este perfil es diseñar y optimizar
+las reglas que seguirá la IA simbólica. Esto requiere una capacidad para
+crear reglas claras y efectivas que cubran todas las posibles
+condiciones y escenarios que pueden presentarse en la maquiladora.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Diseño de Reglas Condicionales}: Capacidad para desarrollar un
+  sistema de reglas eficiente, asegurándose de que todas las situaciones
+  posibles estén cubiertas. Ejemplo: ``Si el nivel de vibración de una
+  máquina supera el umbral X, entonces enviar una alerta.''
+\item
+  \textbf{Optimización de Procesos}: Habilidad para analizar y optimizar
+  procesos mediante la creación de flujos lógicos claros, reduciendo
+  tiempos muertos y aumentando la eficiencia de la producción.
+\end{itemize}
+
+\subsection{\texorpdfstring{\textbf{4. Experiencia en Implementación de
+Soluciones de IA
+Simbólica}}{4. Experiencia en Implementación de Soluciones de IA Simbólica}}\label{experiencia-en-implementaciuxf3n-de-soluciones-de-ia-simbuxf3lica}
+
+El candidato debe tener experiencia práctica en la implementación de
+sistemas basados en IA simbólica, desde el diseño inicial hasta la
+puesta en marcha y ajuste de reglas en entornos reales de producción.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Configuración e Integración}: Capacidad para configurar la IA
+  simbólica en los sistemas existentes, integrando la tecnología con
+  otras soluciones industriales como ERPs, SCADA, o sistemas de gestión
+  de inventarios.
+\item
+  \textbf{Pruebas y Validación}: Habilidad para realizar pruebas y
+  validar que las reglas y condiciones están funcionando de acuerdo con
+  lo esperado, ajustando según sea necesario para mejorar la precisión
+  del sistema.
+\end{itemize}
+
+\subsection{\texorpdfstring{\textbf{5. Competencias en Análisis de
+Datos}}{5. Competencias en Análisis de Datos}}\label{competencias-en-anuxe1lisis-de-datos}
+
+Aunque la IA simbólica no aprende de los datos como el Machine Learning,
+sigue siendo importante que el profesional pueda analizar datos
+históricos o de producción para definir reglas de manera efectiva.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Analizar Patrones}: Capacidad para observar patrones en el
+  comportamiento de las máquinas, en los tiempos de producción o en los
+  niveles de inventario, que puedan traducirse en reglas lógicas.
+\item
+  \textbf{Generación de Reportes}: Habilidad para generar y analizar
+  reportes de producción, eficiencia, y errores detectados por la IA
+  simbólica, lo que permitirá afinar las reglas y el sistema.
+\end{itemize}
+
+\subsection{\texorpdfstring{\textbf{6. Trabajo en Equipo y
+Colaboración}}{6. Trabajo en Equipo y Colaboración}}\label{trabajo-en-equipo-y-colaboraciuxf3n}
+
+La implementación de IA simbólica implica la colaboración con otros
+departamentos, como el de producción, mantenimiento, calidad, y TI. El
+perfil debe tener buenas \textbf{habilidades de comunicación} y la
+capacidad de trabajar en equipo para integrar la tecnología sin causar
+fricciones en las operaciones diarias.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Comunicación Interdepartamental}: Capacidad para trabajar con
+  ingenieros, operadores de máquinas y personal de TI para diseñar
+  reglas que se ajusten a las necesidades de producción.
+\item
+  \textbf{Capacitación al Personal}: Habilidad para entrenar a los
+  operadores y supervisores sobre cómo usar y beneficiarse de los
+  sistemas de IA simbólica.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{\textbf{Resumen del
+Perfil}}{Resumen del Perfil}}\label{resumen-del-perfil}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Conocimiento Técnico}: Programación, lógica de sistemas, y
+  diagramas de flujo.
+\item
+  \textbf{Entendimiento de Procesos Industriales}: Control de calidad,
+  gestión de inventarios y mantenimiento preventivo.
+\item
+  \textbf{Diseño de Sistemas Basados en Reglas}: Desarrollo de reglas
+  condicionales y flujos de decisión claros.
+\item
+  \textbf{Experiencia Práctica}: Implementación, configuración y ajuste
+  de sistemas de IA simbólica en ambientes reales.
+\item
+  \textbf{Análisis de Datos}: Uso de datos históricos para definir
+  reglas efectivas.
+\item
+  \textbf{Trabajo en Equipo}: Colaboración con distintos departamentos y
+  capacidad de entrenamiento al personal.
+\end{enumerate}
+
+Este perfil es fundamental para garantizar que la maquiladora pueda
+implementar con éxito un sistema de \textbf{IA simbólica} que automatice
+tareas repetitivas, mejore la eficiencia y minimice los errores humanos,
+todo con un enfoque basado en reglas claras y predefinidas. \#NOTA
+AGREAGAR IA NOTA AUTOR
+
+\#\#\# Capítulo: Conocimientos Previos para Machine Learning: Dataset y
+Tipos de Variables
+
+El \textbf{Machine Learning (ML)}, o aprendizaje automático, es una rama
+de la inteligencia artificial que permite a las máquinas aprender de los
+datos y hacer predicciones o tomar decisiones sin ser programadas de
+forma explícita para cada tarea. Sin embargo, para comprender cómo
+funciona y aprovechar al máximo el Machine Learning en la maquiladora,
+primero es necesario entender algunos \textbf{conceptos clave}, como lo
+son los \textbf{datasets} y los \textbf{tipos de variables}.
+
+En este capítulo, exploraremos estos conceptos fundamentales que te
+permitirán navegar y aplicar con éxito el Machine Learning en tus
+procesos industriales.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{¿Qué es un Dataset?}\label{quuxe9-es-un-dataset}
+
+Un \textbf{dataset} es simplemente un conjunto de datos que se utiliza
+para entrenar y evaluar un modelo de Machine Learning. \textbf{Imagina}
+que es como una hoja de cálculo de Excel, donde cada fila es una
+instancia o un ejemplo de los datos, y cada columna es una
+característica o variable que describe ese ejemplo.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Filas (Instancias)}: Cada fila representa un ejemplo o caso
+  dentro del dataset. En el caso de una maquiladora, cada fila podría
+  ser un producto individual, una máquina en operación, o una medición
+  de calidad.
+\item
+  \textbf{Columnas (Características/Variables)}: Cada columna describe
+  un aspecto o atributo del ejemplo. Esto podría incluir cosas como la
+  temperatura de una máquina, el tiempo de operación, o el tamaño de un
+  producto.
+\end{itemize}
+
+\textbf{Ejemplo en la Maquiladora}: - \textbf{Instancia (Fila)}: Un
+producto ensamblado en la línea de producción. - \textbf{Variables
+(Columnas)}: Peso del producto, dimensiones, número de piezas
+defectuosas, tiempo de ensamblaje, etc.
+
+\subsubsection{Tipos de Datasets}\label{tipos-de-datasets}
+
+En Machine Learning, los datasets se suelen dividir en dos grandes
+categorías:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Dataset de Entrenamiento}: Este es el conjunto de datos que se
+  utiliza para entrenar al modelo de Machine Learning. El modelo aprende
+  los patrones y relaciones de los datos en este conjunto.
+\item
+  \textbf{Dataset de Prueba (Test)}: Este conjunto de datos se utiliza
+  para evaluar el rendimiento del modelo una vez que ha sido entrenado.
+  Es un conjunto nuevo para el modelo, lo que permite medir su capacidad
+  de hacer predicciones precisas en datos no vistos antes.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Tipos de Variables}\label{tipos-de-variables}
+
+Al trabajar con Machine Learning, es crucial entender los tipos de
+variables que forman parte de tu dataset. Estas variables o
+características son las que el modelo va a utilizar para aprender y
+hacer predicciones. Existen principalmente dos tipos de variables:
+\textbf{variables numéricas} y \textbf{variables categóricas}.
+
+\subsubsection{\texorpdfstring{1. \textbf{Variables
+Numéricas}}{1. Variables Numéricas}}\label{variables-numuxe9ricas}
+
+Las \textbf{variables numéricas} son aquellas que representan valores
+cuantitativos. Es decir, aquellas que pueden ser medidas en forma de
+números y en las que tiene sentido realizar operaciones matemáticas como
+suma o promedio. Se dividen en dos tipos:
+
+\begin{itemize}
+\item
+  \textbf{Variables Continuas}: Pueden tomar un rango infinito de
+  valores. \textbf{Ejemplo}: La temperatura de una máquina (35.5°C,
+  36.2°C, etc.) o el tiempo de producción de un producto (en horas o
+  minutos).
+\item
+  \textbf{Variables Discretas}: Solo pueden tomar un conjunto limitado
+  de valores específicos. \textbf{Ejemplo}: El número de productos
+  defectuosos en una línea de producción (1, 2, 3, etc.).
+\end{itemize}
+
+\textbf{Ejemplo en la Maquiladora}: - \textbf{Variable Continua}: El
+peso de una pieza fabricada. - \textbf{Variable Discreta}: El número de
+paradas que tuvo una máquina en un día.
+
+\paragraph{\texorpdfstring{2. \textbf{Variables
+Categóricas}}{2. Variables Categóricas}}\label{variables-categuxf3ricas}
+
+Las \textbf{variables categóricas} son aquellas que describen categorías
+o grupos. No tienen un valor numérico, sino que clasifican los datos en
+diferentes categorías. Se dividen en:
+
+\begin{itemize}
+\item
+  \textbf{Nominales}: No tienen un orden específico entre las
+  categorías. \textbf{Ejemplo}: Los colores de un producto (rojo, azul,
+  verde) o los tipos de defectos (fisura, deformación, etc.).
+\item
+  \textbf{Ordinales}: Tienen un orden jerárquico entre las categorías.
+  \textbf{Ejemplo}: La calificación de calidad del producto (alta,
+  media, baja) o los niveles de urgencia para el mantenimiento de una
+  máquina (alto, medio, bajo).
+\end{itemize}
+
+\textbf{Ejemplo en la Maquiladora}: - \textbf{Variable Nominal}: Tipo de
+máquina (ensambladora, soldadora, cortadora). - \textbf{Variable
+Ordinal}: Clasificación de prioridad para el mantenimiento de máquinas
+(urgente, normal, bajo).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{¿Por Qué Es Importante Entender los Tipos de
+Variables?}\label{por-quuxe9-es-importante-entender-los-tipos-de-variables}
+
+Saber qué tipo de variable estás utilizando en tu dataset es crucial
+porque influye en cómo se entrenará el modelo de Machine Learning.
+Algunos modelos trabajan mejor con variables numéricas, mientras que
+otros pueden manejar variables categóricas.
+
+Por ejemplo: - Un modelo de regresión lineal solo puede trabajar con
+\textbf{variables numéricas}. - Un árbol de decisión puede trabajar
+tanto con \textbf{variables numéricas} como \textbf{categóricas}.
+
+Además, algunos tipos de variables pueden requerir preprocesamiento
+antes de ser usados por un modelo de Machine Learning. \textbf{Las
+variables categóricas}, por ejemplo, a menudo deben ser codificadas
+(convertidas en números) antes de ser procesadas por el modelo.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Ejemplo en la Maquiladora: Dataset de Mantenimiento
+Predictivo}\label{ejemplo-en-la-maquiladora-dataset-de-mantenimiento-predictivo}
+
+Supongamos que deseas implementar un sistema de \textbf{mantenimiento
+predictivo} en tu maquiladora, utilizando Machine Learning. Para ello,
+necesitas crear un dataset que contenga variables relevantes sobre el
+estado de tus máquinas. Este dataset podría verse así:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1412}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1529}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2353}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2706}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+ID Máquina
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Temperatura
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Horas de Operación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tipo de Máquina
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Mantenimiento Urgente
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 85°C & 200 & Soldadora & Sí \\
+2 & 70°C & 300 & Ensambladora & No \\
+3 & 90°C & 180 & Cortadora & Sí \\
+\end{longtable}
+
+\textbf{Variables en el Dataset:} - \textbf{ID Máquina}: Variable
+numérica (discreta), utilizada solo para identificar. -
+\textbf{Temperatura}: Variable numérica (continua), describe la
+temperatura actual de la máquina. - \textbf{Horas de Operación}:
+Variable numérica (continua), describe cuántas horas ha estado en
+funcionamiento la máquina. - \textbf{Tipo de Máquina}: Variable
+categórica (nominal), describe el tipo de máquina. -
+\textbf{Mantenimiento Urgente}: Variable categórica (ordinal), indica si
+la máquina necesita o no mantenimiento.
+
+Este dataset puede ser usado para entrenar un modelo de Machine Learning
+que prediga si una máquina va a necesitar mantenimiento en el futuro. El
+modelo analizaría las variables (temperatura, horas de operación, tipo
+de máquina) para predecir cuándo será necesario el mantenimiento.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Conclusión}\label{conclusiuxf3n}
+
+Entender los conceptos de \textbf{dataset} y \textbf{tipos de variables}
+es fundamental para comenzar a trabajar con \textbf{Machine Learning} en
+la maquiladora. Estos conocimientos previos te permitirán preparar tus
+datos de manera adecuada, elegir el tipo de modelo más adecuado y lograr
+que tu sistema de aprendizaje automático funcione de manera eficiente.
+
+Al manejar correctamente las \textbf{variables numéricas} y
+\textbf{categóricas}, y al estructurar bien tu \textbf{dataset}, estarás
+dando un paso importante hacia la implementación efectiva de Machine
+Learning en tus procesos, ya sea para predecir fallos en las máquinas,
+optimizar la calidad del producto o gestionar eficientemente los
+inventarios.
 
 \bookmarksetup{startatroot}
 
@@ -1377,10 +2514,8 @@ prosperar en un futuro donde la tecnología y la innovación son clave
 para el éxito. El tiempo de actuar es ahora, antes de que nos quedemos
 completamente rezagados en la carrera industrial global.
 
-\section{Guía Completa para la Adopción Progresiva de la Inteligencia
-Artificial en la Industria Maquiladora: De Paso a Paso a una
-Transformación
-Total}\label{guuxeda-completa-para-la-adopciuxf3n-progresiva-de-la-inteligencia-artificial-en-la-industria-maquiladora-de-paso-a-paso-a-una-transformaciuxf3n-total}
+\section{Guía Completa para la Adopción Progresiva de la
+IA}\label{guuxeda-completa-para-la-adopciuxf3n-progresiva-de-la-ia}
 
 Adoptar la Inteligencia Artificial (IA) en la industria maquiladora es
 un reto mayúsculo, pero también una oportunidad que no podemos dejar
@@ -1676,14 +2811,17 @@ en tu maquila.
 
 \chapter{Casos estudio}\label{casos-estudio}
 
+\section{Soy joto}\label{soy-joto}
+
+\subsection{super mot}\label{super-mot}
+
 \bookmarksetup{startatroot}
 
 \chapter{Aplicaciones de la Inteligencia Artificial en la
 Maquiladora}\label{aplicaciones-de-la-inteligencia-artificial-en-la-maquiladora}
 
-\section{Introducción: El Camino para Adaptar la Inteligencia Artificial
-en la
-Maquiladora}\label{introducciuxf3n-el-camino-para-adaptar-la-inteligencia-artificial-en-la-maquiladora}
+\section{El Camino para Adaptar la Inteligencia Artificial en la
+Maquiladora}\label{el-camino-para-adaptar-la-inteligencia-artificial-en-la-maquiladora}
 
 La neta es que, hoy en día, la Inteligencia Artificial (IA) ya no es
 solo un lujo o una moda; es una necesidad si quieres seguir rifando en
@@ -1838,9 +2976,11 @@ planificación y una implementación gradual, todas pueden aprovechar los
 beneficios que esta tecnología ofrece. ¡Así que a darle con todo,
 Juárez!
 
-\section{Aplicaciones de la Inteligencia Artificial en la Maquiladora
-(Machine Learning
-Tradicional)}\label{aplicaciones-de-la-inteligencia-artificial-en-la-maquiladora-machine-learning-tradicional}
+\section{Aplicaciones de la Inteligencia Artificial en la
+Maquiladora}\label{aplicaciones-de-la-inteligencia-artificial-en-la-maquiladora-1}
+
+\section{Machine Learning
+Tradicional}\label{machine-learning-tradicional}
 
 La Inteligencia Artificial (IA) ha llegado para cambiar el juego en la
 industria maquiladora. Desde la optimización de procesos hasta la
@@ -2222,7 +3362,7 @@ para manejar asuntos más complejos.
   \end{itemize}
 \end{itemize}
 
-\subsection{Conclusión}\label{conclusiuxf3n}
+\subsection{Conclusión}\label{conclusiuxf3n-1}
 
 La implementación de la IA en la maquiladora no es un proceso de una
 sola vez; es una transformación continua que puede llevar a la empresa a
@@ -2310,6 +3450,9 @@ In summary, this book has no content whatsoever.
 
 
 \backmatter
+
+\backmatter
+\printbibliography
 
 
 \end{document}
