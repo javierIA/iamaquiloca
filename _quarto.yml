@@ -34,66 +34,63 @@ book:
     - 07-conclusiones-recomendaciones.qmd
     - summary.qmd
     - references.qmd
-
-# Configuración para PDF
-format:
-  pdf:
-    toc: true
-    toc-depth: 2
-    colorlinks: true
-    documentclass: book
-    linkcolor: highlight
-    urlcolor: highlight
-    latex-output-dir: _book
-    fontsize: 10pt
-    geometry: [a5paper, top=2.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm]
-    
-    header-includes:
-      - |
-        % Cargar fuentes y paquetes de estilo
-        \usepackage{fontspec}
-        \setmainfont{IBM Plex Serif}          % Fuente principal para el texto del libro
-        \setsansfont{IBM Plex Sans}           % Fuente sans-serif para los títulos
-        \setmonofont{IBM Plex Mono}           % Fuente para código
-        \usepackage{xcolor}
-        \definecolor{highlight}{RGB}{29, 120, 200} % Color para enlaces
-
-        % Paquete para soporte de idiomas
-        \usepackage{polyglossia}
-        \setmainlanguage{spanish}  % Define español como idioma principal
-        \usepackage{microtype}      % Mejorar la legibilidad
-
-        % Paquete para la personalización del título
-        \usepackage{titling}
-
-        % Encabezados y pies de página elegantes
-        \usepackage{fancyhdr}
-        \pagestyle{fancy}
-        \fancyhf{}
-        \fancyhead[LE,RO]{\thepage}  % Número de página en las esquinas
-        \fancyhead[RE]{\nouppercase{\leftmark}}  % Nombre del capítulo
-        \fancyhead[LO]{\nouppercase{\rightmark}} % Nombre de la sección
-        \fancyfoot[C]{\thepage}
-
-    footer-includes:
-      - |
-        \fancyfoot[C]{\thepage}
-
-    include-before:
-      - |
-        % Página de título con estilo moderno
-        \pretitle{\begin{center}\Huge\sffamily\bfseries}
-        \posttitle{\end{center}}
-        \preauthor{\begin{center}\large\sffamily}
-        \postauthor{\end{center}}
-        \predate{\begin{center}\large}
-        \postdate{\end{center}\vspace{2cm}}
-        \maketitle
-
-    include-after:
-      - |
-        \backmatter
-        \printbibliography
-
-# Bibliografía
 bibliography: references.bib
+
+format: 
+  pdf:
+      toc: true
+      toc-depth: 2
+      colorlinks: true
+      documentclass: book
+      linkcolor: highlight
+      urlcolor: highlight
+      latex-output-dir: _book
+      fontsize: 10pt
+      geometry: [a5paper, top=2.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm]
+      
+      header-includes:
+        - |
+          % Cargar fuentes y paquetes de estilo
+          \usepackage{fontspec}
+          \setmainfont{IBM Plex Serif}          % Fuente principal para el texto del libro
+          \setsansfont{IBM Plex Sans}           % Fuente sans-serif para los títulos
+          \setmonofont{IBM Plex Mono}           % Fuente para código
+          \usepackage{xcolor}
+          \definecolor{highlight}{RGB}{29, 120, 200} % Color para enlaces
+
+          % Paquete para soporte de idiomas
+          \usepackage{polyglossia}
+          \setmainlanguage{spanish}  % Define español como idioma principal
+          \usepackage{microtype}      % Mejorar la legibilidad
+
+          % Paquete para la personalización del título
+          \usepackage{titling}
+
+          % Encabezados y pies de página elegantes
+          \usepackage{fancyhdr}
+          \pagestyle{fancy}
+          \fancyhf{}
+          \fancyhead[LE,RO]{\thepage}  % Número de página en las esquinas
+          \fancyhead[RE]{\nouppercase{\leftmark}}  % Nombre del capítulo
+          \fancyhead[LO]{\nouppercase{\rightmark}} % Nombre de la sección
+          \fancyfoot[C]{\thepage}
+
+      footer-includes:
+        - |
+          \fancyfoot[C]{\thepage}
+
+      include-before:
+        - |
+          % Página de título con estilo moderno
+          \pretitle{\begin{center}\Huge\sffamily\bfseries}
+          \posttitle{\end{center}}
+          \preauthor{\begin{center}\large\sffamily}
+          \postauthor{\end{center}}
+          \predate{\begin{center}\large}
+          \postdate{\end{center}\vspace{2cm}}
+          \maketitle
+
+      include-after:
+        - |
+          \backmatter
+          \printbibliography

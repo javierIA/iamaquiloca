@@ -413,3 +413,244 @@ Este dataset puede ser usado para entrenar un modelo de Machine Learning que pre
 Entender los conceptos de **dataset** y **tipos de variables** es fundamental para comenzar a trabajar con **Machine Learning** en la maquiladora. Estos conocimientos previos te permitirán preparar tus datos de manera adecuada, elegir el tipo de modelo más adecuado y lograr que tu sistema de aprendizaje automático funcione de manera eficiente.
 
 Al manejar correctamente las **variables numéricas** y **categóricas**, y al estructurar bien tu **dataset**, estarás dando un paso importante hacia la implementación efectiva de Machine Learning en tus procesos, ya sea para predecir fallos en las máquinas, optimizar la calidad del producto o gestionar eficientemente los inventarios.
+
+
+
+Aquí tienes las dos primeras partes del capítulo con más texto y una explicación menos técnica, adaptada para una mejor comprensión y sin perder el enfoque en la maquiladora:
+
+---
+
+## Aplicaciones de Machine Learning en la Maquiladora
+
+### **1. Introducción a Machine Learning (ML)**
+
+El **Machine Learning** es una herramienta clave en el avance tecnológico de las maquiladoras. Aunque suena como un concepto complicado, en realidad es más sencillo de lo que parece: se trata de enseñar a las máquinas a **aprender** de los datos, tal como nosotros aprendemos de la experiencia. En lugar de programar una máquina para que haga exactamente lo que queremos (como en los sistemas tradicionales), **Machine Learning (ML)** permite que las máquinas identifiquen patrones, hagan predicciones y tomen decisiones basadas en esos datos.
+
+Entonces, **¿por qué esto es importante para una maquiladora?** Porque la IA y el Machine Learning pueden ayudar a reducir errores, optimizar la producción, mejorar la calidad y anticipar problemas antes de que ocurran. Si tu línea de producción tiene un historial de fallas que cuesta tiempo y dinero, ¿no sería genial que una máquina te avisara antes de que suceda para que pudieras arreglarlo de antemano?
+
+
+![Iceber](Img/imagen_186.jpg)
+
+#### **1.1. ¿Qué es Machine Learning?**
+
+El **Machine Learning** se basa en la idea de que una máquina puede aprender a hacer algo (como predecir fallas o mejorar un proceso) simplemente dándole acceso a muchos datos sobre ese algo. **Es como enseñar a alguien a resolver un problema dándole ejemplos de cómo se ha resuelto ese problema antes.**
+
+Imagina que tienes datos sobre la producción de una máquina: las horas que opera, las temperaturas que alcanza, la cantidad de piezas que fabrica, etc. Si cada vez que la máquina fallaba también anotabas estas mismas características, podrías darle esos datos a un modelo de Machine Learning, y este aprendería a identificar las condiciones que llevan a una falla. **Básicamente, se trata de darle a la máquina un "historial" de lo que ha pasado, para que pueda predecir lo que pasará en el futuro**.
+
+En resumen: **Machine Learning** es el arte de hacer que las máquinas aprendan de los datos, para que puedan tomar decisiones o hacer predicciones sin que les digas exactamente qué hacer en cada caso.
+
+---
+
+#### **Supervisado vs No Supervisado**
+
+Existen dos tipos principales de Machine Learning, y entender la diferencia entre ellos te ayudará a identificar cuál es más útil en tu maquila. 
+
+#### **Aprendizaje Supervisado**
+
+El **aprendizaje supervisado** es como enseñarle a alguien a hacer algo mostrándole los ejemplos correctos y las respuestas. Le das a la máquina un conjunto de datos donde ya sabes lo que pasa (el resultado), y la máquina aprende a predecir ese resultado cuando vea datos nuevos.
+
+**Ejemplo sencillo en la maquila**: Supón que tienes los datos de las máquinas en tu línea de producción y sabes qué condiciones llevaron a una falla (como vibraciones anormales o temperaturas extremas). Puedes entrenar a un modelo de Machine Learning para que, cuando vea esas mismas condiciones en una máquina en funcionamiento, te avise de que algo está mal antes de que ocurra una avería. 
+
+Este tipo de ML funciona muy bien cuando ya tienes información sobre lo que ha ocurrido y quieres predecir lo que sucederá en situaciones similares en el futuro.
+
+#### **Aprendizaje No Supervisado**
+
+Por otro lado, el **aprendizaje no supervisado** es un poco más libre: es como darle un montón de información a la máquina y dejarla que descubra patrones por sí sola. No le dices qué debe buscar, simplemente la máquina agrupa los datos o encuentra similitudes entre ellos.
+
+**Ejemplo sencillo en la maquila**: Digamos que tienes muchos datos sobre el rendimiento de tus máquinas, pero no sabes qué está afectando a la producción. Con el aprendizaje no supervisado, puedes descubrir patrones en los datos, como que ciertas máquinas siempre rinden menos a ciertas horas del día o cuando operan junto a otras máquinas específicas. La IA encontrará esos patrones, lo que te permitirá hacer ajustes en la producción que de otro modo no habrías notado.
+
+---
+
+#### El papel de ML en la maquila: ¿Por qué es importante?**
+
+Machine Learning puede transformar radicalmente la manera en que operas en la maquiladora. **¿Por qué?** Porque la IA no solo se trata de automatizar, sino de hacer más inteligentes las decisiones que tomas día a día. 
+
+**Imagina esto**: Tienes una línea de producción donde algunas máquinas fallan de vez en cuando. Esto significa paradas inesperadas, retrasos, y por supuesto, costos adicionales. Pero ¿qué pasaría si pudieras predecir cuándo esas máquinas van a fallar y hacer el mantenimiento antes de que ocurra la avería? Esto es lo que Machine Learning puede hacer por ti. Es como tener un "sexto sentido" en la producción.
+
+Además, no solo hablamos de evitar fallas: Machine Learning puede ayudarte a ajustar el inventario de manera eficiente, prever la demanda, mejorar la calidad de los productos, y hasta optimizar la logística dentro de la planta. En resumen, **es una herramienta para ser más competitivo en un mercado que no para de moverse**.
+
+---
+
+### **Tipos de Machine Learning en la Maquila**
+
+Ahora que ya tienes una idea básica de lo que es Machine Learning y por qué es tan relevante en la maquiladora, vamos a profundizar un poco más en los tipos de ML que puedes utilizar en tu planta. Dependiendo del tipo de problema que enfrentes, puedes elegir entre **aprendizaje supervisado** o **no supervisado**, e incluso otros enfoques como el **aprendizaje por refuerzo**.
+
+![Tipos](Img/imagen_21.jpg)
+
+#### **Aprendizaje Supervisado**
+
+En el **aprendizaje supervisado**, el sistema aprende de datos que ya incluyen tanto las características (por ejemplo, temperatura de la máquina, tiempo de operación, etc.) como los resultados correctos (por ejemplo, si la máquina falló o no). Este tipo de aprendizaje es ideal cuando ya tienes un montón de información de tus procesos y quieres usarla para predecir futuros eventos.
+
+**Ejemplo práctico**: Si sabes que ciertas condiciones en una máquina han llevado a su falla en el pasado, puedes entrenar un modelo de aprendizaje supervisado que prediga cuándo una máquina fallará de nuevo basándose en esas mismas condiciones. Esto es útil para el **mantenimiento predictivo**, que puede ahorrarte mucho tiempo y dinero.
+
+Con aprendizaje supervisado, el sistema va afinando su capacidad de predecir o clasificar con base en los patrones que ha encontrado en los datos pasados. Es como si entrenaras a alguien nuevo en tu maquila mostrándole qué debe hacer y qué no debe hacer con ejemplos concretos.
+
+#### **Aprendizaje No Supervisado**
+
+El **aprendizaje no supervisado** es como darle a la máquina una pila de datos y decirle "¡descubre algo interesante!". No le damos las respuestas de antemano, sino que la máquina encuentra patrones por su cuenta.
+
+**Ejemplo práctico**: Puedes usar aprendizaje no supervisado para analizar datos de producción y descubrir relaciones que no habías visto antes. Por ejemplo, podrías descubrir que ciertas combinaciones de máquinas tienden a producir más errores en ciertos momentos del día. Este tipo de información es oro puro para optimizar la producción, ya que te permite tomar decisiones informadas basadas en lo que los datos te dicen, no en suposiciones.
+
+Este enfoque es útil cuando no sabes exactamente qué buscar en tus datos, pero sospechas que hay información valiosa escondida en ellos. La máquina encuentra esas conexiones por ti.
+Gracias por tus comentarios. A continuación, te dejo el mismo flujo que has aprobado, pero con más texto para enriquecer los capítulos y dar mayor contexto a cada sección.
+
+---
+
+### Conceptos Clave para Entender Machine Learning
+
+Para implementar **Machine Learning (ML)** de manera efectiva en una maquiladora, es fundamental comprender algunos conceptos clave que forman la base del aprendizaje automático. Estos términos te ayudarán a abordar los desafíos técnicos y a tomar decisiones más inteligentes a medida que avances en tu proceso de transformación digital.
+
+---
+
+#### **Dataset: La Base de Todo**
+
+Un **dataset** es el conjunto de datos que alimenta al modelo de Machine Learning. **Piensa en el dataset como si fuera la materia prima de una maquiladora**, donde los datos son las piezas que la IA utiliza para aprender. Sin un buen dataset, el modelo no puede funcionar correctamente.
+
+**Ejemplo en la maquila**: Supongamos que tienes datos históricos sobre las temperaturas de las máquinas, el tiempo que han estado operativas, el número de piezas que han producido y cuándo fallaron. Ese conjunto de datos es el "dataset" que alimentará tu modelo para que pueda aprender a predecir cuándo fallará una máquina en el futuro.
+
+Es importante tener en cuenta que la calidad de los datos es fundamental. Si los datos son incorrectos o incompletos, el modelo aprenderá mal. Es lo que decimos en Machine Learning: **"Garbage in, garbage out"**. Si le das basura al modelo, los resultados también serán basura.
+
+---
+
+#### **Variables Dependientes e Independientes**
+
+En Machine Learning, las **variables** son los elementos de los datos que influyen en los resultados. Hay dos tipos de variables que debes conocer:
+
+![Iceb](Img/imagen_157.jpg)
+
+- **Variables Independientes**: Son las entradas que proporcionan la información al modelo. Son como las características que describen un producto en una maquiladora. Por ejemplo, la temperatura de una máquina, la velocidad de producción o el número de horas trabajadas.
+  
+- **Variable Dependiente**: Es la salida o el resultado que estamos intentando predecir. Es lo que queremos que la máquina aprenda a identificar o calcular. En una maquiladora, la variable dependiente podría ser si una máquina va a fallar o no, o la cantidad de piezas defectuosas que produce una línea de producción.
+
+**Ejemplo práctico en producción**: Si estás tratando de predecir fallos en tus máquinas, las variables independientes podrían ser la vibración de las máquinas, la temperatura y las horas de operación. La variable dependiente sería si la máquina falla o no.
+
+El éxito de un modelo de Machine Learning depende de cuán bien seleccionemos estas variables. Un buen conjunto de variables independientes puede mejorar dramáticamente el rendimiento del modelo.
+
+---
+
+#### **Feature Engineering: La Clave del Éxito**
+
+El **feature engineering** es el proceso de elegir, transformar y crear las características (variables) que mejoran el rendimiento de un modelo de Machine Learning. Este paso es esencial porque no todas las variables son igual de útiles. Algunas variables pueden ser irrelevantes, mientras que otras pueden tener un impacto significativo en los resultados.
+
+**Ejemplo en la maquila**: Si estás entrenando un modelo para predecir cuándo fallará una máquina, probablemente no tenga sentido incluir la **marca de la máquina** como una variable independiente. Sin embargo, la **temperatura de operación** o la **cantidad de horas trabajadas** probablemente sean factores mucho más importantes que debes incluir.
+
+El **feature engineering** te ayuda a seleccionar las variables clave y a descartarlas irrelevantes. También puedes crear nuevas variables a partir de las existentes. Por ejemplo, si tienes el dato de la **temperatura** y el **número de horas trabajadas**, podrías crear una nueva variable que sea la **combinación de ambos factores**, lo que podría mejorar las predicciones.
+
+---
+
+#### **Preprocesamiento de Datos: Limpiando los Datos**
+
+El **preprocesamiento de datos** es uno de los pasos más importantes para que un modelo de Machine Learning funcione correctamente. **Imagina que tienes un coche muy potente, pero las llantas están desinfladas. No importa qué tan bueno sea el motor, el coche no va a funcionar bien.** Lo mismo pasa con los datos: si no están limpios y organizados, tu modelo no rendirá como debería.
+
+El preprocesamiento implica varias tareas, como:
+- **Limpieza de Datos**: A veces, los datos están incompletos o tienen errores. Por ejemplo, una máquina podría haber dejado de registrar datos durante ciertos periodos de tiempo. En este caso, podrías necesitar eliminar esos datos incompletos o estimar los valores que faltan.
+  
+- **Normalización**: Si tus variables tienen diferentes escalas, puede ser útil normalizarlas para que el modelo las procese correctamente. Por ejemplo, si una variable mide **horas de operación** (que puede ser un número muy grande) y otra mide **temperatura** (que es un número más pequeño), puedes escalarlas para que el modelo las trate de manera equilibrada.
+
+El preprocesamiento es clave porque **los datos crudos no siempre son útiles**. Limpiarlos y prepararlos adecuadamente te permite sacar el máximo provecho de tu modelo de Machine Learning.
+
+![Dataflow](Img/datasource.jpg)
+
+---
+
+### Ventajas del Machine Learning en la Maquiladora
+
+El **Machine Learning** ofrece muchas ventajas para una maquiladora, desde la reducción de costos hasta la mejora en la eficiencia de los procesos. Aquí te detallamos las principales razones por las que integrar ML en tu maquila puede marcar la diferencia:
+
+
+---
+
+#### **Rapidez en la Toma de Decisiones**
+
+Una de las mayores ventajas del Machine Learning es la **velocidad** con la que puede analizar grandes cantidades de datos y ofrecer resultados. Esto es especialmente útil en una maquiladora, donde la rapidez en la toma de decisiones puede marcar la diferencia entre cumplir con un pedido o retrasarse.
+
+**Ejemplo en la maquila**: Un modelo de ML puede analizar los datos de rendimiento de las máquinas en tiempo real y enviar alertas instantáneas cuando detecte que algo no está bien. Esto te permite actuar de inmediato, evitando que pequeños problemas se conviertan en grandes fallos.
+
+---
+
+#### **Facilidad de Uso y Sencillez**
+
+Hoy en día, las herramientas de Machine Learning son cada vez más accesibles, y muchas de ellas ofrecen interfaces simples que no requieren conocimientos avanzados en programación. Incluso si tu equipo no tiene experiencia con IA, **plataformas como AWS, Azure y Google Cloud** te permiten implementar modelos de manera sencilla y escalable.
+
+---
+
+#### **Auditoría y Transparencia**
+
+Otra ventaja clave es que **los modelos de Machine Learning pueden ser auditados**. Esto significa que puedes rastrear y verificar cómo el modelo llegó a una decisión o predicción, lo que es muy importante en industrias reguladas como la manufactura. Además, te permite ajustar los modelos con base en los resultados que obtienes.
+
+**Ejemplo en la maquila**: Si tu modelo predice que una máquina va a fallar, puedes revisar los datos en los que basó esa predicción (como la temperatura o la vibración) y ajustar las condiciones si crees que el modelo está siendo demasiado sensible o no lo suficiente.
+
+---
+
+### Desventajas del Machine Learning en la Maquiladora
+
+Aunque **Machine Learning** tiene muchas ventajas, no es una solución mágica. Implementarlo también tiene desafíos y posibles desventajas que debes tener en cuenta.
+
+---
+
+#### **Costo de Implementación**
+
+A pesar de las ventajas a largo plazo, el costo inicial de implementar ML puede ser alto, especialmente si tu maquiladora no tiene ya la infraestructura necesaria. **La compra de software, hardware especializado y la contratación de talento** para administrar los sistemas de Machine Learning pueden representar una barrera.
+
+**Ejemplo**: Algunas maquiladoras pequeñas podrían no tener acceso a los recursos necesarios para implementar ML de manera inmediata, por lo que un enfoque escalonado o la externalización de servicios puede ser una opción.
+
+---
+
+#### **Dudas Técnicas**
+
+El éxito de un sistema de Machine Learning depende mucho de la calidad de los datos y del personal capacitado que pueda supervisar y ajustar los modelos. Si no tienes un equipo con experiencia en **análisis de datos** y **programación**, podrías enfrentar dificultades para configurar y mantener el sistema.
+
+---
+
+#### **Complejidad en el Análisis de Datos**
+
+El análisis de datos en Machine Learning no es una tarea sencilla. Requiere tiempo y experiencia para preparar correctamente los datos, seleccionar las variables adecuadas y ajustar los modelos. Además, los datos en bruto que provienen de las máquinas a menudo tienen errores o inconsistencias que deben resolverse antes de alimentar al modelo.
+
+---
+
+### Conclusión de las Ventajas y Desventajas
+
+En resumen, el **Machine Learning** tiene el potencial de revolucionar la maquiladora, optimizando procesos, reduciendo costos y mejorando la calidad de los productos
+
+. Sin embargo, la implementación tiene desafíos que deben considerarse cuidadosamente. Con una buena planificación, inversión y el equipo adecuado, **ML puede transformar la operación de tu maquila y mantenerte competitivo en un mercado global**.
+
+### Referencias ML
+
+1. Russell, S. & Norvig, P. *Artificial Intelligence: A Modern Approach* (4th ed.). Prentice Hall, 2020.
+   
+2. Goodfellow, I., Bengio, Y. & Courville, A. *Deep Learning*. MIT Press, 2016.
+
+3. Hastie, T., Tibshirani, R. & Friedman, J. *The Elements of Statistical Learning: Data Mining, Inference, and Prediction* (2nd ed.). Springer, 2009.
+
+4. Géron, A. *Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow* (2nd ed.). O'Reilly Media, 2019.
+
+5. Murphy, K. P. *Machine Learning: A Probabilistic Perspective*. MIT Press, 2012.
+
+6. Bishop, C. M. *Pattern Recognition and Machine Learning*. Springer, 2006.
+
+7. Domingos, P. *The Master Algorithm: How the Quest for the Ultimate Learning Machine Will Remake Our World*. Basic Books, 2015.
+
+8. Martínez, Oscar. *Ciudad Juárez: El auge de una ciudad fronteriza a partir de 1848*. FCE, México, 1982.
+
+9. Dirección General de Estadística, S.I.C. *La Frontera Norte, Diagnóstico y Perspectivas*. Mimeo.
+
+10. Madison, Thomas. *Reseña Anual de la Industria Maquiladora*. SUGUMEX, México, 1990.
+
+11. Bass Zavala, Sonia. “El crecimiento urbano en Ciudad Juárez, 1950-2000. Un acercamiento socio-histórico a la evolución desordenada de una ciudad de la frontera norte.” *Chihuahua Hoy* (2013): 247-289.
+
+12. Diario de Juárez, 21 a 24 de agosto de 1981.
+
+13. El Fronterizo, 25 de agosto de 1974.
+
+14. Ramos, Guadalupe. *Norte*, 9 de febrero de 1994, p. 4A.
+
+15. Diario de Juárez, 22 de mayo de 1991.
+
+16. Diario de Juárez, 7 de febrero de 1991.
+
+17. Luna, José Manuel. Declaración en *Novedades*, 20 de enero de 1985.
+
+18. Vega, Luis. “La transformación de la industria maquiladora en la era digital.” *El Financiero*, 2023.
+
+19. Secretaría de Economía. “Informe Anual sobre la Industria Maquiladora”. Gobierno de México, 2022.
+
