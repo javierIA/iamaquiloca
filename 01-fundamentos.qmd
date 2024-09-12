@@ -438,6 +438,7 @@ El **Machine Learning** se basa en la idea de que una máquina puede aprender a 
 Imagina que tienes datos sobre la producción de una máquina: las horas que opera, las temperaturas que alcanza, la cantidad de piezas que fabrica, etc. Si cada vez que la máquina fallaba también anotabas estas mismas características, podrías darle esos datos a un modelo de Machine Learning, y este aprendería a identificar las condiciones que llevan a una falla. **Básicamente, se trata de darle a la máquina un "historial" de lo que ha pasado, para que pueda predecir lo que pasará en el futuro**.
 
 En resumen: **Machine Learning** es el arte de hacer que las máquinas aprendan de los datos, para que puedan tomar decisiones o hacer predicciones sin que les digas exactamente qué hacer en cada caso.
+![Iceber](Img/imagen_32.jpg)
 
 ---
 
@@ -653,4 +654,52 @@ En resumen, el **Machine Learning** tiene el potencial de revolucionar la maquil
 18. Vega, Luis. “La transformación de la industria maquiladora en la era digital.” *El Financiero*, 2023.
 
 19. Secretaría de Economía. “Informe Anual sobre la Industria Maquiladora”. Gobierno de México, 2022.
+### Conceptos para entender el siguiente capítulo
+
+### ¿Qué es la NLP?
+
+El procesamiento de lenguaje natural (NLP) es una tecnología de machine learning que brinda a las computadoras la capacidad de interpretar, manipular y comprender el lenguaje humano.  
+
+### API
+## Las APIs: Puentes Digitales para la Innovación
+
+Una API, o Interfaz de Programación de Aplicaciones, es un conjunto de reglas y especificaciones que facilitan la comunicación e intercambio de datos entre distintas aplicaciones de software. Actúan como puentes digitales, permitiendo que software desarrollado con diferentes tecnologías interactúe de forma fluida y segura.
+
+La adopción de APIs es crucial en el panorama tecnológico actual, ya que ofrece múltiples ventajas:
+
+* **Reducción de costos y complejidad:** En lugar de desarrollar todas las funcionalidades desde cero, las empresas pueden integrar servicios externos a través de APIs, ahorrando tiempo, dinero y recursos en infraestructura y mantenimiento.
+* **Impulso a la innovación:** Las APIs permiten a los desarrolladores crear nuevas aplicaciones y servicios de forma más ágil, aprovechando funcionalidades ya existentes. Esto fomenta la creatividad y acelera la llegada de nuevas soluciones al mercado.
+* **Experiencias de usuario mejoradas:** La integración de múltiples aplicaciones a través de APIs permite ofrecer experiencias más completas y personalizadas.
+
+**Ejemplos**
+
+Imaginemos que estás desarrollando una aplicación financiera. En lugar de construir desde cero un sistema complejo para manejar transacciones de criptomonedas, puedes utilizar la API. Esta API te permitirá acceder a funcionalidades como:
+
+* Consultar precios de criptomonedas en tiempo real
+* Ejecutar órdenes de compra y venta
+* Resumen de un PDF./..........
+* Chatear con asistente
+
+De esta forma, te enfocas en desarrollar las características únicas de tu aplicación, mientras aprovechas la infraestructura robusta y segura de Gemini para gestionar las operaciones con criptomonedas.
+¡Claro! Vamos a explorar más términos clave relacionados con ChatGPT para que tengas una comprensión más completa:
+
+**1. Modelos de Lenguaje Largo (LLM)**
+
+* **¿Qué son?** Son programas de computadora muy sofisticados que han "leído" una cantidad enorme de texto en internet. Esto les permite aprender patrones, gramática e incluso un poco de sentido común.
+* **¿Cómo funcionan?** Usan redes neuronales complejas para procesar el lenguaje, lo que les permite generar texto, traducir idiomas, responder preguntas e incluso escribir código.
+* **Ejemplo:** ChatGPT es un ejemplo de LLM. Su "cerebro" es un modelo de lenguaje largo que le permite entender y responder a tus preguntas de manera coherente.
+
+**2. Tokens**
+
+* **¿Qué son?** Son las unidades básicas en las que se divide el texto para que el modelo de lenguaje lo procese. Pueden ser palabras completas, partes de palabras o incluso signos de puntuación.
+* **¿Por qué son importantes?** Los modelos de lenguaje trabajan con tokens, no con letras individuales. Esto les permite entender el contexto y las relaciones entre las palabras.
+* **Ejemplo:** La frase "Hola, ¿cómo estás?" se divide en 5 tokens: "Hola", ",", "¿cómo", "estás" y "?".
+
+**3. Prompt**
+
+* **¿Qué es?** Es el texto que le das a ChatGPT para iniciar una conversación o pedirle que haga algo. Puede ser una pregunta, una instrucción o incluso el comienzo de una historia.
+* **¿Por qué es importante?** El prompt le da a ChatGPT el contexto y la dirección para generar una respuesta relevante y útil.
+* **Ejemplo:** "Escribe un poema sobre la primavera" es un prompt que le indica a ChatGPT qué tipo de respuesta generar.
+
+## La nueva era IA generativa
 
