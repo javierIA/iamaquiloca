@@ -40,7 +40,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\usepackage[a5paper,top=2.5cm,bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage[a5paper,top=2.5cm,bottom=1cm,left=1cm,right=1cm]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
@@ -132,7 +132,11 @@
 \setsansfont{IBM Plex Sans}           % Fuente sans-serif para los títulos
 \setmonofont{IBM Plex Mono}           % Fuente para código
 \usepackage{xcolor}
-\definecolor{highlight}{RGB}{29, 120, 200} % Color para enlaces
+\definecolor{highlight}{RGB}{29, 120, 200} % Definir color de enlace "highlight"
+
+% Paquetes para tablas responsivas
+\usepackage{graphicx}    % Para \resizebox
+\usepackage{tabularx}    % Para tablas de ancho adaptable
 
 % Paquete para soporte de idiomas
 \usepackage{polyglossia}
@@ -142,7 +146,7 @@
 % Paquete para la personalización del título
 \usepackage{titling}
 
-% Encabezados y pies de página elegantes
+% Configuración de encabezados y pies de página
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -215,20 +219,20 @@
 
 \title{iabookMaquiloca}
 \author{Javier Flores}
-\date{2024-09-11}
+\date{2024-09-16}
 
 \begin{document}
 \frontmatter
 \maketitle
 
 % Página de título con estilo moderno
-\pretitle{\begin{center}\Huge\sffamily\bfseries}
-\posttitle{\end{center}}
-\preauthor{\begin{center}\large\sffamily}
-\postauthor{\end{center}}
-\predate{\begin{center}\large}
-\postdate{\end{center}\vspace{2cm}}
-\maketitle
+\begin{titlepage}
+\centering
+\vspace*{5cm} % Espacio en blanco antes del título
+{\Huge \textbf{iabookMaquiloca}}\\[1cm]
+{\Large Javier Flores}\\[2cm]
+{\large \today}\\[5cm]
+\end{titlepage}
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -240,13 +244,12 @@
 \mainmatter
 \bookmarksetup{startatroot}
 
-\chapter*{Preface El Futuro se Escribe en la
-Frontera}\label{preface-el-futuro-se-escribe-en-la-frontera}
-\addcontentsline{toc}{chapter}{Preface El Futuro se Escribe en la
-Frontera}
+\chapter*{Impacto de la Inteligencia
+Artificial}\label{impacto-de-la-inteligencia-artificial}
+\addcontentsline{toc}{chapter}{Impacto de la Inteligencia Artificial}
 
-\markboth{Preface El Futuro se Escribe en la Frontera}{Preface El Futuro
-se Escribe en la Frontera}
+\markboth{Impacto de la Inteligencia Artificial}{Impacto de la
+Inteligencia Artificial}
 
 \section*{Introducción}\label{introducciuxf3n}
 \addcontentsline{toc}{section}{Introducción}
@@ -363,19 +366,23 @@ somos, y de lo que quiero compartir contigo en este libro.
 \chapter{La Industria Maquiladora en Ciudad
 Juárez}\label{la-industria-maquiladora-en-ciudad-juuxe1rez}
 
-\section{Evolución de la Industria}\label{evoluciuxf3n-de-la-industria}
+\section{Evolución Histórica de la Industria Maquiladora en Ciudad
+Juárez}\label{evoluciuxf3n-histuxf3rica-de-la-industria-maquiladora-en-ciudad-juuxe1rez}
 
-\subsection{Contexto Histórico}\label{contexto-histuxf3rico}
+\subsection{Contexto Histórico: El Surgimiento de la Industria en Ciudad
+Juárez}\label{contexto-histuxf3rico-el-surgimiento-de-la-industria-en-ciudad-juuxe1rez}
 
 Ciudad Juárez, antes de que la maquila se convirtiera en la estrella del
 show, era un lugar donde la gente se rifaba la vida con lo que podía. En
 los cuarentas, la ciudad empezó a crecer a lo loco gracias al turismo,
 el comercio en la frontera y la migración. Era la época donde se
-levantaron fábricas chiquitas, de esas que hacían de todo, desde jabón
-hasta destilar whiskey {[}1{]}. Pero luego vino la Segunda Guerra
-Mundial y todo se sacudió. Los gringos empezaron a pedir mano de obra
-como si no hubiera un mañana, y un chorro de raza se fue para el otro
-lado, dejando aquí las fábricas medio vacías {[}1{]}.
+levantaron fábricas pequeñas, que producían de todo, desde jabón hasta
+whiskey. Sin embargo, este crecimiento industrial inicial se vio frenado
+por la llegada de la Segunda Guerra Mundial, un evento que cambiaría
+radicalmente el panorama económico de la región. Los estadounidenses
+comenzaron a pedir mano de obra de forma masiva, y muchos trabajadores
+locales cruzaron la frontera para encontrar empleo, lo que dejó muchas
+fábricas en Ciudad Juárez con falta de personal {[}1{]}.
 
 Mientras tanto, Fort Bliss se llenó de soldados que, cuando no estaban
 en el cuartel, se venían para Juárez a tirar relajo. Eso levantó un
@@ -385,8 +392,9 @@ transformarse en lo que es ahora, una ciudad que, aunque siempre ha sido
 fronteriza, empezaba a ver cómo el dinero entraba por otras vías, no
 solo por la agricultura.
 
-\subsection{El Programa Bracero y sus
-Consecuencias}\label{el-programa-bracero-y-sus-consecuencias}
+\subsection{El Programa Bracero y su Impacto en el Desarrollo Industrial
+de Ciudad
+Juárez}\label{el-programa-bracero-y-su-impacto-en-el-desarrollo-industrial-de-ciudad-juuxe1rez}
 
 Para cuando llegó el 42, Estados Unidos lanzó el Programa Bracero porque
 necesitaba manos que le echaran al jale en los campos. Y pues Juárez,
@@ -405,16 +413,24 @@ Industrialización Fronteriza (PIF) {[}1{]}. La idea era darle un
 levantón a la economía de la frontera, y Juárez, con su ubicación chida,
 fue uno de los lugares donde estos programas pegaron más fuerte.
 
-\subsection{Nacimiento y Consolidación de la Industria
-Maquiladora}\label{nacimiento-y-consolidaciuxf3n-de-la-industria-maquiladora}
+\subsection{Nacimiento y Consolidación de la Industria Maquiladora: De
+los 60s a los
+80s}\label{nacimiento-y-consolidaciuxf3n-de-la-industria-maquiladora-de-los-60s-a-los-80s}
 
 El verdadero trancazo vino con el PIF en 1965. Ahí fue cuando Juárez
 empezó a ser lo que es hoy. Gracias a ese programa, un montón de
-empresas gringas comenzaron a instalar sus plantas de ensamblaje aquí,
-aprovechando la mano de obra barata y la cercanía con el mercado
-estadounidense {[}2{]}. La cosa era simple: los gringos ponían la
-tecnología, y los juarenses ponían las manos. Así nació lo que se
-conoció como ``plantas gemelas'' {[}3{]}.
+empresas estadounidenses comenzaron a instalar sus plantas de ensamblaje
+en la ciudad, aprovechando la mano de obra barata y la cercanía con el
+mercado estadounidense. Este impulso inicial no solo permitió a la
+región recuperar el empleo perdido, sino que también estableció las
+bases para el crecimiento sostenido de la maquiladora en los años
+posteriores. Para finales de los sesentas, México ya se codeaba con los
+grandes en la industria maquiladora, solo detrás de Alemania y Canadá.
+Este éxito fue apenas el comienzo, ya que en las décadas siguientes la
+maquiladora se consolidaría como el motor económico de la ciudad. A
+continuación, exploraremos cómo las políticas gubernamentales y las
+inversiones extranjeras fortalecieron aún más esta industria a lo largo
+de los 70s y 80s {[}3{]}.
 
 Juárez se convirtió en un imán para estas empresas. Para finales de los
 sesentas, México ya se codeaba con los grandes en la industria
@@ -433,8 +449,8 @@ empezó a correr y con él, la ciudad comenzó a cambiar de cara.
 
 \end{figure}%
 
-\subsection{Crecimiento Descontrolado y Desafíos
-Urbanos}\label{crecimiento-descontrolado-y-desafuxedos-urbanos}
+\subsection{Crecimiento Descontrolado y Desafíos Urbanos en los 70s y
+80s}\label{crecimiento-descontrolado-y-desafuxedos-urbanos-en-los-70s-y-80s}
 
 Ya en los setentas, la maquila era la que rifaba en Juárez. Empleaba a
 un chorro de gente, sobre todo a las morras, que eran las que más jale
@@ -451,7 +467,8 @@ en lugar de crecer con orden, lo hizo a lo loco. Aun así, la maquila
 seguía siendo la que mandaba, y la raza, a pesar de las broncas, no
 dejaba de jalar porque, como dicen por aquí, la chamba es la chamba.
 
-\subsection{Crisis y Resiliencia}\label{crisis-y-resiliencia}
+\subsection{Crisis y Resiliencia en la
+Maquiladora}\label{crisis-y-resiliencia-en-la-maquiladora}
 
 Pero no todo fue éxito. En 1974, Juárez se enfrentó a su primera gran
 crisis en la maquila cuando la empresa Transformer de México cerró,
@@ -499,8 +516,6 @@ cada vez mayor en la innovación y la sostenibilidad.
 
 \end{figure}%
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsection{Referencias}\label{referencias}
 
 \begin{enumerate}
@@ -546,9 +561,11 @@ cada vez mayor en la innovación y la sostenibilidad.
 
 \bookmarksetup{startatroot}
 
-\chapter{Fundamentos}\label{fundamentos}
+\chapter{Fundamentos clave de la IA en la
+Maquiladora}\label{fundamentos-clave-de-la-ia-en-la-maquiladora}
 
-\section{Concepto}\label{concepto}
+\section{Concepto de IA en la
+Industria}\label{concepto-de-ia-en-la-industria}
 
 La Inteligencia Artificial (IA) es un término que ha sido parte de la
 conversación tecnológica desde hace décadas. Aunque a veces parece un
@@ -566,8 +583,16 @@ problemas. Estas ideas nos ayudan a entender que la IA no es magia, sino
 una tecnología diseñada para analizar datos, aprender de ellos, y actuar
 en consecuencia, a menudo siguiendo reglas o patrones.
 
-\section{Ramas de Inteligencia Artificial
-(IA)}\label{ramas-de-inteligencia-artificial-ia}
+Estas ideas fundacionales, aunque teóricas en su origen, sentaron las
+bases de lo que hoy vemos en las fábricas: máquinas capaces de tomar
+decisiones por sí mismas y realizar tareas que antes solo los humanos
+podían ejecutar. La IA en las maquiladoras no solo es una herramienta;
+se ha convertido en una parte esencial del funcionamiento diario, desde
+la automatización de tareas hasta la mejora en los procesos de
+producción
+
+\section{Ramas de la IA Aplicadas a la
+Industria}\label{ramas-de-la-ia-aplicadas-a-la-industria}
 
 \begin{figure}[H]
 
@@ -720,8 +745,6 @@ interacción y aspectos filosóficos o éticos.
   \end{itemize}
 \end{enumerate}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsection{Resumen:}\label{resumen}
 
 La taxonomía de la IA presentada en esta imagen divide los conceptos
@@ -744,6 +767,13 @@ instrucciones predefinidas para resolver problemas o tomar decisiones.
 En este sistema, los programadores crean reglas claras que la máquina
 debe seguir, y la IA utiliza estas reglas para tomar decisiones basadas
 en relaciones lógicas de ``si-entonces'' o ``condiciones''.
+
+Por ejemplo, en una maquiladora donde se ensamblan componentes
+electrónicos, la IA simbólica puede controlar la temperatura de las
+máquinas o la calidad de los productos sin margen de error, gracias a
+sus reglas fijas. Este enfoque es ideal para tareas donde no hay mucha
+variabilidad, y se requiere cumplir con estrictos parámetros de
+producción.
 
 Este enfoque es como una receta: todo está previamente determinado, y la
 máquina sigue los pasos sin desviarse. Por ejemplo, un sistema de IA
@@ -801,8 +831,18 @@ producción donde una máquina ensambla componentes electrónicos: coloca
 una pieza aquí, ajusta un tornillo allá. Siempre que las instrucciones
 sean las mismas, la IA simbólica funciona perfectamente.
 
-\subsubsection{Ejemplo 1: La Receta de Cocina (IA
-Simbólica)}\label{ejemplo-1-la-receta-de-cocina-ia-simbuxf3lica}
+Sin embargo, no todos los procesos en una maquiladora son tan
+predecibles. Aquí es donde entra el Machine Learning. En lugar de seguir
+reglas fijas, el Machine Learning es como el chef aprendiz: aprende y
+mejora con el tiempo a medida que recopila más información. En la
+maquila, esto es útil en situaciones donde hay variabilidad, como
+ajustes en las máquinas para mejorar la calidad o la predicción de
+fallos en los equipos. A medida que las máquinas recolectan datos
+durante la producción, el Machine Learning puede optimizar los procesos
+y hacer ajustes para aumentar la eficiencia
+
+\subsubsection{Ejemplo: IA Simbólica con Receta de
+Cocina}\label{ejemplo-ia-simbuxf3lica-con-receta-de-cocina}
 
 \textbf{Imagina} que le das a un robot una receta detallada para hacer
 un pastel. Le das instrucciones específicas como: 1. Mezcla 200 gramos
@@ -810,8 +850,8 @@ de harina con 100 gramos de azúcar. 2. Añade dos huevos y bate la mezcla
 por 5 minutos. 3. Coloca la mezcla en el horno a 180°C durante 30
 minutos.
 
-\subsubsection{Ejemplo 2: El Chef Aprendiz (Machine
-Learning)}\label{ejemplo-2-el-chef-aprendiz-machine-learning}
+\subsubsection{Ejemplo: Machine Learning como Chef
+Aprendiz}\label{ejemplo-machine-learning-como-chef-aprendiz}
 
 Ahora, \textbf{imagina} que en lugar de seguir siempre la misma receta,
 tienes un robot que quiere convertirse en un chef experto. En lugar de
@@ -855,8 +895,8 @@ calidad.
   calidad o la predicción de fallos en los equipos.
 \end{itemize}
 
-\subsubsection{Otro Ejemplo en la Maquiladora: Control de
-Calidad}\label{otro-ejemplo-en-la-maquiladora-control-de-calidad}
+\subsubsection{Ejemplo: IA en el Control de
+Calidad}\label{ejemplo-ia-en-el-control-de-calidad}
 
 \textbf{Imagina} que en tu maquila produces miles de piezas cada día, y
 necesitas asegurarte de que todas cumplan con los estándares de calidad.
@@ -1040,8 +1080,6 @@ ajustarse con el tiempo.
   mantenemos el mismo contenido. Aquí te dejo la nueva versión:
 \end{itemize}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsection{Capítulo: Las Ventajas de la IA Simbólica: El Primer Paso
 Hacia la
 Automatización}\label{capuxedtulo-las-ventajas-de-la-ia-simbuxf3lica-el-primer-paso-hacia-la-automatizaciuxf3n}
@@ -1061,8 +1099,6 @@ máquinas tomar decisiones basadas en condiciones claras, como el clásico
 ``si-entonces'' (if-then). A continuación, exploramos las ventajas de la
 IA Simbólica y por qué representa el primer paso esencial hacia la
 automatización inteligente en una maquiladora.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsubsection{¿Por qué Usar IA Simbólica en Tu
 Maquiladora?}\label{por-quuxe9-usar-ia-simbuxf3lica-en-tu-maquiladora}
@@ -1133,8 +1169,6 @@ Maquiladora?}\label{por-quuxe9-usar-ia-simbuxf3lica-en-tu-maquiladora}
   claramente cómo se toman las decisiones en cada etapa del proceso.
 \end{enumerate}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsubsection{Ejemplo Práctico: Sistema de Control de
 Inventario}\label{ejemplo-pruxe1ctico-sistema-de-control-de-inventario}
 
@@ -1176,8 +1210,6 @@ mediante las siguientes reglas:}
   automáticamente.
 \end{itemize}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsubsection{Un mito Famoso en la Comunidad de
 Desarrolladores}\label{un-mito-famoso-en-la-comunidad-de-desarrolladores}
 
@@ -1202,8 +1234,6 @@ las mismas tareas una y otra vez, se implementan reglas claras que
 permiten que las máquinas lo hagan de forma automática. \textbf{Imagina
 la diferencia en eficiencia cuando ya no dependes de una persona que
 tenga que hacer manualmente cada ajuste o revisión.}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsubsection{Ventajas Principales de la IA Simbólica para Tu
 Maquiladora}\label{ventajas-principales-de-la-ia-simbuxf3lica-para-tu-maquiladora}
@@ -1231,8 +1261,6 @@ Vamos a resumir las principales ventajas en una lista clara:
   integración entre equipos.
 \end{enumerate}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsubsection{¿Por Qué Empezar con la IA
 Simbólica?}\label{por-quuxe9-empezar-con-la-ia-simbuxf3lica}
 
@@ -1243,8 +1271,6 @@ que sigan reglas claras. A medida que tu negocio crezca, puedes seguir
 construyendo sobre esta base, añadiendo más complejidad y flexibilidad,
 pero el primer paso es crucial para reducir la dependencia de sistemas
 manuales y asegurar que el conocimiento esté disponible para todos.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsubsection{Conclusión: El Primer Paso Hacia la Automatización
 Inteligente}\label{conclusiuxf3n-el-primer-paso-hacia-la-automatizaciuxf3n-inteligente}
@@ -1270,7 +1296,15 @@ industriales. A continuación, te describo el perfil ideal para alguien
 que trabajará en la adopción y gestión de la IA simbólica en un entorno
 de producción.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+Lo importante es saber cuál enfoque se adapta mejor a tus necesidades y
+empezar a aprovecharlo para llevar tu operación al siguiente nivel.
+
+En los próximos capítulos, exploraremos más a fondo cómo estas
+tecnologías están transformando cada rincón de las maquiladoras, desde
+la automatización del control de calidad hasta la optimización de los
+tiempos de producción. El siguiente paso es entender cómo implementar
+estas tecnologías de manera efectiva y cuáles son los desafíos que
+enfrentan las empresas en este proceso de digitalización.
 
 \subsection{\texorpdfstring{\textbf{1. Conocimiento Técnico en
 Programación y
@@ -1413,8 +1447,6 @@ fricciones en las operaciones diarias.
   sistemas de IA simbólica.
 \end{itemize}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsection{\texorpdfstring{\textbf{Resumen del
 Perfil}}{Resumen del Perfil}}\label{resumen-del-perfil}
 
@@ -1447,8 +1479,8 @@ tareas repetitivas, mejore la eficiencia y minimice los errores humanos,
 todo con un enfoque basado en reglas claras y predefinidas. \#NOTA
 AGREAGAR IA NOTA AUTOR
 
-\#\#\# Capítulo: Conocimientos Previos para Machine Learning: Dataset y
-Tipos de Variables
+\#\#\# Conocimientos Previos para Machine Learning: Dataset y Tipos de
+Variables
 
 El \textbf{Machine Learning (ML)}, o aprendizaje automático, es una rama
 de la inteligencia artificial que permite a las máquinas aprender de los
@@ -1461,8 +1493,6 @@ son los \textbf{datasets} y los \textbf{tipos de variables}.
 En este capítulo, exploraremos estos conceptos fundamentales que te
 permitirán navegar y aplicar con éxito el Machine Learning en tus
 procesos industriales.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsubsection{¿Qué es un Dataset?}\label{quuxe9-es-un-dataset}
 
@@ -1508,8 +1538,6 @@ categorías:
   Es un conjunto nuevo para el modelo, lo que permite medir su capacidad
   de hacer predicciones precisas en datos no vistos antes.
 \end{enumerate}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsubsection{Tipos de Variables}\label{tipos-de-variables}
 
@@ -1567,8 +1595,6 @@ máquina (ensambladora, soldadora, cortadora). - \textbf{Variable
 Ordinal}: Clasificación de prioridad para el mantenimiento de máquinas
 (urgente, normal, bajo).
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsubsection{¿Por Qué Es Importante Entender los Tipos de
 Variables?}\label{por-quuxe9-es-importante-entender-los-tipos-de-variables}
 
@@ -1585,8 +1611,6 @@ Además, algunos tipos de variables pueden requerir preprocesamiento
 antes de ser usados por un modelo de Machine Learning. \textbf{Las
 variables categóricas}, por ejemplo, a menudo deben ser codificadas
 (convertidas en números) antes de ser procesadas por el modelo.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsubsection{Ejemplo en la Maquiladora: Dataset de Mantenimiento
 Predictivo}\label{ejemplo-en-la-maquiladora-dataset-de-mantenimiento-predictivo}
@@ -1638,8 +1662,6 @@ que prediga si una máquina va a necesitar mantenimiento en el futuro. El
 modelo analizaría las variables (temperatura, horas de operación, tipo
 de máquina) para predecir cuándo será necesario el mantenimiento.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsubsection{Conclusión}\label{conclusiuxf3n}
 
 Entender los conceptos de \textbf{dataset} y \textbf{tipos de variables}
@@ -1659,13 +1681,11 @@ Aquí tienes las dos primeras partes del capítulo con más texto y una
 explicación menos técnica, adaptada para una mejor comprensión y sin
 perder el enfoque en la maquiladora:
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \section{Aplicaciones de Machine Learning en la
 Maquiladora}\label{aplicaciones-de-machine-learning-en-la-maquiladora}
 
-\subsection{\texorpdfstring{\textbf{1. Introducción a Machine Learning
-(ML)}}{1. Introducción a Machine Learning (ML)}}\label{introducciuxf3n-a-machine-learning-ml}
+\subsection{\texorpdfstring{\textbf{Introducción a Machine Learning
+(ML)}}{Introducción a Machine Learning (ML)}}\label{introducciuxf3n-a-machine-learning-ml}
 
 El \textbf{Machine Learning} es una herramienta clave en el avance
 tecnológico de las maquiladoras. Aunque suena como un concepto
@@ -1694,8 +1714,8 @@ antes de que suceda para que pudieras arreglarlo de antemano?
 
 \end{figure}%
 
-\subsubsection{\texorpdfstring{\textbf{1.1. ¿Qué es Machine
-Learning?}}{1.1. ¿Qué es Machine Learning?}}\label{quuxe9-es-machine-learning}
+\subsubsection{\texorpdfstring{\textbf{¿Qué es Machine
+Learning?}}{¿Qué es Machine Learning?}}\label{quuxe9-es-machine-learning}
 
 El \textbf{Machine Learning} se basa en la idea de que una máquina puede
 aprender a hacer algo (como predecir fallas o mejorar un proceso)
@@ -1715,11 +1735,10 @@ en el futuro}.
 En resumen: \textbf{Machine Learning} es el arte de hacer que las
 máquinas aprendan de los datos, para que puedan tomar decisiones o hacer
 predicciones sin que les digas exactamente qué hacer en cada caso.
+\includegraphics{Img/imagen_32.jpg}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsubsection{\texorpdfstring{\textbf{Supervisado vs No
-Supervisado}}{Supervisado vs No Supervisado}}\label{supervisado-vs-no-supervisado}
+\subsubsection{\texorpdfstring{\textbf{Aprendizaje Supervisado vs No
+Supervisado}}{Aprendizaje Supervisado vs No Supervisado}}\label{aprendizaje-supervisado-vs-no-supervisado}
 
 Existen dos tipos principales de Machine Learning, y entender la
 diferencia entre ellos te ayudará a identificar cuál es más útil en tu
@@ -1760,8 +1779,6 @@ ciertas horas del día o cuando operan junto a otras máquinas
 específicas. La IA encontrará esos patrones, lo que te permitirá hacer
 ajustes en la producción que de otro modo no habrías notado.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsubsection{El papel de ML en la maquila: ¿Por qué es
 importante?**}\label{el-papel-de-ml-en-la-maquila-por-quuxe9-es-importante}
 
@@ -1783,8 +1800,6 @@ ayudarte a ajustar el inventario de manera eficiente, prever la demanda,
 mejorar la calidad de los productos, y hasta optimizar la logística
 dentro de la planta. En resumen, \textbf{es una herramienta para ser más
 competitivo en un mercado que no para de moverse}.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsection{\texorpdfstring{\textbf{Tipos de Machine Learning en la
 Maquila}}{Tipos de Machine Learning en la Maquila}}\label{tipos-de-machine-learning-en-la-maquila}
@@ -1850,8 +1865,6 @@ máquina encuentra esas conexiones por ti. Gracias por tus comentarios. A
 continuación, te dejo el mismo flujo que has aprobado, pero con más
 texto para enriquecer los capítulos y dar mayor contexto a cada sección.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsection{Conceptos Clave para Entender Machine
 Learning}\label{conceptos-clave-para-entender-machine-learning}
 
@@ -1860,8 +1873,6 @@ una maquiladora, es fundamental comprender algunos conceptos clave que
 forman la base del aprendizaje automático. Estos términos te ayudarán a
 abordar los desafíos técnicos y a tomar decisiones más inteligentes a
 medida que avances en tu proceso de transformación digital.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsubsection{\texorpdfstring{\textbf{Dataset: La Base de
 Todo}}{Dataset: La Base de Todo}}\label{dataset-la-base-de-todo}
@@ -1883,8 +1894,6 @@ fundamental. Si los datos son incorrectos o incompletos, el modelo
 aprenderá mal. Es lo que decimos en Machine Learning: \textbf{``Garbage
 in, garbage out''}. Si le das basura al modelo, los resultados también
 serán basura.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsubsection{\texorpdfstring{\textbf{Variables Dependientes e
 Independientes}}{Variables Dependientes e Independientes}}\label{variables-dependientes-e-independientes}
@@ -1926,8 +1935,6 @@ El éxito de un modelo de Machine Learning depende de cuán bien
 seleccionemos estas variables. Un buen conjunto de variables
 independientes puede mejorar dramáticamente el rendimiento del modelo.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsubsection{\texorpdfstring{\textbf{Feature Engineering: La Clave del
 Éxito}}{Feature Engineering: La Clave del Éxito}}\label{feature-engineering-la-clave-del-uxe9xito}
 
@@ -1951,8 +1958,6 @@ variables a partir de las existentes. Por ejemplo, si tienes el dato de
 la \textbf{temperatura} y el \textbf{número de horas trabajadas},
 podrías crear una nueva variable que sea la \textbf{combinación de ambos
 factores}, lo que podría mejorar las predicciones.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsubsection{\texorpdfstring{\textbf{Preprocesamiento de Datos:
 Limpiando los
@@ -1996,8 +2001,6 @@ máximo provecho de tu modelo de Machine Learning.
 
 \end{figure}%
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsection{Ventajas del Machine Learning en la
 Maquiladora}\label{ventajas-del-machine-learning-en-la-maquiladora}
 
@@ -2005,8 +2008,6 @@ El \textbf{Machine Learning} ofrece muchas ventajas para una
 maquiladora, desde la reducción de costos hasta la mejora en la
 eficiencia de los procesos. Aquí te detallamos las principales razones
 por las que integrar ML en tu maquila puede marcar la diferencia:
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsubsection{\texorpdfstring{\textbf{Rapidez en la Toma de
 Decisiones}}{Rapidez en la Toma de Decisiones}}\label{rapidez-en-la-toma-de-decisiones}
@@ -2023,8 +2024,6 @@ instantáneas cuando detecte que algo no está bien. Esto te permite
 actuar de inmediato, evitando que pequeños problemas se conviertan en
 grandes fallos.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsubsection{\texorpdfstring{\textbf{Facilidad de Uso y
 Sencillez}}{Facilidad de Uso y Sencillez}}\label{facilidad-de-uso-y-sencillez}
 
@@ -2034,8 +2033,6 @@ requieren conocimientos avanzados en programación. Incluso si tu equipo
 no tiene experiencia con IA, \textbf{plataformas como AWS, Azure y
 Google Cloud} te permiten implementar modelos de manera sencilla y
 escalable.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsubsection{\texorpdfstring{\textbf{Auditoría y
 Transparencia}}{Auditoría y Transparencia}}\label{auditoruxeda-y-transparencia}
@@ -2051,16 +2048,12 @@ a fallar, puedes revisar los datos en los que basó esa predicción (como
 la temperatura o la vibración) y ajustar las condiciones si crees que el
 modelo está siendo demasiado sensible o no lo suficiente.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsection{Desventajas del Machine Learning en la
 Maquiladora}\label{desventajas-del-machine-learning-en-la-maquiladora}
 
 Aunque \textbf{Machine Learning} tiene muchas ventajas, no es una
 solución mágica. Implementarlo también tiene desafíos y posibles
 desventajas que debes tener en cuenta.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsubsection{\texorpdfstring{\textbf{Costo de
 Implementación}}{Costo de Implementación}}\label{costo-de-implementaciuxf3n}
@@ -2076,8 +2069,6 @@ a los recursos necesarios para implementar ML de manera inmediata, por
 lo que un enfoque escalonado o la externalización de servicios puede ser
 una opción.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsubsection{\texorpdfstring{\textbf{Dudas
 Técnicas}}{Dudas Técnicas}}\label{dudas-tuxe9cnicas}
 
@@ -2087,8 +2078,6 @@ los modelos. Si no tienes un equipo con experiencia en \textbf{análisis
 de datos} y \textbf{programación}, podrías enfrentar dificultades para
 configurar y mantener el sistema.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsubsection{\texorpdfstring{\textbf{Complejidad en el Análisis de
 Datos}}{Complejidad en el Análisis de Datos}}\label{complejidad-en-el-anuxe1lisis-de-datos}
 
@@ -2097,8 +2086,6 @@ Requiere tiempo y experiencia para preparar correctamente los datos,
 seleccionar las variables adecuadas y ajustar los modelos. Además, los
 datos en bruto que provienen de las máquinas a menudo tienen errores o
 inconsistencias que deben resolverse antes de alimentar al modelo.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \subsection{Conclusión de las Ventajas y
 Desventajas}\label{conclusiuxf3n-de-las-ventajas-y-desventajas}
@@ -2170,8 +2157,744 @@ mantenerte competitivo en un mercado global}.
   digital.'' \emph{El Financiero}, 2023.
 \item
   Secretaría de Economía. ``Informe Anual sobre la Industria
-  Maquiladora''. Gobierno de México, 2022.
+  Maquiladora''. Gobierno de México, 2022. \#\#\# Conceptos para
+  entender el siguiente capítulo
 \end{enumerate}
+
+\subsection{¿Qué es la NLP?}\label{quuxe9-es-la-nlp}
+
+El procesamiento de lenguaje natural (NLP) es una tecnología de machine
+learning que brinda a las computadoras la capacidad de interpretar,
+manipular y comprender el lenguaje humano.
+
+\subsection{API}\label{api}
+
+Una API, o Interfaz de Programación de Aplicaciones, es un conjunto de
+reglas y especificaciones que facilitan la comunicación e intercambio de
+datos entre distintas aplicaciones de software. Actúan como puentes
+digitales, permitiendo que software desarrollado con diferentes
+tecnologías interactúe de forma fluida y segura.
+
+La adopción de APIs es crucial en el panorama tecnológico actual, ya que
+ofrece múltiples ventajas:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Reducción de costos y complejidad:} En lugar de desarrollar
+  todas las funcionalidades desde cero, las empresas pueden integrar
+  servicios externos a través de APIs, ahorrando tiempo, dinero y
+  recursos en infraestructura y mantenimiento.
+\item
+  \textbf{Impulso a la innovación:} Las APIs permiten a los
+  desarrolladores crear nuevas aplicaciones y servicios de forma más
+  ágil, aprovechando funcionalidades ya existentes. Esto fomenta la
+  creatividad y acelera la llegada de nuevas soluciones al mercado.
+\item
+  \textbf{Experiencias de usuario mejoradas:} La integración de
+  múltiples aplicaciones a través de APIs permite ofrecer experiencias
+  más completas y personalizadas.
+\end{itemize}
+
+\textbf{Ejemplos}
+
+Imaginemos que estás desarrollando una aplicación financiera. En lugar
+de construir desde cero un sistema complejo para manejar transacciones
+de criptomonedas, puedes utilizar la API. Esta API te permitirá acceder
+a funcionalidades como:
+
+\begin{itemize}
+\tightlist
+\item
+  Consultar precios de criptomonedas en tiempo real
+\item
+  Ejecutar órdenes de compra y venta
+\item
+  Resumen de un PDF./\ldots\ldots\ldots.
+\item
+  Chatear con asistente
+\end{itemize}
+
+De esta forma, te enfocas en desarrollar las características únicas de
+tu aplicación, mientras aprovechas la infraestructura robusta y segura
+de Gemini para gestionar las operaciones con criptomonedas. ¡Claro!
+Vamos a explorar más términos clave relacionados con ChatGPT para que
+tengas una comprensión más completa:
+
+\textbf{1. Modelos de Lenguaje Largo (LLM)}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{¿Qué son?} Son programas de computadora muy sofisticados que
+  han ``leído'' una cantidad enorme de texto en internet. Esto les
+  permite aprender patrones, gramática e incluso un poco de sentido
+  común.
+\item
+  \textbf{¿Cómo funcionan?} Usan redes neuronales complejas para
+  procesar el lenguaje, lo que les permite generar texto, traducir
+  idiomas, responder preguntas e incluso escribir código.
+\item
+  \textbf{Ejemplo:} ChatGPT es un ejemplo de LLM. Su ``cerebro'' es un
+  modelo de lenguaje largo que le permite entender y responder a tus
+  preguntas de manera coherente.
+\end{itemize}
+
+\textbf{2. Tokens}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{¿Qué son?} Son las unidades básicas en las que se divide el
+  texto para que el modelo de lenguaje lo procese. Pueden ser palabras
+  completas, partes de palabras o incluso signos de puntuación.
+\item
+  \textbf{¿Por qué son importantes?} Los modelos de lenguaje trabajan
+  con tokens, no con letras individuales. Esto les permite entender el
+  contexto y las relaciones entre las palabras.
+\item
+  \textbf{Ejemplo:} La frase ``Hola, ¿cómo estás?'' se divide en 5
+  tokens: ``Hola'', ``,'', ``¿cómo'', ``estás'' y ``?''.
+\end{itemize}
+
+\textbf{3. Prompt}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{¿Qué es?} Es el texto que le das a ChatGPT para iniciar una
+  conversación o pedirle que haga algo. Puede ser una pregunta, una
+  instrucción o incluso el comienzo de una historia.
+\item
+  \textbf{¿Por qué es importante?} El prompt le da a ChatGPT el contexto
+  y la dirección para generar una respuesta relevante y útil.
+\item
+  \textbf{Ejemplo:} ``Escribe un poema sobre la primavera'' es un prompt
+  que le indica a ChatGPT qué tipo de respuesta generar.
+\end{itemize}
+
+\section{La nueva era IA generativa}\label{la-nueva-era-ia-generativa}
+
+\subsection{Introducción a la Inteligencia Artificial en la
+Maquiladora}\label{introducciuxf3n-a-la-inteligencia-artificial-en-la-maquiladora}
+
+Sabemos que el primer acercamiento que muchas personas tienen con la
+\textbf{inteligencia artificial (IA)} hoy en día es a través de
+herramientas como \textbf{ChatGPT} o servicios similares que utilizan
+procesamiento de lenguaje natural (\emph{Natural Language Processing,
+NLP}). Estos sistemas permiten a la IA entender y comunicarse en el
+lenguaje humano, como el español o el inglés, sin necesidad de
+interfaces complejas o técnicas.
+
+\textbf{ChatGPT} fue una de las primeras plataformas en acercar la IA al
+usuario común. Pero, ¿qué hace que esta tecnología sea tan especial? En
+esencia, \textbf{ChatGPT} y otros sistemas similares se basan en
+\textbf{NLP}, lo que significa que pueden interpretar y generar lenguaje
+natural. En lugar de que una persona tenga que interactuar con una
+computadora a través de un programa especializado o incluso un archivo
+de Excel, ahora simplemente puede hablar o escribir como lo haría con
+otra persona.
+
+\subsubsection{\texorpdfstring{\textbf{Natural Language Processing
+(NLP): ¿Qué es y por qué es
+importante?}}{Natural Language Processing (NLP): ¿Qué es y por qué es importante?}}\label{natural-language-processing-nlp-quuxe9-es-y-por-quuxe9-es-importante}
+
+El \textbf{procesamiento de lenguaje natural (NLP)} es la tecnología
+detrás de la capacidad de una IA para entender, interpretar y generar
+lenguaje humano. Esto es lo que permite que herramientas como
+\textbf{ChatGPT}, \textbf{Siri}, \textbf{Alexa}, y \textbf{Google
+Assistant} puedan entendernos cuando les damos órdenes o les hacemos
+preguntas.
+
+Antes de la aparición de \textbf{NLP}, la comunicación con las máquinas
+requería interfaces especializadas. Por ejemplo, si querías que una
+computadora realizara una tarea, necesitabas escribir comandos en un
+lenguaje de programación, o utilizar software especializado que
+interpretara tus instrucciones. Con \textbf{NLP}, ya no es necesario. La
+IA puede entenderte cuando hablas o escribes en un lenguaje natural,
+como si estuvieras comunicándote con otra persona.
+
+Este avance ha sido clave para que muchas organizaciones comiencen a
+adoptar la inteligencia artificial sin la necesidad de contar con
+equipos altamente técnicos. Ahora, cualquier persona que sepa hablar
+español o inglés puede utilizar estas tecnologías para mejorar la
+eficiencia de sus procesos.
+
+\subsubsection{\texorpdfstring{\textbf{El Impacto del NLP en la
+Maquiladora}}{El Impacto del NLP en la Maquiladora}}\label{el-impacto-del-nlp-en-la-maquiladora}
+
+Para las maquiladoras, este tipo de tecnologías abre un mundo de
+posibilidades. Antes, los operarios de las máquinas o los gerentes de
+planta tenían que aprender a utilizar software especializado para
+mejorar los procesos o anticipar fallos en la producción. Hoy en día,
+gracias a tecnologías como \textbf{NLP}, es posible integrar estos
+sistemas en los flujos de trabajo existentes para que todos, desde el
+gerente hasta el operador, puedan beneficiarse de la IA sin necesidad de
+conocimientos avanzados.
+
+\textbf{¿Cómo puede una maquila aplicar NLP?} Aquí te damos un ejemplo
+sencillo: - Imagina que un supervisor puede simplemente preguntar a un
+sistema de IA en español: ``¿Cuántas piezas defectuosas se han producido
+hoy?'' En lugar de buscar manualmente esos datos en un sistema complejo,
+la IA puede buscar esa información y responder al supervisor en tiempo
+real. - O tal vez un operario pueda preguntar: ``¿Cuándo fue la última
+vez que esta máquina recibió mantenimiento?'' y la IA le proporcionará
+la respuesta sin que tenga que navegar por múltiples sistemas.
+
+Esto es \textbf{NLP} en acción. Hace que las interacciones con la
+tecnología sean más intuitivas y eficientes.
+
+\subsubsection{\texorpdfstring{\textbf{De las Interfaces Especializadas
+a la IA
+Conversacional}}{De las Interfaces Especializadas a la IA Conversacional}}\label{de-las-interfaces-especializadas-a-la-ia-conversacional}
+
+Antes de la popularización de herramientas como \textbf{ChatGPT} o
+\textbf{Transformers}, las empresas dependían de interfaces complejas
+para aprovechar la IA. Los datos tenían que ser ingresados manualmente
+en sistemas, y la información se extraía en formatos difíciles de
+interpretar.
+
+Hoy, con la IA conversacional, estas barreras están desapareciendo. Ya
+no necesitas ser un experto en TI para interactuar con un sistema
+inteligente. Puedes hacer preguntas directas y obtener respuestas claras
+y en tiempo real.
+
+Este es el verdadero valor que \textbf{NLP} trae a la mesa:
+\textbf{democratiza el acceso a la IA}. Si en tu maquiladora no tienes
+un sistema eficiente para comunicarte con la tecnología de manera
+sencilla y rápida, es hora de considerar la integración de IA
+conversacional, como la que ofrece \textbf{ChatGPT}.
+
+\subsection{Costo en Modelos de Lenguaje Extensos
+(LLM)}\label{costo-en-modelos-de-lenguaje-extensos-llm}
+
+En el mundo de la \textbf{inteligencia artificial (IA)}, especialmente
+cuando se habla de \textbf{modelos de lenguaje extensos (LLMs)} como
+GPT-4 o Gemini, una de las cuestiones clave para las empresas y
+organizaciones es cómo se estructuran los costos. La mayoría de los
+modelos LLMs utilizan un sistema de \textbf{cobro por tokens}, lo que
+puede resultar algo confuso al principio, pero es un concepto sencillo
+una vez que lo desglosamos.
+
+\subsubsection{\texorpdfstring{\textbf{¿Qué es un
+Token?}}{¿Qué es un Token?}}\label{quuxe9-es-un-token}
+
+En el contexto de los LLMs, un \textbf{token} es una unidad de
+información que representa una palabra, parte de una palabra o incluso
+signos de puntuación. No siempre un token es equivalente a una palabra
+completa, ya que algunos tokens pueden representar combinaciones de
+letras o incluso sílabas.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{Img/token.png}
+
+}
+
+\caption{Token}
+
+\end{figure}%
+
+\textbf{Ejemplo sencillo}: Si ingresas la frase ``Hola, ¿cómo estás?'',
+se podría dividir en varios tokens, donde cada palabra y símbolo de
+puntuación podría contar como uno o más tokens. Un sistema de IA como
+GPT o Gemini procesará estos tokens para generar una respuesta.
+
+\subsubsection{\texorpdfstring{\textbf{El Cobro por
+Token}}{El Cobro por Token}}\label{el-cobro-por-token}
+
+Los proveedores de IA, como \textbf{OpenAI} con su GPT o \textbf{Google}
+con Gemini, cobran por la cantidad de tokens que un usuario procesa o
+genera cuando interactúa con el modelo. Este sistema es eficiente porque
+permite cobrar según el uso real, lo que significa que no pagas de más
+si solo necesitas pequeñas interacciones, pero tampoco te limita si
+necesitas manejar grandes volúmenes de datos.
+
+\textbf{¿Cómo se determina el costo?}\\
+1. \textbf{Tokens de entrada}: Cada vez que envías una pregunta o
+contexto al modelo, como ``¿Cuántas piezas hemos producido hoy?'', eso
+genera un número de tokens. Dependiendo de la longitud y complejidad de
+la entrada, esta puede sumar más tokens. 2. \textbf{Tokens de salida}:
+La respuesta que te proporciona el modelo también genera un número de
+tokens. Si la respuesta es corta, el costo es menor, pero si es una
+respuesta detallada, el número de tokens será mayor.
+
+\textbf{Ejemplo en la maquiladora}:\\
+Si un supervisor pregunta al modelo: ``¿Cuántos productos defectuosos se
+detectaron en la última hora?'', esa pregunta puede ser 7 tokens. Si el
+modelo responde: ``Se detectaron 5 productos defectuosos en la línea de
+producción A'', esa respuesta puede costar otros 12 tokens. Así, el
+costo total de la interacción sería el costo por 19 tokens.
+
+\subsubsection{\texorpdfstring{\textbf{Ventajas del Cobro por
+Tokens}}{Ventajas del Cobro por Tokens}}\label{ventajas-del-cobro-por-tokens}
+
+Este sistema de cobro tiene varias ventajas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Escalabilidad}: Las empresas pueden comenzar con interacciones
+  pequeñas y aumentar el uso según sus necesidades, sin tener que
+  comprometerse a pagos fijos o suscripciones costosas desde el inicio.
+\item
+  \textbf{Eficiencia}: No se paga por ``espacios vacíos''. Solo pagas
+  por el procesamiento real de datos, lo que hace que sea muy eficiente
+  para tareas específicas donde la información es concisa.
+\item
+  \textbf{Previsión de costos}: Es fácil predecir cuánto vas a gastar en
+  función del número de interacciones que esperas. Esto es
+  particularmente útil para las maquiladoras que podrían tener picos de
+  consultas en momentos específicos del día o de la semana.
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{\textbf{Retos del Cobro por
+Tokens}}{Retos del Cobro por Tokens}}\label{retos-del-cobro-por-tokens}
+
+Sin embargo, este sistema también presenta algunos desafíos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Costos acumulativos}: En tareas que requieren procesamiento de
+  grandes volúmenes de datos o respuestas largas, el costo puede
+  acumularse rápidamente.
+\item
+  \textbf{Dificultad para calcular tokens}: No siempre es evidente
+  cuántos tokens se generarán en una interacción, lo que puede hacer que
+  algunas empresas subestimen el costo real.
+\item
+  \textbf{Complejidad técnica}: Para organizaciones que no están
+  acostumbradas a gestionar estos modelos, puede haber una curva de
+  aprendizaje al intentar optimizar el uso y evitar costos excesivos.
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{\textbf{Cómo Optimizar el Uso de
+Tokens}}{Cómo Optimizar el Uso de Tokens}}\label{cuxf3mo-optimizar-el-uso-de-tokens}
+
+En una maquiladora, optimizar el uso de tokens puede ayudarte a reducir
+costos y maximizar la eficiencia de los modelos de IA. Aquí algunos
+consejos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Formular preguntas claras y concisas}: Las preguntas más
+  cortas generan menos tokens, por lo que es recomendable ser lo más
+  preciso posible.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Ejemplo}: En lugar de preguntar ``¿Cómo estuvo la producción
+    durante todo el día?'', podrías preguntar ``¿Cuántas unidades se
+    produjeron en el turno de la mañana?''
+  \end{itemize}
+\item
+  \textbf{Limitar el tamaño de las respuestas}: Algunas plataformas te
+  permiten limitar el número de tokens en las respuestas, de modo que
+  las respuestas sean más concisas y generen menos costos.
+\item
+  \textbf{Usar batch processing}: En lugar de hacer muchas consultas
+  pequeñas, puedes agrupar preguntas relacionadas en una sola
+  interacción, lo que puede resultar más económico.
+\end{enumerate}
+
+\subsubsection{APIs para Modelos de Lenguaje Extensos
+(LLMs)}\label{apis-para-modelos-de-lenguaje-extensos-llms}
+
+El uso de \textbf{APIs (Interfaces de Programación de Aplicaciones)}
+para interactuar con modelos de lenguaje como \textbf{GPT} de OpenAI o
+\textbf{Gemini} de Google es fundamental para muchas organizaciones que
+quieren aprovechar el poder de la inteligencia artificial sin tener que
+entrenar sus propios modelos desde cero. En este capítulo, exploraremos
+cómo estas APIs funcionan, sus ventajas y cómo se integran en una
+maquiladora.
+
+\paragraph{\texorpdfstring{\textbf{¿Qué es una API en el Contexto de los
+LLMs?}}{¿Qué es una API en el Contexto de los LLMs?}}\label{quuxe9-es-una-api-en-el-contexto-de-los-llms}
+
+Una \textbf{API} es una puerta de acceso que permite a una aplicación o
+sistema interactuar con un modelo de inteligencia artificial. Cuando
+utilizas un modelo como \textbf{GPT} o \textbf{Gemini} a través de una
+API, en lugar de ejecutar el modelo localmente, envías una solicitud
+(con datos) a través de internet a los servidores de la compañía que
+provee el modelo. Luego, el modelo procesa los datos y te devuelve una
+respuesta.
+
+\textbf{Ejemplo en la maquiladora}: Si deseas obtener un análisis en
+tiempo real de los fallos de producción basándote en reportes previos,
+puedes enviar esos datos a la API de GPT o Gemini y recibir un análisis
+detallado o recomendaciones sobre cómo evitar problemas similares en el
+futuro. \#\#\#\#\# \textbf{Cómo Funcionan las APIs de LLMs}
+
+Para usar una API de GPT o Gemini, necesitas seguir estos pasos básicos:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Obtener la clave de la API}: Debes registrarte en la
+  plataforma del proveedor (por ejemplo, OpenAI o Google Cloud) y
+  obtener una clave de API única. Esta clave es esencial para autenticar
+  las solicitudes que realices.
+\item
+  \textbf{Enviar una solicitud (request)}: La solicitud incluye los
+  datos que quieres que el modelo procese. Esto puede ser texto,
+  preguntas o cualquier otro tipo de información.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Ejemplo de solicitud}: Enviar una descripción de un problema
+    en la línea de producción y pedir una recomendación sobre cómo
+    solucionarlo.
+  \end{itemize}
+\item
+  \textbf{Recibir la respuesta (response)}: Una vez que el modelo
+  procesa los datos, te devuelve una respuesta que puedes usar en tu
+  sistema.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Ejemplo de respuesta}: La API puede sugerir ajustar la
+    velocidad de una máquina o cambiar la programación de mantenimiento
+    para reducir fallos.
+  \end{itemize}
+\end{enumerate}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{Img/token.png}
+
+}
+
+\caption{Tokens}
+
+\end{figure}%
+
+\paragraph{\texorpdfstring{\textbf{Ejemplo Práctico de Uso de API en la
+Maquiladora}}{Ejemplo Práctico de Uso de API en la Maquiladora}}\label{ejemplo-pruxe1ctico-de-uso-de-api-en-la-maquiladora}
+
+\textbf{Contexto}: Imagina que tienes una maquiladora de productos
+electrónicos y deseas optimizar el mantenimiento de las máquinas para
+reducir el tiempo de inactividad. Puedes usar la API de \textbf{GPT}
+para analizar grandes volúmenes de datos históricos sobre los fallos de
+las máquinas y recibir recomendaciones en tiempo real sobre cuándo
+realizar mantenimientos preventivos.
+
+\textbf{Flujo de uso}: 1. \textbf{Envías una solicitud a la API}:
+Proporcionas datos sobre los fallos anteriores de las máquinas, como las
+horas de operación, el tipo de fallos y el tiempo de reparación.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \textbf{La API procesa los datos}: El modelo de GPT analiza todos los
+  datos y busca patrones que puedan predecir futuros fallos.
+\item
+  \textbf{Recibes una respuesta con recomendaciones}: La API te sugiere
+  una estrategia de mantenimiento preventivo basada en los patrones
+  identificados, como realizar un mantenimiento cada 200 horas de
+  operación para evitar fallos.
+\end{enumerate}
+
+\paragraph{\texorpdfstring{\textbf{Ejemplos de APIs Populares para
+LLMs}}{Ejemplos de APIs Populares para LLMs}}\label{ejemplos-de-apis-populares-para-llms}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{OpenAI GPT API}: Esta API permite a los desarrolladores
+  interactuar con los modelos GPT para generar texto, responder
+  preguntas y más. Es ideal para tareas de procesamiento de lenguaje
+  natural como análisis de datos, creación de contenido y chatbots.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{URL}: \url{https://beta.openai.com/docs/}
+  \end{itemize}
+\item
+  \textbf{Google Gemini API}: Ofrece acceso a los modelos de IA de
+  Google, que son ideales para manejar grandes volúmenes de datos y
+  generar respuestas precisas en varios idiomas.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{URL}: \url{https://cloud.google.com/ai-platform}
+  \end{itemize}
+\item
+  \textbf{Cohere API}: Otra opción popular para procesamiento de
+  lenguaje natural, Cohere se enfoca en el análisis de texto y la
+  creación de modelos personalizados para tareas específicas.
+
+  \begin{itemize}
+  \item
+    \textbf{URL}: \url{https://docs.cohere.ai/}
+  \item
+    \begin{figure}[H]
+
+    {\centering \includegraphics{Img/models.png}
+
+    }
+
+    \caption{Models}
+
+    \end{figure}%
+  \end{itemize}
+\end{enumerate}
+
+\section{¿Dónde Encajan los datos de mi
+organización?}\label{duxf3nde-encajan-los-datos-de-mi-organizaciuxf3n}
+
+Uno de los primeros pasos fundamentales para aprovechar la
+\textbf{inteligencia artificial (IA)} en tu maquiladora es entender qué
+tipo de datos tienes y cómo se pueden utilizar en diferentes enfoques de
+IA, como \textbf{Machine Learning (ML)} o \textbf{Modelos de Lenguaje
+Extensos (LLM)}. No todos los datos son iguales, y dependiendo de la
+estructura, el volumen y el propósito de tus datos, el modelo que elijas
+será diferente.
+
+En este capítulo, vamos a desglosar cómo identificar dónde encajan tus
+datos dentro del mundo de \textbf{Machine Learning} y \textbf{LLM}, y
+qué enfoque puede ofrecerte los mejores resultados.
+
+\subsection{\texorpdfstring{1. \textbf{Tipos de Datos en una
+Maquiladora}}{1. Tipos de Datos en una Maquiladora}}\label{tipos-de-datos-en-una-maquiladora}
+
+Antes de decidir si tus datos se adaptan mejor a \textbf{ML} o a un
+\textbf{LLM}, es importante clasificarlos. Aquí hay algunos ejemplos
+típicos de datos que podrías tener en tu maquiladora:
+
+\begin{itemize}
+\item
+  \textbf{Datos numéricos estructurados}: Esto incluye métricas
+  operativas como la producción diaria, tiempos de ciclo, consumo de
+  energía, etc. Estos datos suelen estar organizados en tablas o bases
+  de datos relacionales.
+\item
+  \textbf{Datos de texto no estructurados}: Pueden ser reportes de
+  mantenimiento, descripciones de fallos de máquinas, correos
+  electrónicos internos o retroalimentación de clientes. Estos datos
+  suelen estar en formatos como archivos de texto, correos electrónicos
+  o documentos de Word.
+\item
+  \textbf{Datos de imagen}: En muchas maquiladoras, podrías tener
+  cámaras en las líneas de producción que capturan imágenes de los
+  productos para asegurarse de que cumplan con los estándares de
+  calidad.
+\item
+  \textbf{Datos de sensores y IoT}: Sensores conectados a las máquinas
+  que recopilan información en tiempo real, como la temperatura,
+  vibración o velocidad de operación. Estos datos suelen ser continuos y
+  requieren monitoreo en tiempo real.
+\end{itemize}
+
+\subsection{\texorpdfstring{2. \textbf{¿Dónde Encajan Tus Datos en
+Machine Learning
+(ML)?}}{2. ¿Dónde Encajan Tus Datos en Machine Learning (ML)?}}\label{duxf3nde-encajan-tus-datos-en-machine-learning-ml}
+
+\textbf{Machine Learning} es ideal para trabajar con \textbf{datos
+estructurados y semiestructurados}, y es especialmente útil cuando
+tienes un conjunto claro de variables numéricas o categóricas que deseas
+analizar para obtener predicciones o identificar patrones.
+
+\textbf{Casos de uso en ML} para una maquiladora: - \textbf{Predicción
+de fallos de máquinas}: Si tienes datos históricos sobre fallos de
+máquinas y métricas operativas, puedes usar \textbf{algoritmos
+supervisados} para predecir cuándo una máquina es probable que falle. -
+\textbf{Optimización de la cadena de suministro}: Utilizando datos
+históricos de demanda y producción, puedes entrenar un modelo para hacer
+predicciones sobre la cantidad óptima de inventario que debes mantener.
+
+\textbf{Ejemplos de algoritmos de ML} que puedes utilizar: -
+\textbf{Regresión lineal o logística}: Ideal para predecir variables
+continuas o binarias, como la cantidad de productos defectuosos o si una
+máquina necesita mantenimiento. - \textbf{Árboles de decisión} o
+\textbf{bosques aleatorios}: Utilizados para clasificar datos o hacer
+predicciones complejas basadas en múltiples factores. - \textbf{Redes
+neuronales}: Para problemas más avanzados, como la detección de patrones
+complejos en los datos de sensores.
+
+\subsection{\texorpdfstring{3. \textbf{¿Dónde Encajan Tus Datos en
+Modelos de Lenguaje Extensos
+(LLMs)?}}{3. ¿Dónde Encajan Tus Datos en Modelos de Lenguaje Extensos (LLMs)?}}\label{duxf3nde-encajan-tus-datos-en-modelos-de-lenguaje-extensos-llms}
+
+Por otro lado, si tu maquiladora genera grandes cantidades de
+\textbf{datos no estructurados} como texto, los \textbf{LLMs} son una
+excelente opción. Los modelos de lenguaje como \textbf{GPT} o
+\textbf{Gemini} están diseñados para comprender y generar lenguaje
+humano, lo que los hace perfectos para trabajar con descripciones de
+procesos, reportes de mantenimiento o cualquier otra forma de texto no
+estructurado.
+
+\textbf{Casos de uso en LLMs} para una maquiladora: -
+\textbf{Procesamiento de reportes de mantenimiento}: Puedes entrenar un
+modelo de lenguaje para analizar reportes de fallos de las máquinas y
+extraer información clave, como la causa del fallo o las recomendaciones
+para reparaciones futuras. - \textbf{Asistentes virtuales para consultas
+internas}: Un LLM puede ser entrenado para responder a preguntas comunes
+dentro de la maquila, como ``¿Cuál es la producción promedio de esta
+línea en las últimas semanas?'' o ``¿Cuándo fue el último mantenimiento
+de esta máquina?''.
+
+\textbf{Ventajas de los LLMs}: - \textbf{Manejo de datos complejos y no
+estructurados}: Los LLMs sobresalen en situaciones donde los datos no
+están organizados de forma clara, como en texto libre o documentos. -
+\textbf{Capacidad para comprender el lenguaje natural}: Esto permite una
+interacción más intuitiva entre el sistema y los usuarios, lo que es
+útil para crear sistemas que puedan responder preguntas o generar
+informes automáticamente.
+
+\subsection{\texorpdfstring{4. \textbf{¿Qué Pregunta Debo Hacerme Para
+Saber Dónde Encajan Mis
+Datos?}}{4. ¿Qué Pregunta Debo Hacerme Para Saber Dónde Encajan Mis Datos?}}\label{quuxe9-pregunta-debo-hacerme-para-saber-duxf3nde-encajan-mis-datos}
+
+Para determinar si tus datos deben ir a un modelo de \textbf{ML} o a un
+\textbf{LLM}, considera las siguientes preguntas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{¿Mis datos están estructurados o no estructurados?}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Estructurados}: Si tus datos son numéricos o categóricos y
+    están organizados en tablas, probablemente encajan mejor en un
+    modelo de \textbf{Machine Learning}.
+  \item
+    \textbf{No estructurados}: Si tus datos son principalmente texto,
+    como correos electrónicos o reportes, un \textbf{LLM} sería una
+    mejor opción.
+  \end{itemize}
+\item
+  \textbf{¿Qué quiero hacer con mis datos?}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Predecir resultados numéricos o categorizar}: Si tu objetivo
+    es hacer predicciones sobre datos históricos, como fallos de
+    máquinas o demanda de inventario, \textbf{ML} es la herramienta
+    adecuada.
+  \item
+    \textbf{Interpretar y generar lenguaje}: Si necesitas procesar
+    grandes cantidades de texto o generar respuestas automáticas basadas
+    en texto, los \textbf{LLMs} son lo que necesitas.
+  \end{itemize}
+\item
+  \textbf{¿Mis datos cambian rápidamente con el tiempo?}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Datos estáticos}: Para conjuntos de datos que no cambian
+    frecuentemente, como registros históricos, \textbf{ML} funcionará
+    bien.
+  \item
+    \textbf{Datos dinámicos}: Si tus datos cambian constantemente, como
+    en el caso de texto de correos electrónicos o actualizaciones en
+    tiempo real, los \textbf{LLMs} pueden ser una mejor opción, ya que
+    pueden ajustarse mejor a contextos dinámicos. Aquí tienes una tabla
+    que resume dónde encajan los diferentes tipos de datos de una
+    maquiladora y qué tipo de modelo (Machine Learning o LLM) sería más
+    adecuado para procesarlos:
+  \end{itemize}
+\end{enumerate}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1348}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3858}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1386}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3408}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Tipo de Datos}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Descripción}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Modelo Adecuado}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Ejemplo de Aplicación}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Numéricos estructurados} & Datos organizados en tablas o bases
+de datos, como registros de producción, tiempos de ciclo, etc. &
+\textbf{Machine Learning (ML)} & Predicción de fallos de máquinas,
+optimización de inventario, predicción de demanda \\
+\textbf{Datos categóricos} & Datos que representan categorías, como tipo
+de máquina, turno de trabajo, etc. & \textbf{Machine Learning (ML)} &
+Clasificación de productos defectuosos, análisis de la eficiencia de las
+líneas de producción \\
+\textbf{Datos de texto no estructurado} & Informes de mantenimiento,
+correos electrónicos, retroalimentación de clientes, descripciones de
+fallos & \textbf{Modelos de Lenguaje Extensos (LLM)} & Análisis de
+reportes, respuestas automatizadas, asistente virtual para consultas
+internas \\
+\textbf{Datos de imagen} & Imágenes capturadas en la línea de producción
+para control de calidad & \textbf{Machine Learning (ML)} & Detección de
+defectos en productos mediante visión por computadora \\
+\textbf{Datos de sensores (IoT)} & Datos en tiempo real de sensores en
+máquinas (temperatura, vibración, velocidad, etc.) & \textbf{Machine
+Learning (ML)} & Monitoreo en tiempo real para mantenimiento predictivo
+y optimización de rendimiento \\
+\textbf{Datos dinámicos de texto} & Actualizaciones constantes en
+informes o datos de texto como correos, chats o documentos &
+\textbf{Modelos de Lenguaje Extensos (LLM)} & Resumen de conversaciones,
+análisis de feedback continuo, interpretación de reportes \\
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0576}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2014}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1942}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3309}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2158}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{ID}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Nombre del Dato}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Tipo de Dato}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Aplicación}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Modelo Adecuado}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Producción diaria & Numérico estructurado & Predicción de demanda &
+Machine Learning (ML) \\
+2 & Tiempo de ciclo de máquina & Numérico estructurado & Optimización de
+rendimiento & Machine Learning (ML) \\
+3 & Reportes de mantenimiento & Texto no estructurado & Análisis de
+fallos & Modelos de Lenguaje Extensos (LLM) \\
+4 & Defectos en productos & Datos categóricos & Clasificación de
+productos defectuosos & Machine Learning (ML) \\
+5 & Imágenes de calidad & Imágenes & Detección de defectos en productos
+& Machine Learning (ML) \\
+6 & Datos de temperatura (IoT) & Sensores & Mantenimiento predictivo &
+Machine Learning (ML) \\
+7 & Correos electrónicos & Texto dinámico & Respuesta automatizada para
+consultas & Modelos de Lenguaje Extensos (LLM) \\
+8 & Retroalimentación de clientes & Texto no estructurado & Análisis de
+satisfacción del cliente & Modelos de Lenguaje Extensos (LLM) \\
+\end{longtable}
 
 \bookmarksetup{startatroot}
 
@@ -3514,45 +4237,119 @@ aplicada en la maquiladora, desglosando cada área con mayor detalle y
 proporcionando un listado de tecnologías clave que pueden ser utilizadas
 en cada caso.
 
-\subsection{\texorpdfstring{1. \textbf{Optimización del Proceso de
-Producción}}{1. Optimización del Proceso de Producción}}\label{optimizaciuxf3n-del-proceso-de-producciuxf3n}
+\subsection{1. Optimización del Proceso de
+Producción}\label{optimizaciuxf3n-del-proceso-de-producciuxf3n}
 
-\textbf{Ranking de Adaptación:} - \textbf{Complejidad Técnica: Alto (5)}
-- \textbf{Tiempo de Implementación: Medio (3)} - \textbf{Inversión
-Económica: Alta (5)} - \textbf{Capacitación del Personal: Media (3)} -
-\textbf{Impacto en la Cultura Organizacional: Alto (5)}
+\textbf{Ranking de Adaptación:}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Factor & Valor \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Complejidad Técnica & Alto (5) \\
+Tiempo de Implementación & Medio (3) \\
+Inversión Económica & Alta (5) \\
+Capacitación del Personal & Media (3) \\
+Impacto en la Cultura Organizacional & Alto (5) \\
+\end{longtable}
 
 \textbf{Aplicaciones:}
 
 \textbf{a. Mantenimiento Predictivo:}
 
-El mantenimiento predictivo es uno de los usos más poderosos de la IA en
-la maquila. Aquí, se utilizan sensores y análisis de datos en tiempo
-real para monitorear el estado de las máquinas. La IA analiza estos
-datos y predice cuándo una máquina está a punto de fallar, permitiendo
-al equipo de mantenimiento actuar antes de que ocurra un problema grave.
+El mantenimiento predictivo es una aplicación clave de la IA en la
+industria maquiladora. Permite monitorear el estado de las máquinas en
+tiempo real y predecir fallas antes de que ocurran, lo que se traduce
+en:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Tecnologías Clave:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{Sensores IoT (Internet of Things):} Dispositivos que
-    capturan datos como vibración, temperatura, y ruido de las máquinas.
-  \item
-    \textbf{Plataformas de Machine Learning:} Herramientas como
-    \textbf{TensorFlow}, \textbf{PyTorch}, o \textbf{Azure Machine
-    Learning} que analizan los datos y hacen predicciones sobre el
-    estado de las máquinas.
-  \item
-    \textbf{Software de Mantenimiento Predictivo:} Soluciones como
-    \textbf{IBM Maximo} o \textbf{GE Predix} que integran IA para el
-    análisis de datos en tiempo real y la programación de mantenimiento.
-  \end{itemize}
+  \textbf{Reducción de tiempos de inactividad no planificados:} Evitar
+  paradas inesperadas de la producción aumenta la eficiencia y la
+  productividad.
+\item
+  \textbf{Optimización de los costos de mantenimiento:} Al realizar el
+  mantenimiento solo cuando es necesario, se ahorra en costos de
+  repuestos y mano de obra.
+\item
+  \textbf{Extensión de la vida útil de los equipos:} Detectar y
+  solucionar problemas a tiempo contribuye a prolongar la vida útil de
+  la maquinaria.
 \end{itemize}
+
+\textbf{Tecnologías Clave:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Sensores IoT (Internet of Things):} Estos dispositivos
+  recopilan datos vitales sobre el funcionamiento de las máquinas, como
+  vibración, temperatura, presión, etc.
+\item
+  \textbf{Plataformas de Machine Learning:} Herramientas como
+  TensorFlow, PyTorch o Azure Machine Learning procesan los datos de los
+  sensores y construyen modelos predictivos que identifican patrones y
+  anomalías.
+\item
+  \textbf{Software de Mantenimiento Predictivo:} Soluciones
+  especializadas como IBM Maximo o GE Predix integran la IA para
+  analizar los datos en tiempo real, generar alertas tempranas y
+  programar el mantenimiento de manera proactiva.
+\end{itemize}
+
+\textbf{Tabla Resumen:}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Aplicación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Beneficios
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tecnologías Clave
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Mantenimiento Predictivo & Reducción de tiempos de inactividad,
+optimización de costos de mantenimiento, extensión de la vida útil de
+los equipos & Sensores IoT, plataformas de Machine Learning, software de
+Mantenimiento Predictivo \\
+\end{longtable}
+
+\textbf{Consideraciones Adicionales:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Inversión inicial:} La implementación de un sistema de
+  mantenimiento predictivo requiere una inversión significativa en
+  sensores, software y capacitación del personal.
+\item
+  \textbf{Integración con sistemas existentes:} Es importante asegurar
+  la compatibilidad y la integración fluida con los sistemas de gestión
+  de mantenimiento y producción ya existentes en la empresa.
+\item
+  \textbf{Cultura de datos:} Fomentar una cultura basada en datos es
+  fundamental para aprovechar al máximo el potencial del mantenimiento
+  predictivo y la toma de decisiones informadas.
+\end{itemize}
+
+\textbf{En resumen:} El mantenimiento predictivo, impulsado por la IA,
+ofrece una oportunidad valiosa para las maquiladoras de optimizar sus
+procesos de producción, reducir costos y mejorar la eficiencia. A pesar
+de la inversión inicial y la complejidad técnica, los beneficios a largo
+plazo hacen que esta aplicación sea una consideración estratégica para
+cualquier empresa que busque mantenerse competitiva en el mercado
+actual.
 
 \textbf{b. Control de Calidad Automatizado:}
 
@@ -3613,140 +4410,262 @@ eficiencia.
   \end{itemize}
 \end{itemize}
 
-\subsection{\texorpdfstring{2. \textbf{Gestión de la Cadena de
-Suministro}}{2. Gestión de la Cadena de Suministro}}\label{gestiuxf3n-de-la-cadena-de-suministro}
+\subsection{2. Gestión de la Cadena de
+Suministro}\label{gestiuxf3n-de-la-cadena-de-suministro}
 
-\textbf{Ranking de Adaptación:} - \textbf{Complejidad Técnica: Medio
-(3)} - \textbf{Tiempo de Implementación: Medio (3)} - \textbf{Inversión
-Económica: Media (3)} - \textbf{Capacitación del Personal: Baja (1)} -
-\textbf{Impacto en la Cultura Organizacional: Medio (3)}
+\textbf{Ranking de Adaptación:}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Factor & Valor \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Complejidad Técnica & Medio (3) \\
+Tiempo de Implementación & Medio (3) \\
+Inversión Económica & Media (3) \\
+Capacitación del Personal & Baja (1) \\
+Impacto en la Cultura Organizacional & Medio (3) \\
+\end{longtable}
 
 \textbf{Aplicaciones:}
 
 \textbf{a. Optimización de Inventarios:}
 
-La gestión de inventarios es crítica en la maquila. La IA permite
-optimizar los niveles de inventario al predecir con precisión la demanda
-futura, evitando tanto el exceso como la falta de stock.
+La gestión eficiente de inventarios es crucial en la industria
+maquiladora. La IA permite predecir la demanda futura con mayor
+precisión, lo que ayuda a evitar tanto el exceso de stock (que genera
+costos de almacenamiento) como la falta de stock (que puede provocar
+interrupciones en la producción).
+
+\textbf{Beneficios:}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Tecnologías Clave:}
+  Reducción de costos de almacenamiento
+\item
+  Mejora de la disponibilidad de productos
+\item
+  Mayor eficiencia en la cadena de suministro
+\end{itemize}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{Algoritmos de Predicción:} Algoritmos de \textbf{Regresión
-    Lineal} y \textbf{Redes Neuronales Recurrentes (RNNs)} que predicen
-    la demanda en función de datos históricos.
-  \item
-    \textbf{Plataformas de Gestión de Inventarios:} Herramientas como
-    \textbf{SAP Integrated Business Planning} o \textbf{Oracle SCM
-    Cloud} que integran predicciones de IA en la gestión de inventarios.
-  \item
-    \textbf{Sensores IoT para Inventarios:} Dispositivos que monitorizan
-    en tiempo real los niveles de stock en almacenes.
-  \end{itemize}
+\textbf{Tecnologías Clave:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Algoritmos de Predicción:} Utilizan datos históricos para
+  pronosticar la demanda futura. Ejemplos incluyen Regresión Lineal y
+  Redes Neuronales Recurrentes (RNNs).
+\item
+  \textbf{Plataformas de Gestión de Inventarios:} Integran las
+  predicciones de IA para optimizar los niveles de inventario.
+\item
+  \textbf{Sensores IoT para Inventarios:} Monitorean los niveles de
+  stock en tiempo real para una gestión más precisa.
 \end{itemize}
 
 \textbf{b. Logística Inteligente:}
 
-La logística es otro campo donde la IA puede hacer maravillas. Con
-algoritmos de optimización, la IA puede seleccionar las rutas de
-transporte más eficientes, programar envíos y ajustar las operaciones
-logísticas en tiempo real.
+La IA puede mejorar significativamente la eficiencia de la logística en
+la maquila. Los algoritmos de optimización permiten seleccionar las
+rutas de transporte más eficientes, programar envíos de manera óptima y
+realizar ajustes en tiempo real a las operaciones logísticas.
+
+\textbf{Beneficios:}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Tecnologías Clave:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{Algoritmos de Optimización de Rutas:} Herramientas como
-    \textbf{Google OR-Tools} que encuentran las rutas más rápidas y
-    económicas.
-  \item
-    \textbf{Sistemas de Gestión de Transporte (TMS):} Plataformas como
-    \textbf{Manhattan TMS} o \textbf{JDA TMS} que utilizan IA para
-    optimizar la logística y el transporte.
-  \item
-    \textbf{Plataformas de Análisis Predictivo:} Herramientas como
-    \textbf{SAS Predictive Analytics} que analizan datos históricos y
-    actuales para optimizar las operaciones logísticas.
-  \end{itemize}
+  Reducción de costos de transporte
+\item
+  Mejora de los tiempos de entrega
+\item
+  Mayor agilidad y capacidad de respuesta en la logística
 \end{itemize}
 
-\subsection{\texorpdfstring{3. \textbf{Automatización de Tareas
-Repetitivas}}{3. Automatización de Tareas Repetitivas}}\label{automatizaciuxf3n-de-tareas-repetitivas}
+\textbf{Tecnologías Clave:}
 
-\textbf{Ranking de Adaptación:} - \textbf{Complejidad Técnica: Bajo (1)}
-- \textbf{Tiempo de Implementación: Corto (1)} - \textbf{Inversión
-Económica: Baja (1)} - \textbf{Capacitación del Personal: Baja (1)} -
-\textbf{Impacto en la Cultura Organizacional: Bajo (1)}
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Algoritmos de Optimización de Rutas:} Encuentran las rutas más
+  rápidas y económicas para el transporte de mercancías.
+\item
+  \textbf{Sistemas de Gestión de Transporte (TMS):} Utilizan IA para
+  optimizar la planificación y ejecución del transporte.
+\item
+  \textbf{Plataformas de Análisis Predictivo:} Analizan datos históricos
+  y en tiempo real para anticipar problemas y optimizar las operaciones
+  logísticas.
+\end{itemize}
+
+\textbf{Tabla Resumen}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Aplicación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Beneficios
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tecnologías Clave
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Optimización de Inventarios & Reducción de costos de almacenamiento,
+mejora de la disponibilidad de productos, mayor eficiencia en la cadena
+de suministro & Algoritmos de Predicción, Plataformas de Gestión de
+Inventarios, Sensores IoT para Inventarios \\
+Logística Inteligente & Reducción de costos de transporte, mejora de los
+tiempos de entrega, mayor agilidad y capacidad de respuesta en la
+logística & Algoritmos de Optimización de Rutas, Sistemas de Gestión de
+Transporte (TMS), Plataformas de Análisis Predictivo \\
+\end{longtable}
+
+\textbf{En resumen:} La aplicación de la IA en la gestión de la cadena
+de suministro ofrece a las maquiladoras la oportunidad de optimizar sus
+operaciones, reducir costos y mejorar la eficiencia en áreas clave como
+la gestión de inventarios y la logística. La implementación de estas
+tecnologías puede requerir cierta inversión y adaptación, pero los
+beneficios potenciales son significativos y pueden contribuir a una
+mayor competitividad en el mercado.
+
+\subsection{3. Automatización de Tareas
+Repetitivas}\label{automatizaciuxf3n-de-tareas-repetitivas}
+
+\textbf{Ranking de Adaptación:}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Factor & Valor \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Complejidad Técnica & Bajo (1) \\
+Tiempo de Implementación & Corto (1) \\
+Inversión Económica & Baja (1) \\
+Capacitación del Personal & Baja (1) \\
+Impacto en la Cultura Organizacional & Bajo (1) \\
+\end{longtable}
 
 \textbf{Aplicaciones:}
 
 \textbf{a. Robots Industriales para Ensamblaje:}
 
-Los robots industriales han estado en la maquila desde hace tiempo, pero
-con la IA, estos robots pueden hacer más y mejor. Desde ensamblar
-productos hasta empaquetarlos, los robots pueden hacer tareas
-repetitivas de manera más rápida y con menos errores que los humanos.
+La automatización de tareas repetitivas en la línea de producción es una
+de las aplicaciones más comunes y beneficiosas de la IA en la maquila.
+Los robots industriales, equipados con IA, pueden realizar tareas de
+ensamblaje y empaquetado de manera más rápida, precisa y consistente que
+los humanos, lo que se traduce en:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Tecnologías Clave:}
+  \textbf{Mayor productividad:} Los robots pueden trabajar 24/7 sin
+  cansancio, lo que aumenta la producción.
+\item
+  \textbf{Reducción de errores:} La precisión de los robots minimiza los
+  defectos de producción.
+\item
+  \textbf{Mejora de la seguridad:} Los robots pueden realizar tareas
+  peligrosas o repetitivas que pueden causar lesiones a los
+  trabajadores.
+\end{itemize}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{Robots Colaborativos (Cobots):} Equipos como los de
-    \textbf{Universal Robots} que trabajan junto a los humanos en la
-    línea de producción.
-  \item
-    \textbf{Sistemas de Control de Robots:} Software como \textbf{ABB
-    RobotStudio} o \textbf{Fanuc ROBOGUIDE} que permite programar y
-    controlar robots industriales.
-  \item
-    \textbf{Sensores y Actuadores Inteligentes:} Dispositivos que
-    permiten a los robots adaptarse a diferentes tareas y condiciones de
-    trabajo.
-  \end{itemize}
+\textbf{Tecnologías Clave:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Robots Colaborativos (Cobots):} Son robots diseñados para
+  trabajar de manera segura junto a los humanos, realizando tareas que
+  requieren colaboración.
+\item
+  \textbf{Sistemas de Control de Robots:} Software que permite programar
+  y controlar los movimientos de los robots industriales.
+\item
+  \textbf{Sensores y Actuadores Inteligentes:} Permiten a los robots
+  percibir su entorno y adaptarse a diferentes situaciones.
 \end{itemize}
 
 \textbf{b. Automatización de Procesos Administrativos:}
 
-No todas las aplicaciones de la IA tienen que ver con la producción
-directa. La IA también puede automatizar tareas administrativas
-repetitivas, liberando tiempo para que los empleados se concentren en
-actividades más estratégicas.
+La IA también puede agilizar las tareas administrativas repetitivas,
+liberando a los empleados para que se centren en actividades más
+estratégicas y creativas.
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Tecnologías Clave:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{RPA (Robotic Process Automation):} Herramientas como
-    \textbf{UiPath} o \textbf{Blue Prism} que automatizan tareas
-    administrativas como la entrada de datos y la generación de
-    informes.
-  \item
-    \textbf{Asistentes Virtuales:} Chatbots y asistentes como
-    \textbf{Google Assistant} o \textbf{Microsoft Cortana} que pueden
-    manejar tareas básicas de servicio al cliente y administración.
-  \item
-    \textbf{Software de Gestión Documental:} Plataformas como
-    \textbf{DocuWare} que utilizan IA para automatizar la gestión y
-    clasificación de documentos.
-  \end{itemize}
+  \textbf{Mayor eficiencia:} La automatización reduce el tiempo y los
+  errores en tareas administrativas.
+\item
+  \textbf{Reducción de costos:} Se optimizan los recursos al automatizar
+  tareas manuales.
+\item
+  \textbf{Mejora de la satisfacción de los empleados:} Los empleados
+  pueden dedicarse a tareas más interesantes y desafiantes.
 \end{itemize}
+
+\textbf{Tecnologías Clave:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{RPA (Robotic Process Automation):} Software que imita las
+  acciones humanas para automatizar tareas repetitivas en sistemas
+  informáticos.
+\item
+  \textbf{Asistentes Virtuales:} Chatbots y asistentes de voz que pueden
+  interactuar con los usuarios y realizar tareas básicas.
+\item
+  \textbf{Software de Gestión Documental:} Automatiza la clasificación,
+  almacenamiento y recuperación de documentos.
+\end{itemize}
+
+\textbf{Tabla Resumen:}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Aplicación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Beneficios
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tecnologías Clave
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Robots Industriales para Ensamblaje & Mayor productividad, reducción de
+errores, mejora de la seguridad & Robots Colaborativos (Cobots),
+Sistemas de Control de Robots, Sensores y Actuadores Inteligentes \\
+Automatización de Procesos Administrativos & Mayor eficiencia, reducción
+de costos, mejora de la satisfacción de los empleados & RPA (Robotic
+Process Automation), Asistentes Virtuales, Software de Gestión
+Documental \\
+\end{longtable}
+
+\textbf{En resumen:} La automatización de tareas repetitivas, tanto en
+la producción como en la administración, es una aplicación de la IA con
+un alto potencial de adaptación en la maquila. Su baja complejidad
+técnica, rápida implementación y bajo costo la convierten en una opción
+atractiva para mejorar la eficiencia, reducir costos y liberar a los
+empleados para que se centren en tareas más estratégicas y de mayor
+valor.
 
 \subsection{\texorpdfstring{4. \textbf{Diseño y Desarrollo de
 Productos}}{4. Diseño y Desarrollo de Productos}}\label{diseuxf1o-y-desarrollo-de-productos}
@@ -3814,71 +4733,141 @@ cliente. - \textbf{Plataformas de Análisis de Mercado:} Herramientas
 como \textbf{IBM Watson Marketing} que analizan datos de clientes para
 identificar preferencias y tendencias.
 
-\subsection{\texorpdfstring{5. \textbf{Análisis de Mercado y Servicio al
-Cliente}}{5. Análisis de Mercado y Servicio al Cliente}}\label{anuxe1lisis-de-mercado-y-servicio-al-cliente}
+\subsection{5. Análisis de Mercado y Servicio al
+Cliente}\label{anuxe1lisis-de-mercado-y-servicio-al-cliente}
 
-\textbf{Ranking de Adaptación:} - \textbf{Complejidad Técnica: Bajo (1)}
-- \textbf{Tiempo de Implementación: Corto (1)} - \textbf{Inversión
-Económica: Baja (1)} - \textbf{Capacitación del Personal: Baja (1)} -
-\textbf{Impacto en la Cultura Organizacional: Bajo (1)}
+\textbf{Ranking de Adaptación:}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Factor & Valor \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Complejidad Técnica & Bajo (1) \\
+Tiempo de Implementación & Corto (1) \\
+Inversión Económica & Baja (1) \\
+Capacitación del Personal & Baja (1) \\
+Impacto en la Cultura Organizacional & Bajo (1) \\
+\end{longtable}
 
 \textbf{Aplicaciones:}
 
 \textbf{a. Análisis Predictivo del Mercado:}
 
-La IA permite analizar enormes cantidades de datos de mercado para
-identificar tendencias antes de que se vuelvan obvias. Esto te permite
-ajustar tu producción para satisfacer la demanda emergente.
+La IA ofrece a las maquiladoras la capacidad de analizar grandes
+volúmenes de datos de mercado para identificar tendencias emergentes y
+anticiparse a los cambios en la demanda. Esto permite una toma de
+decisiones más informada y una mejor adaptación a las necesidades del
+mercado.
+
+\textbf{Beneficios:}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Tecnologías Clave:}
+  \textbf{Identificación de oportunidades de mercado:} La IA puede
+  detectar patrones y tendencias que no son evidentes a simple vista.
+\item
+  \textbf{Optimización de la producción:} Ajustar la producción a la
+  demanda prevista evita el exceso o la falta de stock.
+\item
+  \textbf{Mejora de la competitividad:} Anticiparse a las tendencias del
+  mercado permite a las empresas mantenerse a la vanguardia.
+\end{itemize}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{Plataformas de Análisis Predictivo:} Herramientas como
-    \textbf{SAS Predictive Analytics} o \textbf{Microsoft Azure Machine
-    Learning} que permiten prever las tendencias del mercado.
-  \item
-    \textbf{Minería de Datos:} Uso de \textbf{Big Data} y
-    \textbf{Hadoop} para analizar grandes volúmenes de datos y extraer
-    patrones útiles.
-  \item
-    \textbf{Análisis Sentimental:} Herramientas como \textbf{IBM Watson
-    Natural Language Understanding} que analizan el sentimiento del
-    cliente en redes sociales y otros canales.
-  \end{itemize}
+\textbf{Tecnologías Clave:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Plataformas de Análisis Predictivo:} Herramientas que utilizan
+  algoritmos de Machine Learning para analizar datos y generar
+  predicciones.
+\item
+  \textbf{Minería de Datos:} Proceso de extracción de conocimiento útil
+  a partir de grandes volúmenes de datos.
+\item
+  \textbf{Análisis Sentimental:} Evalúa las opiniones y emociones
+  expresadas en redes sociales y otros canales para comprender la
+  percepción del mercado.
 \end{itemize}
 
 \textbf{b. Chatbots y Asistentes Virtuales:}
 
-Los chatbots equipados con IA pueden manejar gran parte de las consultas
-de los clientes, resolviendo problemas simples y liberando al personal
-para manejar asuntos más complejos.
+Los chatbots y asistentes virtuales impulsados por IA pueden mejorar
+significativamente la atención al cliente en la maquila. Al manejar
+consultas básicas y brindar respuestas rápidas, liberan al personal para
+atender asuntos más complejos y personalizados.
+
+\textbf{Beneficios:}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Tecnologías Clave:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{Plataformas de Chatbots:} Herramientas como
-    \textbf{Dialogflow} de Google o \textbf{Microsoft Bot Framework} que
-    permiten crear y gestionar chatbots.
-  \item
-    \textbf{Procesamiento de Lenguaje Natural (NLP):} Tecnologías como
-    \textbf{IBM Watson Assistant} que permiten a los chatbots entender y
-    responder de manera natural.
-  \item
-    \textbf{Integración Multicanal:} Soluciones que permiten a los
-    chatbots interactuar con los clientes a través de múltiples canales
-    como redes sociales, email y mensajería instantánea.
-  \end{itemize}
+  \textbf{Mejora de la eficiencia en la atención al cliente:} Los
+  chatbots pueden atender múltiples consultas simultáneamente, 24/7.
+\item
+  \textbf{Reducción de costos:} Automatizar tareas de atención al
+  cliente reduce la necesidad de personal dedicado.
+\item
+  \textbf{Mayor satisfacción del cliente:} Los clientes reciben
+  respuestas rápidas y precisas a sus preguntas.
 \end{itemize}
+
+\textbf{Tecnologías Clave:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Plataformas de Chatbots:} Herramientas para crear y gestionar
+  chatbots.
+\item
+  \textbf{Procesamiento de Lenguaje Natural (NLP):} Permite a los
+  chatbots entender y responder a las consultas de los clientes en
+  lenguaje natural.
+\item
+  \textbf{Integración Multicanal:} Permite a los chatbots interactuar
+  con los clientes a través de diferentes canales de comunicación.
+\end{itemize}
+
+\textbf{Tabla Resumen}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Aplicación
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Beneficios
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tecnologías Clave
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Análisis Predictivo del Mercado & Identificación de oportunidades de
+mercado, optimización de la producción, mejora de la competitividad &
+Plataformas de Análisis Predictivo, Minería de Datos, Análisis
+Sentimental \\
+Chatbots y Asistentes Virtuales & Mejora de la eficiencia en la atención
+al cliente, reducción de costos, mayor satisfacción del cliente &
+Plataformas de Chatbots, Procesamiento de Lenguaje Natural (NLP),
+Integración Multicanal \\
+\end{longtable}
+
+\textbf{En resumen:} La IA ofrece a las maquiladoras herramientas
+poderosas para analizar el mercado y mejorar la atención al cliente. El
+análisis predictivo del mercado permite anticiparse a las tendencias y
+optimizar la producción, mientras que los chatbots y asistentes
+virtuales mejoran la eficiencia y la satisfacción del cliente. Estas
+aplicaciones, con su baja complejidad técnica y rápida implementación,
+son una opción atractiva para las empresas que buscan mantenerse
+competitivas y ofrecer un servicio al cliente de calidad.
 
 \subsection{Conclusión}\label{conclusiuxf3n-1}
 
@@ -3907,9 +4896,373 @@ en la cima de la industria. ¡A darle con todo, Juárez!
 
 \bookmarksetup{startatroot}
 
-\chapter{Summary}\label{summary}
+\chapter{\texorpdfstring{\textbf{Glosario de Términos Técnicos y
+Expresiones
+Locales}}{Glosario de Términos Técnicos y Expresiones Locales}}\label{glosario-de-tuxe9rminos-tuxe9cnicos-y-expresiones-locales}
 
-In summary, this book has no content whatsoever.
+Este glosario está diseñado para ayudar a los lectores a comprender los
+términos técnicos y las expresiones coloquiales utilizadas a lo largo
+del libro. Incluye tanto conceptos fundamentales de la inteligencia
+artificial como vocabulario local de Ciudad Juárez, con el objetivo de
+hacer el contenido más accesible y comprensible para todos.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{\texorpdfstring{\textbf{Términos
+Técnicos}}{Términos Técnicos}}\label{tuxe9rminos-tuxe9cnicos}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Inteligencia Artificial (IA)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Tecnología que permite a las máquinas realizar
+    tareas que normalmente requieren inteligencia humana, como el
+    reconocimiento de patrones, la toma de decisiones, el aprendizaje y
+    la resolución de problemas.
+  \item
+    \textbf{Posible Confusión}: Algunos lectores pueden asociar la IA
+    solo con robots o procesos futuristas. En este libro, IA se refiere
+    a herramientas prácticas que ya se están utilizando en la industria
+    maquiladora para optimizar la producción y mejorar la eficiencia.
+  \item
+    \textbf{Ejemplo}: ``La IA está transformando la forma en que las
+    maquiladoras operan al automatizar procesos clave.''
+  \end{itemize}
+\item
+  \textbf{IA Simbólica}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Un enfoque de la inteligencia artificial que se
+    basa en representar el conocimiento y tomar decisiones a través de
+    reglas lógicas predefinidas (del tipo ``si-entonces'').
+  \item
+    \textbf{Posible Confusión}: A diferencia del ``Machine Learning'',
+    la IA simbólica no aprende de los datos; sigue estrictamente las
+    reglas que se le han programado.
+  \item
+    \textbf{Ejemplo}: ``En la maquila, la IA simbólica puede ser usada
+    para controlar la temperatura de las máquinas siguiendo reglas
+    claras.''
+  \end{itemize}
+\item
+  \textbf{Machine Learning (Aprendizaje Automático)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Rama de la inteligencia artificial que permite
+    a las máquinas aprender a partir de datos y mejorar su rendimiento
+    sin ser programadas explícitamente para cada tarea.
+  \item
+    \textbf{Posible Confusión}: Los lectores podrían no distinguir
+    claramente entre IA simbólica y Machine Learning. Es importante
+    destacar que mientras la IA simbólica sigue reglas fijas, el Machine
+    Learning ``aprende'' de los datos y ajusta sus comportamientos en
+    consecuencia.
+  \item
+    \textbf{Ejemplo}: ``El Machine Learning se usa en la maquila para
+    predecir cuándo una máquina va a fallar basándose en datos
+    históricos.''
+  \end{itemize}
+\item
+  \textbf{Razonamiento Automatizado}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: La capacidad de una IA para tomar decisiones o
+    resolver problemas complejos siguiendo las reglas y el conocimiento
+    almacenado en su base de datos.
+  \item
+    \textbf{Posible Confusión}: Algunos pueden pensar que la IA
+    ``razona'' de manera humana. En realidad, su razonamiento es lógico
+    y basado en datos, no emocional o intuitivo.
+  \item
+    \textbf{Ejemplo}: ``El razonamiento automatizado permite que la IA
+    en la maquila determine cuándo una máquina necesita mantenimiento.''
+  \end{itemize}
+\item
+  \textbf{Procesamiento del Lenguaje Natural (NLP)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Tecnología que permite a las máquinas
+    comprender, interpretar y generar lenguaje humano, facilitando la
+    interacción entre humanos y computadoras mediante el habla o el
+    texto.
+  \item
+    \textbf{Posible Confusión}: Puede haber confusión sobre la capacidad
+    de las máquinas para ``entender'' realmente el lenguaje humano. Es
+    importante aclarar que las máquinas procesan patrones y palabras,
+    pero no comprenden como un humano lo haría.
+  \item
+    \textbf{Ejemplo}: ``El procesamiento del lenguaje natural permite
+    que una máquina interprete las órdenes de voz que le da un operador
+    en la planta.''
+  \end{itemize}
+\item
+  \textbf{Visión por Computadora}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Tecnología que permite a las máquinas analizar
+    y ``ver'' imágenes o videos, identificando patrones, objetos o
+    personas.
+  \item
+    \textbf{Posible Confusión}: Algunos podrían confundir esta
+    tecnología con simples cámaras de vigilancia. Sin embargo, la visión
+    por computadora implica análisis avanzado de las imágenes para tomar
+    decisiones.
+  \item
+    \textbf{Ejemplo}: ``La visión por computadora puede detectar
+    defectos en productos ensamblados en la maquila en tiempo real.''
+  \end{itemize}
+\item
+  \textbf{Sistemas Multiagente}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Conjunto de inteligencias artificiales que
+    trabajan en conjunto, colaborando o compitiendo entre sí para
+    resolver problemas complejos.
+  \item
+    \textbf{Posible Confusión}: Puede resultar confuso si el lector no
+    está familiarizado con el concepto de ``agentes''. Aquí se refiere a
+    unidades individuales de IA que interactúan para completar tareas
+    más grandes.
+  \item
+    \textbf{Ejemplo}: ``En una maquila, los sistemas multiagente pueden
+    gestionar el flujo de trabajo entre robots y humanos para optimizar
+    la producción.''
+  \end{itemize}
+\item
+  \textbf{Automatización}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Uso de tecnología, como la IA, para realizar
+    tareas con poca o ninguna intervención humana.
+  \item
+    \textbf{Posible Confusión}: Algunas personas pueden asociar la
+    automatización solo con la robótica física. Aquí también incluye
+    procesos digitales y la toma de decisiones en la planta.
+  \item
+    \textbf{Ejemplo}: ``La automatización ha permitido que las líneas de
+    producción en Juárez operen sin interrupciones.''
+  \end{itemize}
+\item
+  \textbf{Optimización}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Proceso en el que la IA busca la mejor solución
+    entre un conjunto de opciones, ajustando variables para obtener el
+    máximo rendimiento o eficiencia.
+  \item
+    \textbf{Posible Confusión}: Puede confundirse con simplemente
+    ``mejorar''. Optimización implica encontrar la mejor solución
+    posible dentro de un contexto específico.
+  \item
+    \textbf{Ejemplo}: ``La IA optimiza el uso de energía en la planta
+    ajustando los tiempos de operación de las máquinas.''
+  \end{itemize}
+\item
+  \textbf{Mantenimiento Predictivo}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Uso de datos y tecnologías como el Machine
+    Learning para predecir fallos en maquinaria o equipos antes de que
+    ocurran.
+  \item
+    \textbf{Posible Confusión}: Puede confundirse con mantenimiento
+    preventivo. La diferencia es que el mantenimiento predictivo se basa
+    en datos y predicciones, no solo en un calendario fijo.
+  \item
+    \textbf{Ejemplo}: ``El mantenimiento predictivo evita que las
+    máquinas se detengan inesperadamente, ahorrando tiempo y dinero.''
+  \end{itemize}
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{\textbf{Expresiones Locales y
+Coloquiales}}{Expresiones Locales y Coloquiales}}\label{expresiones-locales-y-coloquiales}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Rifar}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Esforzarse mucho o hacer las cosas bien. En el
+    contexto de este libro, se refiere a trabajar duro en la
+    maquiladora.
+  \item
+    \textbf{Posible Confusión}: Para lectores de fuera de México, esta
+    expresión puede no tener un significado claro.
+  \item
+    \textbf{Ejemplo}: ``Los empleados de la maquila se rifan todos los
+    días para cumplir con los objetivos de producción.''
+  \end{itemize}
+\item
+  \textbf{Compa}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Término coloquial para referirse a un amigo o
+    compañero. Es común en Ciudad Juárez y otras partes de México.
+  \item
+    \textbf{Posible Confusión}: Algunos lectores podrían no estar
+    familiarizados con el término y podrían malinterpretar su uso.
+  \item
+    \textbf{Ejemplo}: ``Este libro está escrito como si estuvieras
+    platicando con un compa que sabe del tema.''
+  \end{itemize}
+\item
+  \textbf{Chido}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Expresión coloquial mexicana que significa
+    ``bueno'' o ``genial''.
+  \item
+    \textbf{Posible Confusión}: Si el lector no es mexicano, puede no
+    entender el significado de ``chido''.
+  \item
+    \textbf{Ejemplo}: ``La ubicación de Ciudad Juárez es chida para las
+    empresas maquiladoras debido a su cercanía con Estados Unidos.''
+  \end{itemize}
+\item
+  \textbf{Broncas}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Problemas o dificultades.
+  \item
+    \textbf{Posible Confusión}: Algunos lectores podrían no estar
+    familiarizados con esta expresión.
+  \item
+    \textbf{Ejemplo}: ``A pesar de las broncas con el crecimiento
+    descontrolado, la maquila sigue siendo el motor económico de la
+    ciudad.''
+  \end{itemize}
+\item
+  \textbf{Chamba}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Término coloquial para referirse al trabajo o
+    empleo.
+  \item
+    \textbf{Posible Confusión}: Lectores de fuera de México pueden no
+    saber que significa ``chamba''.
+  \item
+    \textbf{Ejemplo}: ``La maquiladora sigue generando mucha chamba en
+    la región, especialmente para las mujeres.''
+  \end{itemize}
+\item
+  \textbf{Relajo}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: En este contexto, puede significar tanto
+    diversión como caos o desorden.
+  \item
+    \textbf{Posible Confusión}: ``Relajo'' puede interpretarse como algo
+    positivo (diversión) o negativo (caos), según el contexto.
+  \item
+    \textbf{Ejemplo}: ``Los soldados venían a Juárez a tirar relajo, lo
+    que impulsó la economía local por un tiempo.''
+  \end{itemize}
+\item
+  \textbf{Mancha de aceite}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Expresión utilizada para describir un
+    crecimiento desordenado y rápido, generalmente en el contexto
+    urbano.
+  \item
+    \textbf{Posible Confusión}: Podría ser una metáfora difícil de
+    entender para lectores internacionales.
+  \item
+    \textbf{Ejemplo}: ``La ciudad creció como mancha de aceite, con
+    colonias surgiendo sin planificación adecuada.''
+  \end{itemize}
+\item
+  \textbf{Sacar de onda}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Expresión que significa ``confundir'' o
+    ``desconcertar'' a alguien.
+  \item
+    \textbf{Posible Confusión}: Lectores de fuera de México podrían no
+    entender esta expresión
+  \end{itemize}
+\end{enumerate}
+
+. - \textbf{Ejemplo}: ``No te saques de onda si ves términos juarenses
+en el libro, es parte de nuestra identidad.''
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  \textbf{Andar al tiro}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Estar atento o preparado.
+  \item
+    \textbf{Posible Confusión}: La expresión no es universalmente
+    conocida, pero es común en México.
+  \item
+    \textbf{Ejemplo}: ``Es necesario andar al tiro porque las
+    tecnologías de IA avanzan rápidamente.''
+  \end{itemize}
+\item
+  \textbf{Morra(s)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Definición}: Término coloquial para referirse a una mujer o
+    mujeres jóvenes.
+  \item
+    \textbf{Posible Confusión}: Puede que no sea un término conocido por
+    todos los lectores.
+  \item
+    \textbf{Ejemplo}: ``En los setentas, muchas morras encontraron
+    trabajo en las maquilas de Juárez.''
+  \end{itemize}
+\end{enumerate}
 
 \bookmarksetup{startatroot}
 

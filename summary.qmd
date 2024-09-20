@@ -1,3 +1,113 @@
-# Summary
+# **Glosario de Términos Técnicos y Expresiones Locales**
 
-In summary, this book has no content whatsoever.
+Este glosario está diseñado para ayudar a los lectores a comprender los términos técnicos y las expresiones coloquiales utilizadas a lo largo del libro. Incluye tanto conceptos fundamentales de la inteligencia artificial como vocabulario local de Ciudad Juárez, con el objetivo de hacer el contenido más accesible y comprensible para todos.
+
+---
+
+## **Términos Técnicos**
+
+1. **Inteligencia Artificial (IA)**:
+   - **Definición**: Tecnología que permite a las máquinas realizar tareas que normalmente requieren inteligencia humana, como el reconocimiento de patrones, la toma de decisiones, el aprendizaje y la resolución de problemas.
+   - **Posible Confusión**: Algunos lectores pueden asociar la IA solo con robots o procesos futuristas. En este libro, IA se refiere a herramientas prácticas que ya se están utilizando en la industria maquiladora para optimizar la producción y mejorar la eficiencia.
+   - **Ejemplo**: "La IA está transformando la forma en que las maquiladoras operan al automatizar procesos clave."
+
+2. **IA Simbólica**:
+   - **Definición**: Un enfoque de la inteligencia artificial que se basa en representar el conocimiento y tomar decisiones a través de reglas lógicas predefinidas (del tipo "si-entonces").
+   - **Posible Confusión**: A diferencia del "Machine Learning", la IA simbólica no aprende de los datos; sigue estrictamente las reglas que se le han programado.
+   - **Ejemplo**: "En la maquila, la IA simbólica puede ser usada para controlar la temperatura de las máquinas siguiendo reglas claras."
+
+3. **Machine Learning (Aprendizaje Automático)**:
+   - **Definición**: Rama de la inteligencia artificial que permite a las máquinas aprender a partir de datos y mejorar su rendimiento sin ser programadas explícitamente para cada tarea.
+   - **Posible Confusión**: Los lectores podrían no distinguir claramente entre IA simbólica y Machine Learning. Es importante destacar que mientras la IA simbólica sigue reglas fijas, el Machine Learning "aprende" de los datos y ajusta sus comportamientos en consecuencia.
+   - **Ejemplo**: "El Machine Learning se usa en la maquila para predecir cuándo una máquina va a fallar basándose en datos históricos."
+
+4. **Razonamiento Automatizado**:
+   - **Definición**: La capacidad de una IA para tomar decisiones o resolver problemas complejos siguiendo las reglas y el conocimiento almacenado en su base de datos.
+   - **Posible Confusión**: Algunos pueden pensar que la IA "razona" de manera humana. En realidad, su razonamiento es lógico y basado en datos, no emocional o intuitivo.
+   - **Ejemplo**: "El razonamiento automatizado permite que la IA en la maquila determine cuándo una máquina necesita mantenimiento."
+
+5. **Procesamiento del Lenguaje Natural (NLP)**:
+   - **Definición**: Tecnología que permite a las máquinas comprender, interpretar y generar lenguaje humano, facilitando la interacción entre humanos y computadoras mediante el habla o el texto.
+   - **Posible Confusión**: Puede haber confusión sobre la capacidad de las máquinas para "entender" realmente el lenguaje humano. Es importante aclarar que las máquinas procesan patrones y palabras, pero no comprenden como un humano lo haría.
+   - **Ejemplo**: "El procesamiento del lenguaje natural permite que una máquina interprete las órdenes de voz que le da un operador en la planta."
+
+6. **Visión por Computadora**:
+   - **Definición**: Tecnología que permite a las máquinas analizar y "ver" imágenes o videos, identificando patrones, objetos o personas.
+   - **Posible Confusión**: Algunos podrían confundir esta tecnología con simples cámaras de vigilancia. Sin embargo, la visión por computadora implica análisis avanzado de las imágenes para tomar decisiones.
+   - **Ejemplo**: "La visión por computadora puede detectar defectos en productos ensamblados en la maquila en tiempo real."
+
+7. **Sistemas Multiagente**:
+   - **Definición**: Conjunto de inteligencias artificiales que trabajan en conjunto, colaborando o compitiendo entre sí para resolver problemas complejos.
+   - **Posible Confusión**: Puede resultar confuso si el lector no está familiarizado con el concepto de "agentes". Aquí se refiere a unidades individuales de IA que interactúan para completar tareas más grandes.
+   - **Ejemplo**: "En una maquila, los sistemas multiagente pueden gestionar el flujo de trabajo entre robots y humanos para optimizar la producción."
+
+8. **Automatización**:
+   - **Definición**: Uso de tecnología, como la IA, para realizar tareas con poca o ninguna intervención humana.
+   - **Posible Confusión**: Algunas personas pueden asociar la automatización solo con la robótica física. Aquí también incluye procesos digitales y la toma de decisiones en la planta.
+   - **Ejemplo**: "La automatización ha permitido que las líneas de producción en Juárez operen sin interrupciones."
+
+9. **Optimización**:
+   - **Definición**: Proceso en el que la IA busca la mejor solución entre un conjunto de opciones, ajustando variables para obtener el máximo rendimiento o eficiencia.
+   - **Posible Confusión**: Puede confundirse con simplemente "mejorar". Optimización implica encontrar la mejor solución posible dentro de un contexto específico.
+   - **Ejemplo**: "La IA optimiza el uso de energía en la planta ajustando los tiempos de operación de las máquinas."
+
+10. **Mantenimiento Predictivo**:
+    - **Definición**: Uso de datos y tecnologías como el Machine Learning para predecir fallos en maquinaria o equipos antes de que ocurran.
+    - **Posible Confusión**: Puede confundirse con mantenimiento preventivo. La diferencia es que el mantenimiento predictivo se basa en datos y predicciones, no solo en un calendario fijo.
+    - **Ejemplo**: "El mantenimiento predictivo evita que las máquinas se detengan inesperadamente, ahorrando tiempo y dinero."
+
+---
+
+### **Expresiones Locales y Coloquiales**
+
+1. **Rifar**:
+   - **Definición**: Esforzarse mucho o hacer las cosas bien. En el contexto de este libro, se refiere a trabajar duro en la maquiladora.
+   - **Posible Confusión**: Para lectores de fuera de México, esta expresión puede no tener un significado claro.
+   - **Ejemplo**: "Los empleados de la maquila se rifan todos los días para cumplir con los objetivos de producción."
+
+2. **Compa**:
+   - **Definición**: Término coloquial para referirse a un amigo o compañero. Es común en Ciudad Juárez y otras partes de México.
+   - **Posible Confusión**: Algunos lectores podrían no estar familiarizados con el término y podrían malinterpretar su uso.
+   - **Ejemplo**: "Este libro está escrito como si estuvieras platicando con un compa que sabe del tema."
+
+3. **Chido**:
+   - **Definición**: Expresión coloquial mexicana que significa "bueno" o "genial".
+   - **Posible Confusión**: Si el lector no es mexicano, puede no entender el significado de "chido".
+   - **Ejemplo**: "La ubicación de Ciudad Juárez es chida para las empresas maquiladoras debido a su cercanía con Estados Unidos."
+
+4. **Broncas**:
+   - **Definición**: Problemas o dificultades.
+   - **Posible Confusión**: Algunos lectores podrían no estar familiarizados con esta expresión.
+   - **Ejemplo**: "A pesar de las broncas con el crecimiento descontrolado, la maquila sigue siendo el motor económico de la ciudad."
+
+5. **Jale**:
+   - **Definición**: Término coloquial para referirse al trabajo o empleo.
+   - **Posible Confusión**: Lectores de fuera de México pueden no saber que significa "Jale".
+   - **Ejemplo**: "La maquiladora sigue generando mucha Jale en la región, especialmente para las mujeres."
+
+6. **Relajo**:
+   - **Definición**: En este contexto, puede significar tanto diversión como caos o desorden.
+   - **Posible Confusión**: "Relajo" puede interpretarse como algo positivo (diversión) o negativo (caos), según el contexto.
+   - **Ejemplo**: "Los soldados venían a Juárez a tirar relajo, lo que impulsó la economía local por un tiempo."
+
+7. **Mancha de aceite**:
+   - **Definición**: Expresión utilizada para describir un crecimiento desordenado y rápido, generalmente en el contexto urbano.
+   - **Posible Confusión**: Podría ser una metáfora difícil de entender para lectores internacionales.
+   - **Ejemplo**: "La ciudad creció como mancha de aceite, con colonias surgiendo sin planificación adecuada."
+
+8. **Sacar de onda**:
+   - **Definición**: Expresión que significa "confundir" o "desconcertar" a alguien.
+   - **Posible Confusión**: Lectores de fuera de México podrían no entender esta expresión
+
+.
+   - **Ejemplo**: "No te saques de onda si ves términos juarenses en el libro, es parte de nuestra identidad."
+
+9. **Andar al tiro**:
+   - **Definición**: Estar atento o preparado.
+   - **Posible Confusión**: La expresión no es universalmente conocida, pero es común en México.
+   - **Ejemplo**: "Es necesario andar al tiro porque las tecnologías de IA avanzan rápidamente."
+
+10. **Morra(s)**:
+    - **Definición**: Término coloquial para referirse a una mujer o mujeres jóvenes.
+    - **Posible Confusión**: Puede que no sea un término conocido por todos los lectores.
+    - **Ejemplo**: "En los setentas, muchas morras encontraron trabajo en las maquilas de Juárez."

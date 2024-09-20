@@ -36,61 +36,75 @@ book:
     - references.qmd
 bibliography: references.bib
 
-format: 
+# Formatos de Salida
+format:
+  bookup-html:
+    toc: true
+  epub: 
+    toc: true
+    toc-depth: 2
+    fontsize: 1rem
+    linkcolor: highlight
+    urlcolor: highlight
   pdf:
-      toc: true
-      toc-depth: 2
-      colorlinks: true
-      documentclass: book
-      linkcolor: highlight
-      urlcolor: highlight
-      latex-output-dir: _book
-      fontsize: 10pt
-      geometry: [a5paper, top=2.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm]
-      
-      header-includes:
-        - |
-          % Cargar fuentes y paquetes de estilo
-          \usepackage{fontspec}
-          \setmainfont{IBM Plex Serif}          % Fuente principal para el texto del libro
-          \setsansfont{IBM Plex Sans}           % Fuente sans-serif para los títulos
-          \setmonofont{IBM Plex Mono}           % Fuente para código
-          \usepackage{xcolor}
-          \definecolor{highlight}{RGB}{29, 120, 200} % Color para enlaces
+    toc: true
+    toc-depth: 2
+    colorlinks: true
+    documentclass: book
+    linkcolor: highlight
+    urlcolor: highlight
+    latex-output-dir: _book
+    fontsize: 10pt
+    geometry: [a5paper, top=2.5cm, bottom=1cm, left=1cm, right=1cm]
 
-          % Paquete para soporte de idiomas
-          \usepackage{polyglossia}
-          \setmainlanguage{spanish}  % Define español como idioma principal
-          \usepackage{microtype}      % Mejorar la legibilidad
+    # Encabezados y pies de página elegantes
+    header-includes:
+      - |
+        % Cargar fuentes y paquetes de estilo
+        \usepackage{fontspec}
+        \setmainfont{IBM Plex Serif}          % Fuente principal para el texto del libro
+        \setsansfont{IBM Plex Sans}           % Fuente sans-serif para los títulos
+        \setmonofont{IBM Plex Mono}           % Fuente para código
+        \usepackage{xcolor}
+        \definecolor{highlight}{RGB}{29, 120, 200} % Definir color de enlace "highlight"
 
-          % Paquete para la personalización del título
-          \usepackage{titling}
+        % Paquetes para tablas responsivas
+        \usepackage{graphicx}    % Para \resizebox
+        \usepackage{tabularx}    % Para tablas de ancho adaptable
 
-          % Encabezados y pies de página elegantes
-          \usepackage{fancyhdr}
-          \pagestyle{fancy}
-          \fancyhf{}
-          \fancyhead[LE,RO]{\thepage}  % Número de página en las esquinas
-          \fancyhead[RE]{\nouppercase{\leftmark}}  % Nombre del capítulo
-          \fancyhead[LO]{\nouppercase{\rightmark}} % Nombre de la sección
-          \fancyfoot[C]{\thepage}
+        % Paquete para soporte de idiomas
+        \usepackage{polyglossia}
+        \setmainlanguage{spanish}  % Define español como idioma principal
+        \usepackage{microtype}      % Mejorar la legibilidad
 
-      footer-includes:
-        - |
-          \fancyfoot[C]{\thepage}
+        % Paquete para la personalización del título
+        \usepackage{titling}
 
-      include-before:
-        - |
-          % Página de título con estilo moderno
-          \pretitle{\begin{center}\Huge\sffamily\bfseries}
-          \posttitle{\end{center}}
-          \preauthor{\begin{center}\large\sffamily}
-          \postauthor{\end{center}}
-          \predate{\begin{center}\large}
-          \postdate{\end{center}\vspace{2cm}}
-          \maketitle
+        % Configuración de encabezados y pies de página
+        \usepackage{fancyhdr}
+        \pagestyle{fancy}
+        \fancyhf{}
+        \fancyhead[LE,RO]{\thepage}  % Número de página en las esquinas
+        \fancyhead[RE]{\nouppercase{\leftmark}}  % Nombre del capítulo
+        \fancyhead[LO]{\nouppercase{\rightmark}} % Nombre de la sección
+        \fancyfoot[C]{\thepage}
 
-      include-after:
-        - |
-          \backmatter
-          \printbibliography
+    footer-includes:
+      - |
+        \fancyfoot[C]{\thepage}
+
+    include-before:
+      - |
+        % Página de título con estilo moderno
+        \begin{titlepage}
+        \centering
+        \vspace*{5cm} % Espacio en blanco antes del título
+        {\Huge \textbf{iabookMaquiloca}}\\[1cm]
+        {\Large Javier Flores}\\[2cm]
+        {\large \today}\\[5cm]
+        \end{titlepage}
+
+    include-after:
+      - |
+        \backmatter
+        \printbibliography

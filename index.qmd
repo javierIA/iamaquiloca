@@ -1,4 +1,4 @@
-# Preface El Futuro se Escribe en la Frontera {.unnumbered}
+# Impacto de la Inteligencia Artificial {.unnumbered}
 
 ## Introducción {-}
 
@@ -20,11 +20,24 @@ Al equipo del IACenter, especialmente a Eduardo Castillo y Joam Ricon, por su ap
 
 ## Público Objetivo {-}
 
-Este libro está dirigido a dos grandes grupos: los que están al mando en la industria maquiladora de Ciudad Juárez, como los gerentes y administradores, y también a los estudiantes que están empezando a meterse en este mundo. ¿Por qué? Pues porque aquí vas a encontrar la mezcla perfecta entre lo que necesitas saber para mantener tu maquila en la cima y una introducción a los conceptos que están revolucionando la industria, pero sin entrar en tanto rollo técnico.
+Este libro está pensado para tres grandes grupos: los **líderes de la industria maquiladora**, los **estudiantes** que se están adentrando en el mundo de la manufactura, y los **trabajadores de la maquila** que viven día a día en las líneas de producción. Aunque cada grupo tiene un enfoque distinto, todos comparten un interés en entender cómo la inteligencia artificial está cambiando la maquila y cómo esto impacta sus vidas y carreras.
 
-Para los jefes y líderes, este libro es una guía para entender cómo la inteligencia artificial y otras tecnologías están cambiando el juego, con estrategias claras para que sigan rifando en un mercado cada vez más competitivo. Pero también es un recurso para los estudiantes, aquellos que quieren saber de qué va la cosa sin perderse en detalles demasiado técnicos. Verán cómo la IA se está aplicando en la maquila, pero de una manera que podrán digerir fácil.
+#### 1. Para los líderes de la maquila:
+Si estás a cargo de una maquiladora o tienes un puesto de liderazgo, aquí vas a encontrar las estrategias que necesitas para **mantener tu maquila al frente de la competencia**. Este libro te va a guiar para entender no solo **cómo aplicar la IA** en tus procesos, sino también cómo **preparar a tu equipo** para los cambios que vienen. La clave está en saber **qué decisiones tomar** para que tu maquila siga siendo eficiente, rentable y competitiva en el mercado global.
 
-Eso sí, hay que estar al tiro, porque la inteligencia artificial se mueve rapidísimo. Hoy estamos hablando de cómo implementar ciertas tecnologías, pero no se sorprendan si en seis meses hay una forma mucho más fácil de hacerlo, especialmente para las empresas pequeñas que apenas empiezan a montarse en la ola digital. Este libro te da las bases, pero la realidad es que el juego cambia constantemente, y estar al tanto de las nuevas herramientas será clave para mantenerse en la jugada.
+Te vas a topar con temas como la automatización, el Machine Learning, y **cómo usar la IA para reducir costos y mejorar la producción**, pero siempre aterrizados a la realidad de las maquiladoras de Ciudad Juárez. No se trata de meter pura tecnología por meter, sino de **hacer más con menos** y **sacar el mejor provecho de lo que ya tienes**. Este libro es tu guía para no quedarte atrás en esta nueva revolución tecnológica.
+
+#### 2. Para los estudiantes:
+Si apenas te estás metiendo al mundo de la manufactura o te interesa entender más sobre la **inteligencia artificial**, este libro te explica lo básico de manera sencilla, sin tanta vuelta técnica. Aquí aprenderás **cómo la IA está siendo usada** en las maquilas de Juárez y **cómo va a cambiar las cosas** en el futuro cercano. Desde los **fundamentos de la IA** hasta ejemplos prácticos en las fábricas, vas a ver **cómo se conectan la teoría y la práctica**.
+
+Este libro está pensado para que, aunque no seas un experto en tecnología, **entiendas lo suficiente** como para empezar a pensar en **cómo la IA puede mejorar los procesos** y hasta cómo te puede ayudar en tu carrera. La tecnología avanza rápido, y este libro es tu chance de **ponerte al tiro** y estar listo para aprovechar las oportunidades que vienen.
+
+#### 3. Para los trabajadores de la maquila:
+Este libro también es para ti, **compa de la línea**. Si eres de los que todos los días le entra duro al trabajo en la maquila, este libro te va a ayudar a entender **qué onda con la IA** y cómo va a cambiar las cosas en tu jale. No te asustes, que no todo se trata de robots quitando empleos. Al contrario, lo que la IA puede hacer es **quitarte esas tareas repetitivas y pesadas**, para que te enfoques en cosas más interesantes y creativas.
+
+Te voy a explicar **sin tanto rollo técnico** cómo están usando ya la inteligencia artificial en las fábricas para mejorar la producción y **hacer las cosas más fáciles** para todos. Desde los **robots que trabajan a tu lado**, hasta las máquinas que aprenden de los errores y **evitan problemas antes de que pasen**, la IA es una herramienta que **puede ayudarte a hacer mejor tu trabajo y de manera más segura**.
+
+La idea es que no sientas que la tecnología viene a complicarte la vida, sino que entiendas **cómo puedes aprovecharla para que la jala sea menos pesada y más eficiente**. Así que si te late saber **cómo está cambiando la maquila** y qué puedes esperar en los próximos años, este libro es para ti.
 
 ### Por Qué Escribo Así: Términos Juarenses en Este Libro {-}
 
