@@ -162,7 +162,15 @@ En este flujo, cada decisión está basada en una condición clara que lleva a u
     * Condición 2: ¿El stock es menor a 10?
         * Sí: Generar orden de compra automáticamente.
         * No: Mantener el inventario.
-
+```{mermaid}
+flowchart TD
+    A[Inicio: El sistema monitorea la temperatura] --> B{¿Temperatura > 80°C?}
+    B -->|Sí| C[Detener la máquina y enviar alerta (Acción A)]
+    B -->|No| D[Continuar monitoreando (Acción B)]
+    D --> E{¿Nivel de stock < 100 unidades?}
+    E -->|Sí| F[Generar orden de compra automáticamente (Acción C)]
+    E -->|No| G[Seguir con el proceso de producción (Acción D)]
+```
 **Referencia:**
 
 * **Russell, S. J., & Norvig, P. (2020). *Artificial Intelligence: A Modern Approach (4th ed.)*. Pearson.** Este libro es una referencia clásica en el campo de la Inteligencia Artificial y proporciona una base sólida para comprender los diferentes enfoques, incluyendo la IA simbólica. 

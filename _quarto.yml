@@ -27,8 +27,8 @@ book:
     - intro.qmd
     - 01-fundamentos.qmd
     - 02-industria-maquiladora.qmd
-    - 03-casos-estudio.qmd
-    - 04-aplicaciones-ia.qmd
+    - 03-aplicaciones-ia.qmd
+    - 04-empresa-lista.qmd
     - 05-impacto-economico.qmd
     - 06-futuro-ia.qmd
     - 07-conclusiones-recomendaciones.qmd
@@ -71,6 +71,7 @@ format:
         % Paquetes para tablas responsivas
         \usepackage{graphicx}    % Para \resizebox
         \usepackage{tabularx}    % Para tablas de ancho adaptable
+        \usepackage[raggedrightboxes]{ragged2e}
 
         % Paquete para soporte de idiomas
         \usepackage{polyglossia}

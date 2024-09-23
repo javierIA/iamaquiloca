@@ -10,6 +10,12 @@ Pero este libro no es solo sobre tecnología. Es sobre las personas que dan vida
 
 Y es, sobre todo, un homenaje a Ciudad Juárez, mi ciudad, esa tierra indomable que siempre ha sabido reinventarse frente a la adversidad. Que este libro sea un testimonio de su espíritu innovador, de su capacidad para abrazar el cambio y forjar un futuro más próspero para todos.
 
+## Objetivo General
+
+El objetivo de este libro es mostrar cómo la inteligencia artificial (IA) está transformando la industria maquiladora en Ciudad Juárez, explicando de forma clara y accesible cómo esta tecnología puede mejorar la productividad, la eficiencia y las condiciones laborales. Está dirigido tanto a los líderes que buscan implementar IA en sus fábricas, a los estudiantes que quieren entender las nuevas tendencias tecnológicas, y a los trabajadores de la maquila, para que vean cómo la IA puede hacer sus vidas más fáciles sin temor a perder su trabajo. 
+
+A través de ejemplos prácticos, casos reales y una explicación sencilla, este libro pretende ser una guía para que Ciudad Juárez siga siendo competitiva en el mercado global, mientras empodera a las personas que día a día hacen posible el funcionamiento de las maquilas.
+
 ## Dedicatoria {-}
 
 A Ciudad Juárez, mi hogar, mi inspiración. A su gente trabajadora y resiliente, que día a día construye un futuro mejor. Y a la memoria de mi novia Alejandra Mendez, quien siempre creyó en mí y en el potencial de esta ciudad.
