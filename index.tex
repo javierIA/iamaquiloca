@@ -44,28 +44,14 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
-\makeatletter
 \ifx\paragraph\undefined\else
   \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}{
-    \@ifstar
-      \xxxParagraphStar
-      \xxxParagraphNoStar
-  }
-  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
-  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
 \fi
 \ifx\subparagraph\undefined\else
   \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}{
-    \@ifstar
-      \xxxSubParagraphStar
-      \xxxSubParagraphNoStar
-  }
-  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
-  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
-\makeatother
 
 
 \providecommand{\tightlist}{%
@@ -128,21 +114,33 @@
 
 % Cargar fuentes y paquetes de estilo
 \usepackage{fontspec}
-\setmainfont{IBM Plex Serif}          % Fuente principal para el texto del libro
-\setsansfont{IBM Plex Sans}           % Fuente sans-serif para los títulos
-\setmonofont{IBM Plex Mono}           % Fuente para código
+\usepackage{emoji}
+\setmainfont{EB Garamond}        
 \usepackage{xcolor}
-\definecolor{highlight}{RGB}{29, 120, 200} % Definir color de enlace "highlight"
+\definecolor{highlight}{RGB}{29, 120, 200} 
 
 % Paquetes para tablas responsivas
-\usepackage{graphicx}    % Para \resizebox
-\usepackage{tabularx}    % Para tablas de ancho adaptable
-\usepackage[raggedrightboxes]{ragged2e}
+\usepackage{graphicx}     % Para \resizebox
+\usepackage{tabularx}     % Para tablas de ancho adaptable
+\usepackage[raggedrightboxes]{ragged2e} 
 
 % Paquete para soporte de idiomas
 \usepackage{polyglossia}
-\setmainlanguage{spanish}  % Define español como idioma principal
-\usepackage{microtype}      % Mejorar la legibilidad
+\setmainlanguage{spanish} 
+
+% Microtipografía avanzada
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+
+\widowpenalty=10000
+\clubpenalty=10000
+
+% Control de ríos (ligeramente ragged right)
+\usepackage[raggedrightboxes]{ragged2e}
+
+% Gestión de guiones
+\hyphenpenalty=50 
+\exhyphenpenalty=50 
+\emergencystretch=3em
 
 % Paquete para la personalización del título
 \usepackage{titling}
@@ -151,9 +149,10 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE,RO]{\thepage}  % Número de página en las esquinas
-\fancyhead[RE]{\nouppercase{\leftmark}}  % Nombre del capítulo
-\fancyhead[LO]{\nouppercase{\rightmark}} % Nombre de la sección
+\fancyhead[LE,RO]{\thepage} 
+\fancyhead[RE]{\nouppercase{\leftmark}} 
+\fancyhead[LO]{\nouppercase{\rightmark}}   
+
 \fancyfoot[C]{\thepage}
 \makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
@@ -199,7 +198,6 @@
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
-
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -217,31 +215,20 @@
   urlcolor={highlight},
   pdfcreator={LaTeX via pandoc}}
 
-
 \title{iabookMaquiloca}
 \author{Javier Flores}
-\date{2024-09-23}
+\date{2024-09-25}
 
 \begin{document}
 \frontmatter
 \maketitle
 
-% Página de título con estilo moderno
-\begin{titlepage}
-\centering
-\vspace*{5cm} % Espacio en blanco antes del título
-{\Huge \textbf{iabookMaquiloca}}\\[1cm]
-{\Large Javier Flores}\\[2cm]
-{\large \today}\\[5cm]
-\end{titlepage}
-
 \renewcommand*\contentsname{Table of contents}
 {
 \hypersetup{linkcolor=}
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 \tableofcontents
 }
-
 \mainmatter
 \bookmarksetup{startatroot}
 
@@ -251,6 +238,8 @@ Artificial}\label{impacto-de-la-inteligencia-artificial}
 
 \markboth{Impacto de la Inteligencia Artificial}{Impacto de la
 Inteligencia Artificial}
+
+\textbackslash begin\{document\}
 
 \section*{Introducción}\label{introducciuxf3n}
 \addcontentsline{toc}{section}{Introducción}
@@ -1133,6 +1122,10 @@ ajustarse con el tiempo.
   \end{itemize}
 \end{itemize}
 
+\includegraphics[width=1\textwidth,height=\textheight]{index_files/mediabag/diagram-1.pdf}
+
+\includegraphics[width=1\textwidth,height=\textheight]{index_files/mediabag/diagram-2.pdf}
+
 \textbf{Referencia:}
 
 \begin{itemize}
@@ -1374,9 +1367,7 @@ tiempos de producción. El siguiente paso es entender cómo implementar
 estas tecnologías de manera efectiva y cuáles son los desafíos que
 enfrentan las empresas en este proceso de digitalización.
 
-\subsection{\texorpdfstring{\textbf{1. Conocimiento Técnico en
-Programación y
-Lógica}}{1. Conocimiento Técnico en Programación y Lógica}}\label{conocimiento-tuxe9cnico-en-programaciuxf3n-y-luxf3gica}
+\textbf{1. Conocimiento Técnico en Programación y Lógica}
 
 Dado que la IA simbólica se basa en reglas predefinidas y condiciones
 lógicas, es crucial que el candidato tenga sólidos conocimientos de
@@ -1405,8 +1396,7 @@ de los requisitos técnicos:
   sistema de IA simbólica.
 \end{itemize}
 
-\subsection{\texorpdfstring{\textbf{2. Conocimiento en Procesos
-Industriales}}{2. Conocimiento en Procesos Industriales}}\label{conocimiento-en-procesos-industriales}
+\textbf{2. Conocimiento en Procesos Industriales}
 
 Es fundamental que la persona tenga un buen entendimiento de los
 procesos específicos de la \textbf{industria maquiladora}. Esto
@@ -1431,9 +1421,7 @@ automatización de procesos.
   paradas preventivas.
 \end{itemize}
 
-\subsection{\texorpdfstring{\textbf{3. Habilidad para Diseñar Sistemas
-Basados en
-Reglas}}{3. Habilidad para Diseñar Sistemas Basados en Reglas}}\label{habilidad-para-diseuxf1ar-sistemas-basados-en-reglas}
+\textbf{3. Habilidad para Diseñar Sistemas Basados en Reglas}
 
 Una de las tareas más importantes de este perfil es diseñar y optimizar
 las reglas que seguirá la IA simbólica. Esto requiere una capacidad para
@@ -1453,9 +1441,7 @@ condiciones y escenarios que pueden presentarse en la maquiladora.
   tiempos muertos y aumentando la eficiencia de la producción.
 \end{itemize}
 
-\subsection{\texorpdfstring{\textbf{4. Experiencia en Implementación de
-Soluciones de IA
-Simbólica}}{4. Experiencia en Implementación de Soluciones de IA Simbólica}}\label{experiencia-en-implementaciuxf3n-de-soluciones-de-ia-simbuxf3lica}
+\textbf{4. Experiencia en Implementación de Soluciones de IA Simbólica}
 
 El candidato debe tener experiencia práctica en la implementación de
 sistemas basados en IA simbólica, desde el diseño inicial hasta la
@@ -1475,8 +1461,7 @@ puesta en marcha y ajuste de reglas en entornos reales de producción.
   del sistema.
 \end{itemize}
 
-\subsection{\texorpdfstring{\textbf{5. Competencias en Análisis de
-Datos}}{5. Competencias en Análisis de Datos}}\label{competencias-en-anuxe1lisis-de-datos}
+\textbf{5. Competencias en Análisis de Datos}
 
 Aunque la IA simbólica no aprende de los datos como el Machine Learning,
 sigue siendo importante que el profesional pueda analizar datos
@@ -1494,8 +1479,7 @@ históricos o de producción para definir reglas de manera efectiva.
   simbólica, lo que permitirá afinar las reglas y el sistema.
 \end{itemize}
 
-\subsection{\texorpdfstring{\textbf{6. Trabajo en Equipo y
-Colaboración}}{6. Trabajo en Equipo y Colaboración}}\label{trabajo-en-equipo-y-colaboraciuxf3n}
+\textbf{6. Trabajo en Equipo y Colaboración}
 
 La implementación de IA simbólica implica la colaboración con otros
 departamentos, como el de producción, mantenimiento, calidad, y TI. El
@@ -1514,6 +1498,8 @@ fricciones en las operaciones diarias.
   operadores y supervisores sobre cómo usar y beneficiarse de los
   sistemas de IA simbólica.
 \end{itemize}
+
+\includegraphics[width=1\textwidth,height=\textheight]{index_files/mediabag/diagram-3.pdf}
 
 \subsection{\texorpdfstring{\textbf{Resumen del
 Perfil}}{Resumen del Perfil}}\label{resumen-del-perfil}
@@ -2493,6 +2479,8 @@ detectaron en la última hora?'', esa pregunta puede ser 7 tokens. Si el
 modelo responde: ``Se detectaron 5 productos defectuosos en la línea de
 producción A'', esa respuesta puede costar otros 12 tokens. Así, el
 costo total de la interacción sería el costo por 19 tokens.
+
+\includegraphics[width=1\textwidth,height=\textheight]{index_files/mediabag/diagram-4.pdf}
 
 \subsubsection{\texorpdfstring{\textbf{Ventajas del Cobro por
 Tokens}}{Ventajas del Cobro por Tokens}}\label{ventajas-del-cobro-por-tokens}
@@ -4297,8 +4285,8 @@ aplicada en la maquiladora, desglosando cada área con mayor detalle y
 proporcionando un listado de tecnologías clave que pueden ser utilizadas
 en cada caso.
 
-\subsection{1. Optimización del Proceso de
-Producción}\label{optimizaciuxf3n-del-proceso-de-producciuxf3n}
+\subsection{Proyecto 1. Optimización del Proceso de
+Producción}\label{proyecto-1.-optimizaciuxf3n-del-proceso-de-producciuxf3n}
 
 \textbf{Ranking de Adaptación:}
 
@@ -4470,8 +4458,8 @@ eficiencia.
   \end{itemize}
 \end{itemize}
 
-\subsection{2. Gestión de la Cadena de
-Suministro}\label{gestiuxf3n-de-la-cadena-de-suministro}
+\subsection{Proyecto 2. Gestión de la Cadena de
+Suministro}\label{proyecto-2.-gestiuxf3n-de-la-cadena-de-suministro}
 
 \textbf{Ranking de Adaptación:}
 
@@ -4598,8 +4586,8 @@ tecnologías puede requerir cierta inversión y adaptación, pero los
 beneficios potenciales son significativos y pueden contribuir a una
 mayor competitividad en el mercado.
 
-\subsection{3. Automatización de Tareas
-Repetitivas}\label{automatizaciuxf3n-de-tareas-repetitivas}
+\subsection{Proyecto 3. Automatización de Tareas
+Repetitivas}\label{proyecto-3.-automatizaciuxf3n-de-tareas-repetitivas}
 
 \textbf{Ranking de Adaptación:}
 
@@ -4727,8 +4715,8 @@ atractiva para mejorar la eficiencia, reducir costos y liberar a los
 empleados para que se centren en tareas más estratégicas y de mayor
 valor.
 
-\subsection{\texorpdfstring{4. \textbf{Diseño y Desarrollo de
-Productos}}{4. Diseño y Desarrollo de Productos}}\label{diseuxf1o-y-desarrollo-de-productos}
+\subsection{\texorpdfstring{Proyecto 4. \textbf{Diseño y Desarrollo de
+Productos}}{Proyecto 4. Diseño y Desarrollo de Productos}}\label{proyecto-4.-diseuxf1o-y-desarrollo-de-productos}
 
 \textbf{Ranking de Adaptación:} - \textbf{Complejidad Técnica: Medio
 (3)} - \textbf{Tiempo de Implementación: Medio (3)} - \textbf{Inversión
@@ -4793,8 +4781,8 @@ cliente. - \textbf{Plataformas de Análisis de Mercado:} Herramientas
 como \textbf{IBM Watson Marketing} que analizan datos de clientes para
 identificar preferencias y tendencias.
 
-\subsection{5. Análisis de Mercado y Servicio al
-Cliente}\label{anuxe1lisis-de-mercado-y-servicio-al-cliente}
+\subsection{Proyecto 5. Análisis de Mercado y Servicio al
+Cliente}\label{proyecto-5.-anuxe1lisis-de-mercado-y-servicio-al-cliente}
 
 \textbf{Ranking de Adaptación:}
 
@@ -4953,7 +4941,7 @@ IA}{Proyecto: Automatización Inteligente de Captura de Facturas Eliminando Erro
 
 En la mayoría de las maquiladoras en Ciudad Juárez, el procesamiento
 manual de facturas sigue siendo una tarea compleja y repetitiva que
-consume tiempo y recursos humanos. Imagina un equipo de \textbf{100
+consume tiempo y recursos humanos. Imagina un equipo de \textbf{30
 capturistas} dedicados exclusivamente a la revisión y captura manual de
 datos de facturas en diferentes formatos, ya sean PDF, imágenes o
 archivos XML. Este proceso es propenso a errores humanos y puede
@@ -5054,9 +5042,9 @@ presenta alguna anomalía que necesita ser corregida. Este tipo de
 visibilidad es crucial para agilizar los tiempos de procesamiento y
 garantizar que no haya demoras que afecten las operaciones.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\includegraphics[width=1\textwidth,height=\textheight]{index_files/mediabag/diagram-5.pdf}
 
-\subsubsection{Ventajas de AutoFact 4.0}\label{ventajas-de-autofact-4.0}
+Ventajas de AutoFact 4.0
 
 \textbf{1. Reducción de la Intervención Humana:} Con \textbf{AutoFact
 4.0}, el número de capturistas se reduce drásticamente. De 100
@@ -5117,9 +5105,20 @@ busque reducir costos, mejorar la eficiencia y asegurar el cumplimiento
 normativo.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0849}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0259}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.8892}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2300}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1800}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5900}}@{}}
+\caption{Ranking de Adaptación a la IA para el Proyecto}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Factor}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Valor}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Descripción}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Factor}
@@ -5160,6 +5159,7 @@ transformará completamente el proceso de captura de facturas, eliminando
 tareas repetitivas y promoviendo una cultura más digital y automatizada.
 Se requerirán ajustes en las políticas y procedimientos de la maquila
 para alinearse con esta nueva forma de operar. \\
+& & \\
 \end{longtable}
 
 \subsection{\texorpdfstring{Proyecto: \textbf{Generación Automática de
@@ -5313,6 +5313,8 @@ Procesar}\label{tipos-de-formatos-a-procesar}
 
 \subsubsection{Proceso de
 Implementación}\label{proceso-de-implementaciuxf3n}
+
+\includegraphics[width=1\textwidth,height=\textheight]{index_files/mediabag/diagram-6.pdf}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -6268,13 +6270,1607 @@ eficiente. ¡Un paso enorme hacia el futuro de la maquila inteligente! \\
 \chapter{``Preparando el terreno: ¿Está tu empresa lista para la
 IA?''}\label{preparando-el-terreno-estuxe1-tu-empresa-lista-para-la-ia}
 
-\section{Soy joto}\label{soy-joto}
+\section{Evaluación de la Madurez Digital en la Maquiladora para la
+Implementación de
+IA}\label{evaluaciuxf3n-de-la-madurez-digital-en-la-maquiladora-para-la-implementaciuxf3n-de-ia}
 
-\subsection{super mot}\label{super-mot}
+Antes de lanzarse a la implementación de inteligencia artificial (IA) en
+una maquila, es fundamental realizar una evaluación honesta y exhaustiva
+del \textbf{nivel de madurez digital} de la empresa. Esto permite
+identificar las áreas que están preparadas para adoptar tecnologías
+avanzadas y aquellas que requieren más desarrollo, ya sea en
+infraestructura, cultura organizacional, habilidades del personal o
+disponibilidad de datos.
 
-\bookmarksetup{startatroot}
+En este capítulo, presentamos una \textbf{serie de preguntas clave} que
+las empresas maquiladoras pueden utilizar para \textbf{autoevaluarse} y
+establecer su nivel de madurez digital. Además, proporcionamos una
+descripción de los \textbf{diferentes niveles de madurez}, lo que
+ayudará a las empresas a identificar en qué punto se encuentran y qué
+pasos deben seguir para avanzar hacia la adopción de la IA de manera
+efectiva.
 
-\chapter{Impacto Economico}\label{impacto-economico}
+\subsection{Sistema de Puntuación}\label{sistema-de-puntuaciuxf3n}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Rojo (1 punto) 🔴}: Indica que la empresa no está preparada en
+  esa área y necesita una mejora significativa.
+\item
+  \textbf{Amarillo (3 puntos) 🟡}: Indica que la empresa está
+  parcialmente preparada pero aún necesita optimizaciones.
+\item
+  \textbf{Verde (5 puntos) 🟢}: Indica que la empresa está bien
+  preparada y lista para implementar IA en esa área.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Evaluación con Puntuación por
+Pregunta}\label{evaluaciuxf3n-con-puntuaciuxf3n-por-pregunta}
+
+\subsubsection{\texorpdfstring{\textbf{1. Infraestructura
+Tecnológica}}{1. Infraestructura Tecnológica}}\label{infraestructura-tecnoluxf3gica}
+
+\begin{itemize}
+\tightlist
+\item
+  ¿La empresa cuenta con una infraestructura tecnológica que soporte
+  grandes volúmenes de datos?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{🔴}: No hay infraestructura adecuada.
+  \item
+    \textbf{🟡}: Existe alguna infraestructura, pero es limitada.
+  \item
+    \textbf{🟢}: La infraestructura es robusta y puede soportar grandes
+    volúmenes de datos.
+  \end{itemize}
+\item
+  ¿Tienen sistemas de almacenamiento en la nube o un servidor robusto?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{🔴}: No hay sistemas de almacenamiento adecuados.
+  \item
+    \textbf{🟡}: Tienen almacenamiento limitado o en transición.
+  \item
+    \textbf{🟢}: Utilizan almacenamiento en la nube o servidores
+    robustos y seguros.
+  \end{itemize}
+\item
+  ¿Existen sistemas de seguridad informática actualizados?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{🔴}: No hay medidas de seguridad o son obsoletas.
+  \item
+    \textbf{🟡}: Hay seguridad básica, pero necesita actualizarse.
+  \item
+    \textbf{🟢}: La seguridad está completamente actualizada y cumple
+    con estándares actuales.
+  \end{itemize}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{\texorpdfstring{\textbf{2. Cultura
+Organizacional}}{2. Cultura Organizacional}}\label{cultura-organizacional}
+
+\begin{itemize}
+\tightlist
+\item
+  ¿La alta dirección está comprometida con la digitalización y la IA?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{🔴}: No hay compromiso de la dirección.
+  \item
+    \textbf{🟡}: Hay algún interés, pero no se traduce en acciones.
+  \item
+    \textbf{🟢}: La alta dirección apoya firmemente la digitalización.
+  \end{itemize}
+\item
+  ¿Existe una cultura de innovación en la empresa?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{🔴}: No se fomenta la innovación.
+  \item
+    \textbf{🟡}: La innovación es apoyada, pero de manera limitada.
+  \item
+    \textbf{🟢}: La innovación es parte central de la cultura
+    empresarial.
+  \end{itemize}
+\item
+  ¿El personal entiende la importancia de los datos para la toma de
+  decisiones?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{🔴}: El personal no está informado ni capacitado en la
+    gestión de datos.
+  \item
+    \textbf{🟡}: El personal tiene alguna conciencia, pero falta
+    capacitación.
+  \item
+    \textbf{🟢}: El personal está completamente capacitado y entiende el
+    valor de los datos.
+  \end{itemize}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{\texorpdfstring{\textbf{3. Habilidades del
+Personal}}{3. Habilidades del Personal}}\label{habilidades-del-personal}
+
+\begin{itemize}
+\tightlist
+\item
+  ¿El personal técnico tiene habilidades en programación y análisis de
+  datos?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{🔴}: No hay personal capacitado en estas áreas.
+  \item
+    \textbf{🟡}: Hay personal capacitado, pero con habilidades
+    limitadas.
+  \item
+    \textbf{🟢}: Hay personal altamente capacitado en programación y
+    análisis de datos.
+  \end{itemize}
+\item
+  ¿Existen equipos multidisciplinarios que trabajen en proyectos de IA?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{🔴}: No hay equipos multidisciplinarios.
+  \item
+    \textbf{🟡}: Existen algunos equipos, pero necesitan más
+    integración.
+  \item
+    \textbf{🟢}: Los equipos multidisciplinarios están consolidados y
+    funcionan bien.
+  \end{itemize}
+\item
+  ¿Se da capacitación continua en tecnologías emergentes?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{🔴}: No hay programas de capacitación.
+  \item
+    \textbf{🟡}: Existen programas de capacitación limitados.
+  \item
+    \textbf{🟢}: La capacitación es continua y abarca las últimas
+    tecnologías.
+  \end{itemize}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{\texorpdfstring{\textbf{4. Disponibilidad de
+Datos}}{4. Disponibilidad de Datos}}\label{disponibilidad-de-datos}
+
+\begin{itemize}
+\tightlist
+\item
+  ¿La empresa tiene un banco de datos centralizado?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{🔴}: Los datos están dispersos y desorganizados.
+  \item
+    \textbf{🟡}: Hay un banco de datos, pero está en desarrollo.
+  \item
+    \textbf{🟢}: Los datos están centralizados y bien organizados.
+  \end{itemize}
+\item
+  ¿Tienen acceso a datos históricos para entrenar modelos de IA?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{🔴}: No hay datos históricos accesibles.
+  \item
+    \textbf{🟡}: Existen datos históricos, pero son limitados.
+  \item
+    \textbf{🟢}: Los datos históricos están disponibles y listos para
+    ser utilizados.
+  \end{itemize}
+\item
+  ¿Monitorean en tiempo real las operaciones clave?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{🔴}: No hay monitoreo en tiempo real.
+  \item
+    \textbf{🟡}: Hay monitoreo en algunas áreas, pero no en todas.
+  \item
+    \textbf{🟢}: Se monitorean todas las operaciones clave en tiempo
+    real.
+  \end{itemize}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Resultado Final: Nivel de Madurez
+Digital}\label{resultado-final-nivel-de-madurez-digital}
+
+Al sumar las puntuaciones, obtendrás el nivel de madurez digital de tu
+maquila:
+
+\begin{itemize}
+\item
+  \textbf{Rojo (1-20 puntos) 🔴}: \textbf{Bajo Nivel de Madurez}\\
+  La empresa necesita una mejora significativa en varias áreas antes de
+  considerar la implementación de IA. La prioridad debe ser mejorar la
+  infraestructura tecnológica y capacitar al personal.
+\item
+  \textbf{Amarillo (21-40 puntos) 🟡}: \textbf{Nivel Intermedio de
+  Madurez}\\
+  La empresa está en el camino correcto, pero aún necesita optimizar
+  algunos procesos antes de implementar IA a gran escala. Es crucial
+  mejorar la integración de datos y la cultura de innovación.
+\item
+  \textbf{Verde (41-60 puntos) 🟢}: \textbf{Alto Nivel de Madurez}\\
+  La empresa está bien posicionada para adoptar IA. Puede avanzar
+  rápidamente hacia la digitalización completa y aprovechar las
+  oportunidades de innovación tecnológica.
+\end{itemize}
+
+\subsection{Visualización del Ranking de Madurez Digital con
+Emojis}\label{visualizaciuxf3n-del-ranking-de-madurez-digital-con-emojis}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2014}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2708}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2569}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2708}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Categoría
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+🔴 (1 punto)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+🟡 (3 puntos)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+🟢 (5 puntos)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Infraestructura Tecnológica & No hay infraestructura adecuada &
+Infraestructura básica, pero limitada & Infraestructura robusta y
+moderna \\
+Cultura Organizacional & No se fomenta la innovación & Innovación
+limitada & Innovación central en la cultura \\
+Habilidades del Personal & No hay personal capacitado & Personal
+capacitado de manera limitada & Personal altamente capacitado \\
+Disponibilidad de Datos & Datos dispersos y desorganizados & Banco de
+datos en desarrollo & Datos centralizados y accesibles \\
+\end{longtable}
+
+\subsection{Conclusión}\label{conclusiuxf3n-3}
+
+La evaluación de la madurez digital es el primer paso crítico para
+cualquier maquila que desee implementar IA de manera exitosa. No todas
+las empresas están en el mismo nivel, pero con un enfoque claro y una
+evaluación honesta, cualquier maquila puede avanzar hacia la
+digitalización completa y el uso estratégico de la IA. Este capítulo ha
+proporcionado las herramientas necesarias para realizar esa evaluación y
+trazado los pasos a seguir para cada nivel de madurez. ¡Es hora de
+ponerse a trabajar y aprovechar el potencial transformador de la
+inteligencia artificial en la maquiladora!
+
+\section{\texorpdfstring{\textbf{Estructuración de un Proyecto de
+Inteligencia Artificial en la Maquiladora } Machine
+learning}{Estructuración de un Proyecto de Inteligencia Artificial en la Maquiladora  Machine learning}}\label{estructuraciuxf3n-de-un-proyecto-de-inteligencia-artificial-en-la-maquiladora-machine-learning}
+
+Implementar un proyecto de Inteligencia Artificial en la maquiladora
+requiere no solo la planificación técnica y la selección de tecnologías,
+sino también la creación de un equipo especializado que pueda llevar a
+cabo el desarrollo e implementación de las soluciones. En esta primera
+parte del capítulo, vamos a desglosar los perfiles necesarios para
+formar un equipo de desarrollo sólido, los rangos salariales esperados y
+los costos asociados a un proyecto de IA tanto para Machine Learning
+tradicional como para el desarrollo de modelos más avanzados como los
+Large Language Models (LLMs).
+
+\subsection{\texorpdfstring{\textbf{Estructura del Equipo de Desarrollo
+de
+IA}}{Estructura del Equipo de Desarrollo de IA}}\label{estructura-del-equipo-de-desarrollo-de-ia}
+
+\subsubsection{\texorpdfstring{\textbf{Equipo Básico para un Proyecto de
+IA en la
+Maquiladora}}{Equipo Básico para un Proyecto de IA en la Maquiladora}}\label{equipo-buxe1sico-para-un-proyecto-de-ia-en-la-maquiladora}
+
+Este equipo inicial estará enfocado en los proyectos que ya hemos
+descrito, como la \textbf{automatización de procesos},
+\textbf{mantenimiento predictivo}, \textbf{generación de informes
+mediante IA}, y el \textbf{control de inventarios y producción} mediante
+modelos de \textbf{LLMs}.
+
+Verás, hay un mundo de diferencia entre correr una \textbf{prueba de
+concepto} y llegar a correr tu propio modelo \textbf{LLM} con
+información privada y auto-hosteado. Primero vamos a cubrir la necesidad
+de un proyecto basado en \textbf{LLMs}, porque hoy en día, es una de las
+maneras más accesibles y prácticas de implementar \textbf{Inteligencia
+Artificial} en una organización. Solo necesitas el \textbf{conocimiento
+técnico} básico, que puede adquirirse a través de un curso o una
+capacitación sencilla. Y, la verdad, con un poco de empeño y lo que ya
+hemos aprendido en este libro, todos esos pseudo-expertos en IA te la
+harán de emoción, ¡pero tú estarás un paso adelante!
+
+Para arrancar, los equipos que vas a formar dependerán de si estás
+corriendo solo una \textbf{prueba de concepto} o si ya estás list@ para
+desplegar tu \textbf{modelo LLM} con toda la infraestructura de datos
+privados. Si estás en la fase inicial, lo único que necesitas es un
+equipo de \textbf{uno a dos desarrolladores} de nivel intermedio. Gente
+que ya sepa manejar lenguajes de programación y que tenga habilidad para
+consumir \textbf{APIs}, ya sean \textbf{REST} o \textbf{gRPC}. Si
+escuchaste bien, \textbf{solo necesitas eso}. Si tienes a alguien en tu
+maquila que esté familiarizado con construir páginas web o extraer
+información de archivos \textbf{PDF} o \textbf{Excel} y luego mostrarla,
+será mucho más fácil implementar la IA.
+
+Ahora, hablemos del perfil de desarrollador que \textbf{realmente
+necesitas}. No se trata de alguien que solo trabaje por dinero, sino de
+alguien con hambre, con ganas de aprender y de enfrentar nuevos retos.
+Personalmente, como autor, algo que he aprendido es que \textbf{el tipo
+de preguntas} que hace un desarrollador a alguien con más experiencia es
+lo que lo define. Si en una semana estamos hablando de \textbf{machine
+learning} o de \textbf{regresión}, lo mínimo que espero es que busquen
+información adicional, aunque sea en un \textbf{TikTok}. ¡Esos son los
+perfiles que rifan! Gente apasionada, curiosa, que va más allá de lo
+básico.
+
+En cuanto al \textbf{project manager}, este perfil es clave. Esta
+persona debe entender la lógica de negocio de los procesos que queremos
+optimizar. Y aquí me voy a hacer un poco de autopromoción: con este
+libro, ya tienes todo lo necesario para ser un \textbf{PM} exitoso. ¿Por
+qué? Porque la verdadera clave no es el software, ni la tecnología, sino
+entender a fondo los procesos y la gente. Un \textbf{PM} que no entiende
+los procesos de su maquila está condenado a fracasar. Y, la verdad, no
+quiero generalizar, pero la mayoría de los cargos administrativos creen
+que tienen clara la lógica de negocio cuando, en realidad, quienes
+realmente la conocen son los \textbf{operadores}, los \textbf{jefes de
+línea} o los \textbf{supervisores} que lidian con los problemas todos
+los días.
+
+Este punto es crucial: \textbf{el conocimiento del proceso} es lo que
+hará o romperá tu proyecto de IA. Y este conocimiento está en la gente
+de a pie, no en las oficinas administrativas. Es en esos procesos donde
+deberías enfocar tu IA, porque ahí está el verdadero potencial de
+optimización. Todo depende de cómo estructures tu proyecto, el alcance
+que le des y las ideas que estés dispuesto a implementar.
+
+Recuerda, este viaje no es solo acerca de tecnología, sino de cómo la
+tecnología puede servir mejor a las personas que realmente mantienen en
+marcha la maquila. \textbf{Este libro} te guiará en ese camino, y no
+solo te ayudará a entender los aspectos técnicos, sino a inspirarte a
+liderar equipos con visión y propósito. Así que si estás pensando en
+implementar \textbf{IA}, empieza por escuchar a quienes mejor conocen tu
+proceso y rodéate de gente apasionada. \textbf{El éxito no se trata de
+tener al programador más caro o al ingeniero con más títulos}, se trata
+de encontrar a personas que estén dispuestas a aprender, a adaptarse y a
+transformar la maquila junto contigo. ¡A darle con todo!.
+
+\subsubsection{\texorpdfstring{\textbf{Perfiles Clave y Roles del
+Equipo}}{Perfiles Clave y Roles del Equipo}}\label{perfiles-clave-y-roles-del-equipo}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Proyect Manager de IA}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Función Principal:} Coordinar y supervisar todo el proyecto.
+    Es el enlace entre los equipos técnicos y la alta dirección de la
+    maquila. Se asegura de que el proyecto se mantenga dentro del
+    presupuesto y que se cumplan los plazos.
+  \item
+    \textbf{Salario Promedio:} \$18,000 MXN A \$24,000 MXN.
+  \item
+    \textbf{Responsabilidades:}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Definir los objetivos del proyecto.
+    \item
+      Asignar tareas a los equipos de desarrollo.
+    \item
+      Asegurarse de que se sigan las normativas de seguridad y que se
+      cumplan los requisitos del cliente.
+    \end{itemize}
+  \item
+    \textbf{Habilidades:} Experiencia en gestión de proyectos,
+    conocimientos básicos de IA y Machine Learning, fuerte capacidad
+    organizativa y de liderazgo.
+  \end{itemize}
+\item
+  \textbf{Desarrollador de APIs y Consumo de Datos}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Función Principal:} Encargado de desarrollar y gestionar la
+    infraestructura de APIs que permiten la interacción entre los
+    sistemas existentes y las nuevas soluciones de IA. Además, es
+    responsable de integrar datos de diversas fuentes para alimentar los
+    modelos de IA.
+  \item
+    \textbf{Salario Promedio:} \$25,000 MXN a \$40,000 MXN mensuales.
+  \item
+    \textbf{Responsabilidades:}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Desarrollar e integrar APIs para la comunicación entre los modelos
+      de IA y los sistemas actuales de la maquila (ERP, SCADA, MES,
+      etc.).
+    \item
+      Asegurarse de que los modelos de IA puedan acceder a datos en
+      tiempo real desde diversas fuentes como sensores, bases de datos y
+      archivos (PDF, Excel, CAD).
+    \item
+      Optimizar la seguridad y escalabilidad de las APIs para manejar
+      grandes volúmenes de datos.
+    \end{itemize}
+  \item
+    \textbf{Habilidades:} Experiencia en RESTful APIs, gRPC, manejo de
+    bases de datos SQL/NoSQL, y habilidades intermedias en lenguajes
+    como Python, Java o Node.js. Experiencia con sistemas como Docker o
+    Kubernetes para despliegue de servicios.
+  \end{itemize}
+\item
+  \textbf{Especialista en Datos y Analítica (Data Scientist)} OPCIONAL
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Función Principal:} Analizar grandes volúmenes de datos y
+    extraer información valiosa que pueda ser utilizada para optimizar
+    procesos en la maquila. También es responsable de diseñar, entrenar
+    y evaluar modelos de Machine Learning y de asegurarse de que los
+    datos utilizados sean de alta calidad.
+  \item
+    \textbf{Salario Promedio:} \$30,000 MXN a \$50,000 MXN mensuales.
+  \item
+    \textbf{Responsabilidades:}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Limpiar, estructurar y preparar los datos para el entrenamiento de
+      modelos de IA.
+    \item
+      Desarrollar y entrenar modelos de Machine Learning tradicionales y
+      LLMs basados en los datos de la maquila.
+    \item
+      Evaluar la efectividad de los modelos mediante métricas de
+      rendimiento y ajustarlos para mejorar la precisión y eficiencia.
+    \end{itemize}
+  \item
+    \textbf{Habilidades:} Dominio en estadística, Python, R, bibliotecas
+    de Machine Learning como TensorFlow y PyTorch, y experiencia en el
+    manejo de Big Data. Conocimientos en visualización de datos con
+    herramientas como Tableau o PowerBI son un plus.
+  \end{itemize}
+\item
+  El Perfil Crítico: Las Personas del Proceso
+\end{enumerate}
+
+En los proyectos de IA, la clave no es solo contar con un equipo técnico
+fuerte, sino también integrar en el equipo a aquellas personas que
+conocen profundamente el proceso a optimizar. \textbf{Los operadores,
+supervisores y jefes de línea} son quienes realmente tienen la ``lógica
+de negocio'' en su cabeza y quienes podrán identificar problemas y
+oportunidades que los desarrolladores podrían no ver de inmediato.
+
+\subsubsection{\texorpdfstring{4. \textbf{Operador/Supervisor con
+Experiencia en el
+Proceso}}{4. Operador/Supervisor con Experiencia en el Proceso}}\label{operadorsupervisor-con-experiencia-en-el-proceso}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Función Principal:} Trabajar en conjunto con el equipo de IA
+  para proporcionar información sobre el flujo diario de trabajo, las
+  tareas críticas y las posibles áreas de mejora. Estos perfiles son
+  cruciales para asegurarse de que las soluciones de IA se alineen con
+  la realidad operativa.
+\item
+  \textbf{Salario Promedio:} De acuerdo con su función actual en la
+  maquila.
+\item
+  \textbf{Responsabilidades:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Proporcionar detalles sobre los procesos operativos que deben ser
+    optimizados mediante IA.
+  \item
+    Trabajar junto con el equipo técnico para validar los resultados de
+    las soluciones implementadas.
+  \item
+    Monitorear la implementación en el día a día para asegurar que se
+    cumplan las expectativas de producción.
+  \end{itemize}
+\item
+  \textbf{Habilidades:} Conocimiento profundo de los procesos
+  productivos de la maquila, buena comunicación para trabajar con
+  equipos técnicos y habilidades básicas en el uso de sistemas
+  digitales.
+\end{itemize}
+
+\subsection{\texorpdfstring{\textbf{Conclusión: Formando el Equipo
+Correcto}}{Conclusión: Formando el Equipo Correcto}}\label{conclusiuxf3n-formando-el-equipo-correcto}
+
+Crear un equipo sólido para un proyecto de IA en la maquiladora no solo
+se trata de contratar a los desarrolladores más talentosos. Es esencial
+integrar a los operadores y supervisores que conocen a fondo los
+procesos que la IA debe optimizar. Los perfiles especializados en IA,
+desde ingenieros de machine learning hasta especialistas en LLMs, son
+clave, pero su éxito dependerá de trabajar en conjunto con el personal
+operativo y un liderazgo claro que entienda las necesidades del negocio.
+
+\textbf{Un equipo bien estructurado es la clave para transformar una
+maquiladora tradicional en una industria del futuro.}
+
+\subsection{\texorpdfstring{Capítulo: \textbf{Formación de un Equipo de
+Machine Learning Tradicional en la
+Maquiladora}}{Capítulo: Formación de un Equipo de Machine Learning Tradicional en la Maquiladora}}\label{capuxedtulo-formaciuxf3n-de-un-equipo-de-machine-learning-tradicional-en-la-maquiladora}
+
+En este capítulo, vamos a profundizar en la estructura necesaria para
+formar un equipo especializado en \textbf{Machine Learning (ML)
+tradicional} dentro de una maquiladora. A diferencia de los proyectos
+que involucran \textbf{LLMs}, donde el enfoque está más en la
+comprensión del lenguaje y la interacción avanzada con datos no
+estructurados, los proyectos de ML tradicional se centran en optimizar
+procesos con datos estructurados, predicciones basadas en estadísticas y
+modelos predefinidos.
+
+\subsubsection{\texorpdfstring{\textbf{Estructura del Equipo de
+Desarrollo de Machine
+Learning}}{Estructura del Equipo de Desarrollo de Machine Learning}}\label{estructura-del-equipo-de-desarrollo-de-machine-learning}
+
+\paragraph{\texorpdfstring{\textbf{Equipo Clave para un Proyecto de
+Machine Learning
+Tradicional}}{Equipo Clave para un Proyecto de Machine Learning Tradicional}}\label{equipo-clave-para-un-proyecto-de-machine-learning-tradicional}
+
+Este equipo estará enfocado en el desarrollo y mantenimiento de modelos
+predictivos y de optimización que apoyen la operación diaria de la
+maquila. Desde la \textbf{optimización de inventarios},
+\textbf{mantenimiento predictivo}, hasta la \textbf{reducción de tiempos
+de inactividad} y \textbf{control de calidad automatizado}, el equipo de
+ML tradicional es clave para automatizar decisiones críticas basadas en
+datos históricos.
+
+\paragraph{\texorpdfstring{\textbf{Perfiles Clave y Roles del
+Equipo}}{Perfiles Clave y Roles del Equipo}}\label{perfiles-clave-y-roles-del-equipo-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Gerente de Proyecto de ML}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Función Principal:} Coordinar los esfuerzos del equipo
+    técnico, definir las metas del proyecto y garantizar que las
+    soluciones de ML se alineen con los objetivos de la maquiladora.
+    Este perfil también debe ser capaz de identificar áreas en las que
+    la implementación de ML podría aportar valor.
+  \item
+    \textbf{Salario Promedio:} \$40,000 - \$70,000 MXN
+  \item
+    \textbf{Responsabilidades:}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Identificar oportunidades de optimización con Machine Learning.
+    \item
+      Planificar el desarrollo y la implementación de modelos.
+    \item
+      Asegurarse de que los proyectos se completen dentro del
+      presupuesto y plazo.
+    \end{itemize}
+  \item
+    \textbf{Habilidades:} Experiencia en gestión de proyectos y análisis
+    de datos. Conocimientos de modelos estadísticos y machine learning
+    son deseables, pero no esenciales. Buena capacidad para comunicarse
+    entre el equipo técnico y la alta dirección.
+  \end{itemize}
+\item
+  \textbf{Ingeniero de Machine Learning}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Función Principal:} Desarrollar, entrenar y optimizar los
+    modelos de ML que se usarán en la maquila. El ingeniero de ML
+    tradicional es el corazón técnico del proyecto, trabajando con datos
+    estructurados para crear soluciones predictivas y optimizadoras.
+  \item
+    \textbf{Salario Promedio:} \$34,000 A 50,000 MXN
+  \item
+    \textbf{Responsabilidades:}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Desarrollar modelos de regresión, clasificación y clustering
+      basados en datos históricos de la maquiladora.
+    \item
+      Implementar soluciones de mantenimiento predictivo para evitar
+      fallos en maquinaria.
+    \item
+      Optimizar el rendimiento de los modelos mediante ajustes de
+      hiperparámetros.
+    \end{itemize}
+  \item
+    \textbf{Habilidades:} Fuerte conocimiento de Python, R, bibliotecas
+    como Scikit-Learn y TensorFlow, experiencia con algoritmos de ML
+    tradicionales como \textbf{árboles de decisión}, \textbf{random
+    forests}, y \textbf{SVMs}.
+  \end{itemize}
+\item
+  \textbf{Analista de Datos}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Función Principal:} Es el encargado de procesar y analizar
+    los datos de la maquila para detectar patrones que puedan ser
+    utilizados para optimizar la producción. También ayuda a preparar
+    los datos para ser consumidos por los modelos de ML.
+  \item
+    \textbf{Salario Promedio:} \$24,000 - \$35,000 MXN anuales.
+  \item
+    \textbf{Responsabilidades:}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Realizar análisis exploratorio de datos para detectar anomalías o
+      tendencias.
+    \item
+      Preparar los datos (ETL) para ser utilizados en los modelos de ML.
+    \item
+      Colaborar con los ingenieros de ML para garantizar que los datos
+      estén listos para el entrenamiento.
+    \end{itemize}
+  \item
+    \textbf{Habilidades:} Experiencia en análisis de datos con
+    herramientas como \textbf{SQL}, \textbf{pandas} y \textbf{Excel}.
+    Conocimiento en estadísticas y visualización de datos (Tableau,
+    Power BI).
+  \end{itemize}
+\item
+  \textbf{Desarrollador de Software}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Función Principal:} Encargado de implementar las soluciones
+    de ML en los sistemas existentes de la maquila. El desarrollador
+    integra los modelos en las operaciones diarias y asegura que estos
+    se ejecuten de manera fluida dentro de la infraestructura
+    tecnológica de la empresa.
+  \item
+    \textbf{Salario Promedio:} \$30,000 - \$42,000 MXNs.
+  \item
+    \textbf{Responsabilidades:}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Integrar los modelos de ML en los sistemas de control de la
+      maquila (SCADA, MES, ERP).
+    \item
+      Crear aplicaciones o APIs que permitan a los operarios interactuar
+      con los modelos de ML.
+    \item
+      Garantizar que los modelos estén accesibles en tiempo real para
+      los supervisores y gerentes.
+    \end{itemize}
+  \item
+    \textbf{Habilidades:} Conocimientos en desarrollo web, manejo de
+    APIs, y lenguajes como \textbf{Python}, \textbf{C++} o
+    \textbf{JavaScript}.
+  \end{itemize}
+\item
+  \textbf{Ingeniero MLDevOps}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Función Principal:} Se encarga de asegurar que los modelos
+    de ML puedan desplegarse y mantenerse de manera eficiente. Es
+    responsable de la infraestructura necesaria para ejecutar los
+    modelos en producción, como servidores en la nube o locales.
+  \item
+    \textbf{Salario Promedio:} \$30,000 - \$35,000 MXN
+  \item
+    \textbf{Responsabilidades:}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Configurar entornos en la nube o servidores locales para ejecutar
+      los modelos de ML.
+    \item
+      Automatizar flujos de trabajo de datos y modelos.
+    \item
+      Monitorizar el rendimiento de los modelos y ajustar recursos según
+      sea necesario.
+    \end{itemize}
+  \item
+    \textbf{Habilidades:} Experiencia en plataformas de nube como
+    \textbf{AWS}, \textbf{Azure}, y \textbf{Google Cloud}, manejo de
+    herramientas como \textbf{Kubernetes} y \textbf{Docker}.
+  \end{itemize}
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{\textbf{Costo de un Proyecto de Machine
+Learning
+Tradicional}}{Costo de un Proyecto de Machine Learning Tradicional}}\label{costo-de-un-proyecto-de-machine-learning-tradicional}
+
+\subsubsection{\texorpdfstring{\textbf{Estimación de Costos: Proyecto
+Mediano (6-12
+meses)}}{Estimación de Costos: Proyecto Mediano (6-12 meses)}}\label{estimaciuxf3n-de-costos-proyecto-mediano-6-12-meses}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Costo del equipo:} \$500,000 MXN - \$1,000,000 MXN.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Esto cubre los salarios del equipo de desarrollo de ML durante 6-12
+    meses.
+  \end{itemize}
+\item
+  \textbf{Infraestructura y Herramientas:} \$50,000 - \$150,000 MXN.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Incluye servidores en la nube, licencias de software, y
+    almacenamiento de datos.
+  \end{itemize}
+\item
+  \textbf{Capacitación del Personal Interno:} \$30,000 MXN.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Entrenamiento para que el personal operativo pueda utilizar las
+    nuevas herramientas de ML.
+  \end{itemize}
+\item
+  \textbf{Total Aproximado:} \$580,000 - \$1,200,000 MXN.
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{\textbf{Equipo de Soporte
+Opcional}}{Equipo de Soporte Opcional}}\label{equipo-de-soporte-opcional}
+
+En proyectos más complejos, también puedes incluir: - \textbf{Arquitecto
+de Soluciones de Datos:} Para supervisar la arquitectura general del
+proyecto. - \textbf{Especialista en Big Data:} Si el proyecto involucra
+el procesamiento de grandes volúmenes de datos, necesitarás a alguien
+especializado en plataformas como Hadoop o Spark.
+
+\subsection{\texorpdfstring{\textbf{Ejemplo de Proyecto: Optimización de
+Inventarios con Machine Learning
+Tradicional}}{Ejemplo de Proyecto: Optimización de Inventarios con Machine Learning Tradicional}}\label{ejemplo-de-proyecto-optimizaciuxf3n-de-inventarios-con-machine-learning-tradicional}
+
+Imaginemos que una maquila en Ciudad Juárez quiere implementar un
+sistema de \textbf{optimización de inventarios} basado en
+\textbf{Machine Learning}. El objetivo es predecir la demanda de
+productos y ajustar los niveles de inventario para evitar sobrecarga o
+escasez de stock.
+
+\subsubsection{\texorpdfstring{\textbf{Descripción del
+Proyecto:}}{Descripción del Proyecto:}}\label{descripciuxf3n-del-proyecto-1}
+
+El sistema analizaría los datos históricos de ventas, pedidos y
+producción para prever la demanda futura. Además, tomaría en cuenta
+factores externos como temporadas de alta demanda y variaciones en los
+tiempos de entrega de proveedores. El equipo encargado desarrollaría
+modelos de \textbf{regresión lineal} y \textbf{árboles de decisión} para
+generar estas predicciones.
+
+\subsubsection{\texorpdfstring{\textbf{Equipo
+Necesario:}}{Equipo Necesario:}}\label{equipo-necesario}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Gerente de Proyecto de ML}
+\item
+  \textbf{Ingeniero de Machine Learning}
+\item
+  \textbf{Analista de Datos}
+\item
+  \textbf{Desarrollador de Software}
+\item
+  \textbf{Ingeniero MLDevOps}
+\end{itemize}
+
+\subsubsection{\texorpdfstring{\textbf{Estimación de Costos del
+Proyecto:}}{Estimación de Costos del Proyecto:}}\label{estimaciuxf3n-de-costos-del-proyecto}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Costo Total Aproximado:} \$600,000 MXN - \$1,200,000 MXN.
+\item
+  \textbf{Tiempo de Implementación:} 4-6 meses.
+\end{itemize}
+
+\subsection{\texorpdfstring{\textbf{El Valor del Machine Learning
+Tradicional en la
+Maquiladora}}{El Valor del Machine Learning Tradicional en la Maquiladora}}\label{el-valor-del-machine-learning-tradicional-en-la-maquiladora}
+
+El Machine Learning tradicional puede transformar radicalmente la manera
+en que operan las maquiladoras. Desde optimizar los inventarios hasta
+prever el mantenimiento de maquinaria, los proyectos de ML brindan la
+oportunidad de aumentar la eficiencia, reducir costos y mejorar la toma
+de decisiones. Formar un equipo balanceado que cuente con ingenieros
+especializados, analistas de datos y personal operativo es la clave para
+asegurar el éxito de estas implementaciones.
+
+La \textbf{IA} y el \textbf{Machine Learning} no solo son herramientas
+futuristas; son la clave para mantenerse competitivos en el presente.
+\textbf{Formar el equipo adecuado y estructurar un proyecto bien
+planeado} es el primer paso para transformar cualquier maquila en un
+líder de innovación industrial. Claro, aquí te detallo y desarrollo los
+puntos que mencionaste, profundizando en los riesgos, recomendaciones y
+enfoque paso a paso para implementar proyectos de \textbf{IA y Machine
+Learning} en una maquiladora:
+
+\subsection{\texorpdfstring{\textbf{La Implementación de Proyectos de
+IA: Riesgos y
+Recomendaciones}}{La Implementación de Proyectos de IA: Riesgos y Recomendaciones}}\label{la-implementaciuxf3n-de-proyectos-de-ia-riesgos-y-recomendaciones}
+
+Es cierto que los proyectos de \textbf{IA y Machine Learning} no solo
+representan una oportunidad enorme para optimizar procesos, sino también
+un riesgo considerable si no se planean y ejecutan adecuadamente. La
+realidad es que, aunque la tecnología está al alcance, su implementación
+efectiva depende de varios factores clave como la disponibilidad de
+datos, la infraestructura tecnológica, el capital para inversión y,
+sobre todo, la claridad en los objetivos que se quieren alcanzar.
+
+Vamos a desglosar más a fondo por qué estos proyectos pueden ser
+\textbf{costosos y con alto riesgo} para una organización y cómo
+mitigarlos con un enfoque prudente y bien estructurado.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Alta Inversión Inicial y Costo de Infraestructura} Uno de los
+  primeros obstáculos que enfrentarás al implementar \textbf{IA} en una
+  maquiladora es la \textbf{alta inversión inicial} en tecnología,
+  recursos y capacitación del personal. A diferencia de sistemas más
+  tradicionales, \textbf{la IA} no es una solución plug-and-play.
+  Requiere infraestructura adicional, como servidores locales o en la
+  nube, almacenamiento de datos masivo y herramientas especializadas que
+  permitan manejar grandes volúmenes de datos y ejecutar modelos de
+  aprendizaje automático en tiempo real.
+\end{enumerate}
+
+\begin{itemize}
+\item
+  \textbf{Riesgo:} Si la inversión es considerable y no se ven
+  resultados a corto plazo, la organización puede perder confianza en el
+  proyecto y considerar que fue un mal gasto.
+\item
+  \textbf{Recomendación:} Es preferible \textbf{subcontratar} o
+  \textbf{realizar una prueba de concepto} (PoC) antes de comprometer
+  una inversión grande. Esto te permite evaluar la viabilidad de la
+  solución sin comprometer todo el capital desde el principio. En lugar
+  de construir toda la infraestructura en casa, prueba un servicio
+  externo para evaluar si la \textbf{IA} realmente aporta el valor
+  esperado.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Disponibilidad y Calidad de los Datos} Para que un proyecto de
+  \textbf{Machine Learning} o \textbf{IA} sea exitoso, \textbf{los datos
+  son fundamentales}. Sin datos históricos de calidad, es casi imposible
+  que los modelos aprendan y ofrezcan predicciones útiles. Además, no se
+  trata solo de tener una gran cantidad de datos, sino de que estos sean
+  consistentes, limpios y representativos del problema que estás
+  tratando de resolver.
+\end{enumerate}
+
+\begin{itemize}
+\item
+  \textbf{Riesgo:} La falta de datos históricos suficientes, o datos mal
+  estructurados, puede llevar a resultados poco confiables o
+  irrelevantes. Los modelos de IA requieren grandes cantidades de datos
+  para entrenarse y mejorar su precisión. Si no tienes, por ejemplo, un
+  mínimo de \textbf{10,000 registros de datos} por cada variable
+  relevante, es probable que los resultados del proyecto sean
+  deficientes.
+\item
+  \textbf{Recomendación:} Antes de invertir en un proyecto grande,
+  asegúrate de tener suficiente \textbf{historia de datos}. Si tus datos
+  son insuficientes, concéntrate primero en mejorar la recolección y
+  almacenamiento de datos. Muchas organizaciones optan por contratar
+  \textbf{ingenieros de datos} para estructurar mejor su pipeline de
+  datos y asegurar que todo esté bien organizado para proyectos futuros.
+  \textbf{Empieza con un pequeño piloto} para evaluar si los datos que
+  tienes actualmente son suficientes para lograr los resultados
+  deseados.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \textbf{Tiempo y Resultados No Inmediatos} Otro factor clave es que
+  los proyectos de \textbf{IA} no generan resultados de inmediato. La
+  implementación de un modelo, su entrenamiento y su ajuste pueden tomar
+  meses o incluso años en algunos casos. Este es un aspecto que puede
+  generar frustración en las empresas que esperan mejoras rápidas.
+\end{enumerate}
+
+\begin{itemize}
+\item
+  \textbf{Riesgo:} El retraso en los resultados puede llevar a la
+  pérdida de interés o apoyo interno por parte de los equipos
+  directivos. Si las expectativas no están alineadas, el proyecto puede
+  cancelarse prematuramente antes de que se puedan ver los beneficios
+  completos.
+\item
+  \textbf{Recomendación:} \textbf{Gestiona las expectativas} desde el
+  principio. Informa a la alta dirección y a los stakeholders que los
+  resultados no serán inmediatos y que se requiere tiempo para que la
+  \textbf{IA} aprenda, ajuste y mejore los procesos. Para mitigar esto,
+  establece hitos claros a corto plazo que permitan demostrar pequeños
+  avances y mejoras tangibles mientras el proyecto avanza hacia su
+  objetivo final.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \textbf{Escalabilidad y Mantenimiento} La \textbf{IA} y el
+  \textbf{Machine Learning} no son proyectos que se implementan una sola
+  vez y se dejan en automático. Los modelos requieren monitoreo
+  continuo, ajustes periódicos y retraining conforme los datos cambian
+  con el tiempo (lo que se conoce como \textbf{data drift}). Además, a
+  medida que tu maquiladora crece o cambia su enfoque de producción, es
+  posible que los modelos necesiten ser escalados o adaptados a nuevas
+  realidades.
+\end{enumerate}
+
+\begin{itemize}
+\item
+  \textbf{Riesgo:} Los modelos pueden volverse obsoletos rápidamente si
+  no se monitorean y ajustan de manera constante. Además, la
+  infraestructura puede no estar preparada para manejar un crecimiento
+  en el volumen de datos, lo que limitaría la efectividad del proyecto.
+\item
+  \textbf{Recomendación:} \textbf{Incorpora escalabilidad} desde el
+  principio en tu plan de proyecto. Asegúrate de que los sistemas y la
+  infraestructura estén diseñados para crecer con la empresa. Esto
+  incluye invertir en soluciones flexibles y escalables, como la nube, y
+  asegurarte de que tu equipo de \textbf{Data Scientists} o
+  \textbf{Ingenieros de ML} esté capacitado para hacer los ajustes
+  necesarios conforme se presenten cambios.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  \textbf{Capacitación del Personal y Cambio Cultural} La introducción
+  de \textbf{IA} en una maquiladora no solo impacta la tecnología, sino
+  también la manera en que el personal trabaja. Si no se brinda
+  suficiente capacitación o soporte, es probable que los empleados no
+  adopten las nuevas tecnologías, o peor aún, que las usen de manera
+  incorrecta.
+\end{enumerate}
+
+\begin{itemize}
+\item
+  \textbf{Riesgo:} La falta de adopción por parte del personal operativo
+  o gerencial puede comprometer el éxito del proyecto, ya que si no
+  entienden cómo usar las nuevas herramientas de IA, no se aprovechará
+  todo su potencial.
+\item
+  \textbf{Recomendación:} Invierte en \textbf{capacitaciones
+  exhaustivas} y desarrolla una estrategia de gestión del cambio desde
+  el principio. La \textbf{IA} no solo optimiza procesos; también cambia
+  la forma en que los empleados interactúan con la tecnología. Es
+  fundamental que tanto el equipo operativo como la dirección estén
+  alineados y comprometidos con la nueva visión de la empresa.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{\textbf{Conclusión: La Clave Está en la
+Estrategia
+Gradual}}{Conclusión: La Clave Está en la Estrategia Gradual}}\label{conclusiuxf3n-la-clave-estuxe1-en-la-estrategia-gradual}
+
+Si bien los proyectos de \textbf{IA y Machine Learning} pueden tener
+riesgos debido a los altos costos, la necesidad de datos de calidad y el
+tiempo necesario para ver resultados, el enfoque adecuado puede
+minimizar esos riesgos y asegurar el éxito a largo plazo. Mi
+\textbf{recomendación personal} es ir \textbf{paso a paso}, comenzando
+con una \textbf{prueba de concepto} y asegurando que cada etapa del
+proyecto esté bien estructurada antes de pasar a la siguiente.
+
+La \textbf{IA} no es una solución mágica de corto plazo, pero con una
+estrategia clara y la disposición para invertir en datos y en talento,
+puede transformar radicalmente la maquiladora, llevándola a niveles de
+eficiencia y competitividad sin precedentes.
+
+::: \{.callout-tip\} \#\# Para ofrecer una visión realista de los
+salarios y los perfiles requeridos en un proyecto de
+\textbf{Inteligencia Artificial} en la maquiladora, tomé como referencia
+promedios salariales de fuentes confiables como \textbf{LinkedIn},
+\textbf{Indeed}, y otras plataformas de empleo especializadas. Estas
+plataformas brindan información actualizada sobre los sueldos promedio
+en áreas como \textbf{gestión de proyectos}, \textbf{desarrollo de
+APIs}, \textbf{data science}, y \textbf{machine learning}, tanto en el
+contexto de México como en otros países con industrias similares. Con
+base en estos datos, he ajustado los rangos salariales que reflejan lo
+que las empresas están pagando actualmente a perfiles técnicos y
+gerencias especializados en IA, garantizando que el presupuesto estimado
+sea acorde al mercado laboral real.Este análisis también incluye
+variaciones según la ubicación geográfica, la experiencia de los
+profesionales y el tamaño de la empresa, lo que permite ofrecer una
+propuesta salarial ajustada a las necesidades y capacidades de la
+maquila.
+
+\section{Proyecto que todo organización debería de tomar en
+cuenta}\label{proyecto-que-todo-organizaciuxf3n-deberuxeda-de-tomar-en-cuenta}
+
+\subsection{\texorpdfstring{\textbf{RAG vs Fine Tuning: La Decisión
+Estratégica para la Maquiladora
+Moderna}}{RAG vs Fine Tuning: La Decisión Estratégica para la Maquiladora Moderna}}\label{rag-vs-fine-tuning-la-decisiuxf3n-estratuxe9gica-para-la-maquiladora-moderna}
+
+La inteligencia artificial (IA) ha transformado radicalmente cómo las
+empresas operan y toman decisiones. En la industria maquiladora, la
+presión por optimizar la producción, gestionar la cadena de suministro y
+mejorar la eficiencia es constante. Para mantenerse competitivos, las
+maquilas necesitan aprovechar tecnologías avanzadas que no solo
+automaticen tareas, sino que también faciliten la toma de decisiones
+basada en datos. Aquí es donde entran dos enfoques clave de IA:
+\textbf{Retrieval-Augmented Generation (RAG)} y \textbf{Fine Tuning}.
+
+Este capítulo ofrece una explicación profunda sobre \textbf{RAG} y
+\textbf{Fine Tuning}, las diferencias entre ambos, y cómo cada uno puede
+implementarse de manera efectiva en una maquiladora. Además, veremos
+ejemplos concretos de cómo estas tecnologías pueden integrarse en
+procesos como la gestión de inventarios, la evaluación de proveedores y
+la predicción de demanda. También discutiremos cómo formar un equipo
+adecuado para implementar estas soluciones, los costos asociados y las
+posibles barreras que enfrentarás.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{Img/rag.jpg}
+
+}
+
+\caption{RAG vs Fine}
+
+\end{figure}%
+
+\subsubsection{\texorpdfstring{\textbf{¿Qué es RAG (Retrieval-Augmented
+Generation)?}}{¿Qué es RAG (Retrieval-Augmented Generation)?}}\label{quuxe9-es-rag-retrieval-augmented-generation}
+
+\textbf{Retrieval-Augmented Generation (RAG)} es una técnica avanzada de
+IA que permite que un modelo de lenguaje grande (LLM) acceda a una base
+de datos externa, actualizada y específica para responder preguntas en
+tiempo real. En lugar de confiar únicamente en el conocimiento
+preentrenado del modelo, RAG combina el poder de recuperación de datos
+en tiempo real con las capacidades de un modelo de lenguaje, lo que
+resulta en respuestas más precisas y contextualmente relevantes.
+
+\textbf{Flujo de trabajo de RAG:} 1. \textbf{Procesamiento de la
+consulta:} El usuario introduce una pregunta o solicitud en lenguaje
+natural (por ejemplo, ``¿Cuál es el estado de mis envíos de proveedores
+esta semana?''). 2. \textbf{Recuperación de datos:} El sistema busca en
+bases de datos internas o externas los datos más relevantes para
+responder la consulta. 3. \textbf{Integración con el LLM:} Los datos
+recuperados se integran con la pregunta original y se introducen en el
+modelo de lenguaje grande. 4. \textbf{Generación de la respuesta:} El
+LLM procesa la información y genera una respuesta que combina el
+contexto de la pregunta con los datos más recientes.
+
+\textbf{Ventajas de RAG en la maquiladora:} - \textbf{Información en
+tiempo real:} RAG permite que los directivos y gerentes tomen decisiones
+basadas en los datos más actualizados, lo que es esencial en entornos de
+producción rápida. - \textbf{Seguridad:} Los datos no se incorporan
+directamente al modelo, sino que permanecen en la base de datos
+controlada por la empresa, lo que mejora la seguridad y el control de
+acceso. - \textbf{Costo eficiente:} Al evitar el reentrenamiento
+completo de modelos grandes, RAG es más eficiente en costos a largo
+plazo. - \textbf{Escalabilidad:} Se puede integrar fácilmente en
+sistemas ya existentes, permitiendo su crecimiento sin complicaciones.
+
+\textbf{Ejemplo en maquiladora:} Imagina que un supervisor de producción
+quiere saber cuántas piezas de una componente crítica hay disponibles
+para cumplir con una orden urgente. En lugar de buscar entre hojas de
+cálculo o preguntar a varios departamentos, el supervisor solo necesita
+hacer una consulta al sistema RAG: ``¿Cuántas piezas de X están
+disponibles en inventario?''. El sistema buscará la respuesta en tiempo
+real, accediendo a la base de datos interna, y proporcionará la
+información exacta, mejorando así la eficiencia operativa.
+
+\subsubsection{\texorpdfstring{\textbf{¿Qué es Fine
+Tuning?}}{¿Qué es Fine Tuning?}}\label{quuxe9-es-fine-tuning}
+
+\textbf{Fine Tuning} es el proceso de ajustar un modelo de IA ya
+preentrenado para que sea óptimo en una tarea o dominio específico. Esto
+se logra mediante el entrenamiento del modelo con un conjunto de datos
+etiquetado y especializado que se ajusta a las necesidades particulares
+de la maquila. Fine Tuning permite que un modelo generalista, como
+GPT-4, se convierta en un experto en las particularidades del negocio.
+
+\textbf{Proceso de Fine Tuning:} 1. \textbf{Entrenamiento en datos
+especializados:} El modelo preentrenado recibe datos específicos de la
+maquila, como patrones de producción, informes de calidad o reportes de
+fallos de maquinaria. 2. \textbf{Ajuste de parámetros:} El modelo ajusta
+sus parámetros internos para adaptarse mejor a los datos especializados.
+3. \textbf{Optimización:} Después del ajuste, el modelo es capaz de
+manejar tareas muy específicas de manera mucho más eficiente y precisa.
+4. \textbf{Uso continuo:} El modelo entrenado puede ser mejorado
+continuamente con nuevos datos, asegurando que se mantenga actualizado y
+adaptado.
+
+\textbf{Ventajas de Fine Tuning:} - \textbf{Especialización profunda:}
+Fine Tuning permite que el modelo sea altamente especializado en las
+operaciones de la maquila, lo que puede ser invaluable para tareas como
+la predicción de fallos de maquinaria o la optimización de líneas de
+producción. - \textbf{Adaptabilidad:} Es ideal para procesos que
+requieren un conocimiento profundo y repetido de patrones históricos,
+como la gestión de calidad o la evaluación de riesgos. - \textbf{Mejora
+continua:} A medida que se recopilan más datos, el modelo puede seguir
+ajustándose para mejorar su rendimiento.
+
+\textbf{Ejemplo en maquiladora:} Un modelo de IA general puede predecir
+cuándo fallará una máquina con base en datos generales de fallos. Sin
+embargo, con Fine Tuning, el modelo puede ser ajustado para identificar
+patrones específicos de fallos en las máquinas de la maquila, basándose
+en datos históricos de esa misma planta. Esto permite predecir con mayor
+precisión y prevenir paros inesperados en la producción.
+
+\subsubsection{\texorpdfstring{\textbf{Comparación: RAG vs Fine
+Tuning}}{Comparación: RAG vs Fine Tuning}}\label{comparaciuxf3n-rag-vs-fine-tuning}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2519}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3630}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3852}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Característica}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{RAG (Retrieval-Augmented Generation)}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Fine Tuning}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Funcionalidad principal} & Recuperar datos en tiempo real y
+combinarlos con la consulta del usuario. & Ajustar el modelo a tareas o
+dominios muy específicos. \\
+\textbf{Datos utilizados} & Base de datos externa, actualizada en tiempo
+real. & Conjunto de datos especializado y etiquetado. \\
+\textbf{Entrenamiento} & No requiere reentrenamiento. & Requiere
+reentrenamiento especializado. \\
+\textbf{Costo} & Menor costo, no requiere ajustes constantes del modelo.
+& Costo más elevado por la necesidad de reentrenamiento. \\
+\textbf{Escalabilidad} & Altamente escalable, fácil de integrar en
+sistemas existentes. & Menos escalable, requiere actualizaciones
+periódicas. \\
+\textbf{Casos de uso} & Ideal para tareas en tiempo real como monitoreo
+de inventarios, demanda y producción. & Excelente para tareas
+especializadas como predicciones de mantenimiento o análisis de
+calidad. \\
+\end{longtable}
+
+\subsubsection{\texorpdfstring{\textbf{Cuándo Usar RAG vs Cuándo Usar
+Fine
+Tuning}}{Cuándo Usar RAG vs Cuándo Usar Fine Tuning}}\label{cuuxe1ndo-usar-rag-vs-cuuxe1ndo-usar-fine-tuning}
+
+\textbf{Usar RAG cuando:} - Necesitas acceso rápido a información
+actualizada en tiempo real. - Tu negocio maneja grandes volúmenes de
+datos dinámicos, como inventarios o transacciones diarias. - La
+seguridad y privacidad de los datos son prioridades y prefieres mantener
+los datos en una base externa.
+
+\textbf{Usar Fine Tuning cuando:} - Tienes un problema específico que
+requiere una solución altamente personalizada. - El modelo necesita
+adaptarse a las particularidades de la maquila, como un proceso de
+producción o análisis de datos de mantenimiento. - Los datos de tu
+negocio son relativamente estables, y puedes justificar el costo de
+entrenar el modelo.
+
+\subsubsection{\texorpdfstring{\textbf{Ejemplo Completo: Optimización
+del Mantenimiento Predictivo con Fine Tuning y
+RAG}}{Ejemplo Completo: Optimización del Mantenimiento Predictivo con Fine Tuning y RAG}}\label{ejemplo-completo-optimizaciuxf3n-del-mantenimiento-predictivo-con-fine-tuning-y-rag}
+
+Imagina que la maquiladora tiene un problema recurrente con una de sus
+máquinas clave. Cada tres meses, la máquina se descompone, causando
+retrasos y pérdidas. Quieres implementar una solución basada en IA para
+predecir cuándo es probable que la máquina falle.
+
+\textbf{Con Fine Tuning:} Primero, recopilas todos los datos históricos
+sobre el uso de la máquina, el mantenimiento realizado y los momentos en
+que ha fallado. Estos datos se utilizan para ajustar un modelo de IA
+preentrenado, optimizándolo para detectar patrones específicos que
+indican cuándo la máquina está en riesgo de fallar. El modelo se entrena
+para predecir con precisión el momento en que será necesario el
+mantenimiento preventivo.
+
+\textbf{Con RAG:} Mientras tanto, implementas RAG para que el sistema
+pueda acceder a datos en tiempo real sobre la máquina. El modelo RAG
+puede responder a preguntas como ``¿Cuál es la condición actual de la
+máquina X?'' o ``¿Cuándo se realizó el último mantenimiento?''. Con esta
+información actualizada al instante, puedes tomar decisiones inmediatas
+si algo parece estar fuera de lugar.
+
+\subsection{}\label{section}
+
+\textbf{Consideraciones Finales}
+
+La implementación de RAG o Fine Tuning no es una elección de ``todo o
+nada''. En muchas maquiladoras, la mejor opción es combinar ambos
+enfoques para obtener lo mejor de los dos mundos. RAG permite que el
+personal acceda a información crítica en tiempo real sin necesidad de
+reentrenar modelos constantemente, mientras que Fine Tuning ofrece una
+solución personalizada y altamente optimizada para tareas específicas.
+
+Ambas tecnologías, cuando se utilizan de manera correcta, pueden
+transformar radicalmente la maquiladora, automatizando tareas críticas,
+mejorando la precisión en las decisiones y reduciendo los costos
+operativos. La clave está en identificar qué procesos de tu maquiladora
+se beneficiarán más de cada enfoque y planificar su implementación para
+maximizar el retorno de la inversión.
+
+Aquí te presento una tabla que compara los costos aproximados de
+implementar un proyecto de IA utilizando \textbf{RAG
+(Retrieval-Augmented Generation)} con una GPU \textbf{NVIDIA GeForce RTX
+4090}, y \textbf{Fine Tuning}, basándonos en los costos de
+entrenamiento, hardware y uso de token. He utilizado los datos
+proporcionados de precios y escenarios comunes para ilustrar la
+diferencia entre ambos enfoques:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2147}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3898}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3955}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Concepto}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{RAG (Retrieval-Augmented Generation)}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Fine Tuning (Re-entrenamiento de IA)}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Costo de Hardware (NVIDIA RTX 4090)} & \$88,999 MXN (Tarjeta de
+Video Gigabyte NVIDIA GeForce RTX 4090)
+\href{https://www.cyberpuerta.mx/Computo-Hardware/Componentes/Tarjetas-de-Video/Tarjeta-de-Video-Gigabyte-NVIDIA-GeForce-RTX-4090-GAMING-OC-24GB-384-bit-GDDR6X-PCI-Express-4-0.html}{(link)}
+& No se requiere GPU, solo servicio de reentrenamiento, dependiente de
+nube. \\
+\textbf{Costo de Infraestructura (Open Source)} & Uso de RAGFlow
+open-source, costo 0 MXN en software, solo infraestructura (computo
+local o nube). & Sin costo de hardware específico, depende de servicios
+en la nube. \\
+\textbf{Costo de Infraestructura (Privado)} & Licencias privadas de
+software y servidores específicos para RAG pueden costar \$15,000 -
+\$50,000 MXN según requerimientos de seguridad. & Costo variable, según
+el uso en servicios como Google Cloud, AWS (Aproximadamente \$3,000 MXN
+al mes). \\
+\textbf{Costo de Entrenamiento (mensual)} & No es necesario
+reentrenamiento, RAG utiliza bases de datos dinámicas. & \$3,000 MXN/mes
+por reentrenamiento en un servicio de nube (dependiente del tamaño del
+modelo y datos). \\
+\textbf{Costo por Token (inferencia)} & No aplica para RAG. &
+Aproximadamente \$0.001 USD por token (variará según el tamaño del
+modelo). \\
+\textbf{Escalabilidad} & Fácil de escalar mediante la integración de más
+datos a la base de RAG. & Requiere ajustar continuamente el modelo con
+nuevos datos para mejorar precisión. \\
+\textbf{Seguridad y Privacidad} & Los datos permanecen en bases
+controladas por la empresa. & Los datos entrenados podrían estar
+expuestos al servicio de nube. \\
+\textbf{Uso de Computo Local vs Nube} & Puede implementarse localmente
+con hardware adecuado (GPU 4090). & Principalmente dependiente de la
+nube para reentrenamiento y procesamiento. \\
+\textbf{Tiempo de Implementación} & Rápida, ya que no requiere entrenar
+modelos, solo ajustar la base de datos. & Toma más tiempo debido a la
+necesidad de reentrenar el modelo regularmente. \\
+\textbf{Costo Total Estimado Inicial (RAG)} & \textasciitilde{} \$48,999
+MXN (tarjeta de video) + infraestructura en caso de ser privada. &
+\textasciitilde{} \$3,000 MXN mensuales (sin hardware), pero con costos
+crecientes por tokens y nube. \\
+\end{longtable}
+
+\subsection{Notas:}\label{notas}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{RAG}: Utiliza hardware especializado como la \textbf{NVIDIA
+  RTX 4090} para maximizar el procesamiento local si no se quiere
+  depender de la nube. En sistemas abiertos (open-source), puede
+  integrarse sin costo de licencias, pero con infraestructura privada
+  puede aumentar los costos.
+\item
+  \textbf{Fine Tuning}: Se enfoca más en servicios en la nube con un
+  costo mensual fijo por el reentrenamiento y un costo por token de uso
+  dependiendo del servicio que se contrate.
+\item
+  **Perfil operacional depende, de la solución la Fine Tunning solo
+  vasta con con desarrollador con conocimiento en el uso de Apis, pero
+  en con la solución RAG se requiere un desarrollador MLDevOps mínimo
+  por un par de meses.
+\end{itemize}
+
+\subsection{Capítulo: La Importancia de un Banco de Datos en la
+Implementación de
+IA}\label{capuxedtulo-la-importancia-de-un-banco-de-datos-en-la-implementaciuxf3n-de-ia}
+
+En cualquier empresa que busque implementar inteligencia artificial (IA)
+de manera seria y estratégica, uno de los aspectos más fundamentales es
+la \textbf{gestión de datos}. Sin un \textbf{banco de datos sólido},
+cualquier esfuerzo por adoptar la IA estará destinado al fracaso o, en
+el mejor de los casos, a obtener resultados mediocres. La razón es
+simple: la IA se alimenta de datos. Si no cuentas con datos limpios,
+organizados y, sobre todo, relevantes, las predicciones y optimizaciones
+que puedan hacer los modelos serán ineficaces y hasta peligrosas para la
+toma de decisiones.
+
+\subsubsection{El Papel Crucial del Banco de
+Datos}\label{el-papel-crucial-del-banco-de-datos}
+
+Cuando hablamos de IA, no estamos solo refiriéndonos a software
+inteligente que toma decisiones en lugar de los humanos. Hablamos de
+\textbf{análisis de patrones complejos}, \textbf{predicciones basadas en
+datos históricos}, y \textbf{automatización de procesos}. Para que esto
+ocurra, el sistema necesita algo muy importante: \textbf{datos de
+calidad}. Y estos datos no son una simple recolección al azar de
+información, sino una estructura organizada que te permita manejar de
+forma efectiva el \textbf{historial de operaciones}, las
+\textbf{variables críticas}, y los \textbf{documentos necesarios} para
+que la IA aprenda, evolucione y, lo más importante, \textbf{genere valor
+para la maquila}.
+
+Sin un banco de datos bien estructurado, estarías improvisando cada vez
+que el sistema necesita información para hacer predicciones o tomar
+decisiones. Este banco no es solo un espacio donde se guarda
+información, es un \textbf{repositorio estratégico} que, bien
+gestionado, puede ser la clave del éxito de cualquier implementación de
+IA. A continuación, desglosaremos cómo debería estructurarse este banco
+de datos en dos grandes partes.
+
+\includegraphics[width=1\textwidth,height=\textheight]{index_files/mediabag/diagram-7.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Lenguaje Natural y Lógica de Negocio}
+\end{enumerate}
+
+La primera parte del banco de datos que debes estructurar estará
+enfocada en toda la información relacionada con \textbf{lenguaje
+natural}. Aquí es donde embonamos y organizamos toda la \textbf{lógica
+de negocio} de la maquila, desde documentos que guían la operación hasta
+los intercambios diarios que ocurren entre los distintos departamentos y
+actores involucrados.
+
+Dentro de esta sección de lenguaje natural se incluyen varios tipos de
+información:
+
+\begin{itemize}
+\item
+  \textbf{Facturas Electrónicas y Documentación Comercial}: Desde
+  \textbf{facturas en PDF, XML}, hasta formatos electrónicos más
+  avanzados. Estos documentos no solo registran las transacciones
+  económicas de la maquila, sino que también contienen datos clave sobre
+  los productos, proveedores, tiempos de entrega, costos y más. Al tener
+  estas facturas integradas en el banco de datos, la IA puede realizar
+  análisis avanzados como predecir qué proveedores tienden a entregar
+  tarde o cómo se puede optimizar la cadena de suministro en función de
+  los costos históricos.
+\item
+  \textbf{Manuales y Guías Operativas}: Estos documentos son vitales
+  para el funcionamiento de cualquier operación industrial. Imagina un
+  manual de operación para maquinaria, o un procedimiento detallado
+  sobre cómo manejar un sistema de control de calidad. La IA puede
+  analizar esta información para recomendar cambios o generar
+  procedimientos más eficientes basados en datos históricos de fallas o
+  errores humanos.
+\item
+  \textbf{Correos Electrónicos y Comunicaciones Internas}: La
+  comunicación interna es una mina de oro para la IA. Correos que
+  confirman pedidos, comunicaciones entre los distintos departamentos y
+  hasta las conversaciones sobre cambios en la planificación de la
+  producción. Toda esta información puede ser procesada para crear
+  patrones de comportamiento y hacer recomendaciones más precisas.
+\item
+  \textbf{Exámenes de Calidad y Auditorías}: Los reportes de calidad
+  realizados por inspectores o auditores son una fuente clave de
+  información. Al almacenar estos datos, puedes implementar IA para
+  detectar patrones de defectos, correlacionar las fallas con cambios en
+  el proceso de producción o predecir futuras no conformidades antes de
+  que ocurran.
+\end{itemize}
+
+\subsubsection{¿Por qué el Lenguaje Natural es
+Importante?}\label{por-quuxe9-el-lenguaje-natural-es-importante}
+
+Toda esta información escrita o digitalizada es entendible para los
+humanos, pero ¿cómo ayuda a la IA? Aquí es donde entra el
+\textbf{Procesamiento de Lenguaje Natural (NLP)}. El NLP permite que la
+IA entienda documentos escritos, correos, y cualquier tipo de lenguaje
+humano, interpretando la lógica detrás de esos textos para hacer
+sugerencias y tomar decisiones. Un banco de datos bien estructurado con
+toda esta información en formato digital permite que la IA analice
+toneladas de datos que de otra forma solo estarían accesibles a humanos,
+y lo haga de manera rápida, precisa y a gran escala.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Bitácora de Datos Operativos y Variables}
+\end{enumerate}
+
+La segunda parte de este banco de datos está dedicada a la
+\textbf{bitácora de datos operativos}, es decir, la información que
+proviene directamente de las operaciones de la maquila. A diferencia del
+lenguaje natural, aquí hablamos de \textbf{datos estructurados}, muchas
+veces numéricos, que describen cómo funcionan las máquinas, cómo fluyen
+los materiales y cómo se cumplen los ciclos de producción.
+
+En esta bitácora se incluye información como:
+
+\begin{itemize}
+\item
+  \textbf{Variables Operativas Críticas}: Estas pueden ser las
+  temperaturas de las máquinas, los tiempos de operación, las
+  velocidades de producción, las tasas de consumo de energía, o incluso
+  el uso de recursos como el agua o el gas. Cada dato cuenta, porque
+  cada uno puede afectar el resultado final de la producción. Una IA
+  puede utilizar esta información para sugerir ajustes que optimicen la
+  operación, reducir costos y prevenir fallos.
+\item
+  \textbf{Fechas y Tiempos de Operación}: Registrar cuándo suceden
+  ciertos eventos es clave para entender el contexto en el que se
+  producen los resultados. Ejemplo: si una máquina falla regularmente a
+  ciertas horas del día, la IA puede detectar patrones y recomendar
+  cambios en los turnos de operación o en los tiempos de mantenimiento.
+\item
+  \textbf{Métricas de Producción}: Desde el número de unidades
+  producidas hasta el scrap generado, todas estas métricas proporcionan
+  una \textbf{historia operacional} que es vital para cualquier análisis
+  predictivo. La IA puede analizar estas métricas y determinar qué
+  procesos son los más eficientes y cuáles necesitan mejoras.
+\item
+  \textbf{Variables Dependientes e Independientes}: Estas son las
+  variables que están afectando el desempeño general de la maquila. Las
+  \textbf{variables independientes} son aquellas que controlas
+  directamente, como las horas de operación, la cantidad de material
+  utilizado, o los parámetros de una máquina. Las \textbf{variables
+  dependientes} son los resultados, como la cantidad de productos
+  defectuosos o el tiempo de inactividad. La IA puede correlacionar
+  ambos tipos de variables para sugerir mejoras en tiempo real.
+\end{itemize}
+
+\subsection{Importancia de la Historia Operativa y Predicciones de
+IA}\label{importancia-de-la-historia-operativa-y-predicciones-de-ia}
+
+Para tener un modelo de IA que realmente pueda hacer predicciones
+precisas, es necesario contar con una \textbf{historia operativa} bien
+documentada. Si quieres implementar un sistema de \textbf{mantenimiento
+predictivo}, necesitas al menos \textbf{tres a cuatro meses} de datos de
+operación para que la IA pueda aprender patrones y hacer predicciones.
+Sin estos datos, cualquier predicción sería meramente especulativa.
+
+Lo mismo aplica si quieres optimizar los niveles de inventario o la
+planificación de producción. Sin la información de cuándo se hicieron
+las entregas, cómo fluctuó la demanda o cómo variaron los tiempos de
+ciclo de producción, el modelo de IA no puede hacer recomendaciones
+confiables.
+
+\subsection{Recomendaciones para Mantener un Banco de
+Datos}\label{recomendaciones-para-mantener-un-banco-de-datos}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Calidad de los Datos}: La calidad es crítica. Si metes datos
+  erróneos, obtendrás resultados erróneos. Asegúrate de que los datos
+  ingresados estén bien validados y que no contengan errores
+  significativos.
+\item
+  \textbf{Estandarización de Formatos}: Todos los datos deben estar en
+  formatos estandarizados para evitar problemas de compatibilidad y
+  facilitar el análisis. Ya sea que uses XML, JSON, o algún formato de
+  base de datos, asegúrate de que todos los equipos trabajen con los
+  mismos estándares.
+\item
+  \textbf{Frecuencia de Actualización}: Entre más reciente sea la
+  información, más precisos serán los análisis. Debes diseñar procesos
+  para que los datos sean actualizados de manera constante y automática.
+  La automatización en este sentido es clave.
+\item
+  \textbf{Accesibilidad}: El banco de datos debe ser fácilmente
+  accesible para todos los equipos relevantes, desde los gerentes hasta
+  los operadores, para que puedan interactuar con la IA y sacar el
+  máximo provecho de sus capacidades.
+\end{enumerate}
+
+\subsection{Un Proyecto de IA Sin un Banco de Datos es como una Fábrica
+Sin
+Electricidad}\label{un-proyecto-de-ia-sin-un-banco-de-datos-es-como-una-fuxe1brica-sin-electricidad}
+
+En resumen, un banco de datos es la \textbf{columna vertebral} de
+cualquier proyecto de IA exitoso. Sin datos, la IA no tiene de dónde
+aprender, y sin aprendizaje, no puede optimizar procesos ni mejorar la
+operación. La maquila que logre organizar sus datos de manera eficiente
+y aprovechable tendrá una ventaja competitiva enorme, ya que podrá
+implementar IA en todas sus áreas, desde producción hasta logística,
+mejorando así la productividad, reduciendo costos y aumentando la
+calidad de sus productos.
+
+Este banco de datos no solo te permitirá manejar la operación actual,
+sino que te preparará para los desafíos del futuro, donde la IA no será
+una opción, sino una \textbf{necesidad} para competir en un mundo cada
+vez más automatizado y centrado en los datos.
+
+¡Es hora de empezar a construir ese banco de datos!
 
 \bookmarksetup{startatroot}
 
@@ -6709,11 +8305,12 @@ en el libro, es parte de nuestra identidad.''
 
 \end{CSLReferences}
 
+\textbackslash end\{document\}
+
 
 \backmatter
 
 \backmatter
 \printbibliography
-
 
 \end{document}

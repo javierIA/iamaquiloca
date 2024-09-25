@@ -162,15 +162,24 @@ En este flujo, cada decisión está basada en una condición clara que lleva a u
     * Condición 2: ¿El stock es menor a 10?
         * Sí: Generar orden de compra automáticamente.
         * No: Mantener el inventario.
-```{mermaid}
-flowchart TD
-    A[Inicio: El sistema monitorea la temperatura] --> B{¿Temperatura > 80°C?}
-    B -->|Sí| C[Detener la máquina y enviar alerta (Acción A)]
-    B -->|No| D[Continuar monitoreando (Acción B)]
-    D --> E{¿Nivel de stock < 100 unidades?}
-    E -->|Sí| F[Generar orden de compra automáticamente (Acción C)]
-    E -->|No| G[Seguir con el proceso de producción (Acción D)]
+        
+```{.d2 theme="NeutralDefault" layout="elk" pad=0  width="100%" sketch=true }
+Inicio: {
+    "El sistema monitorea la temperatura" -> "¿Temperatura > 80°C?"
+    "¿Temperatura > 80°C?" -> "Detener la máquina y enviar alerta (Acción A)": Sí
+    "¿Temperatura > 80°C?" -> "Continuar monitoreando (Acción B)": No
+}
+
 ```
+
+```{.d2 theme="NeutralDefault" layout="elk" pad=0  width="100%" sketch=true }
+Stock: {
+    "Continuar monitoreando (Acción B)" -> "¿Nivel de stock < 100 unidades?"
+    "¿Nivel de stock < 100 unidades?" -> "Generar orden de compra automáticamente (Acción C)": Sí
+    "¿Nivel de stock < 100 unidades?" -> "Seguir con el proceso de producción (Acción D)": No
+}
+```
+
 **Referencia:**
 
 * **Russell, S. J., & Norvig, P. (2020). *Artificial Intelligence: A Modern Approach (4th ed.)*. Pearson.** Este libro es una referencia clásica en el campo de la Inteligencia Artificial y proporciona una base sólida para comprender los diferentes enfoques, incluyendo la IA simbólica. 
@@ -265,7 +274,7 @@ Lo importante es saber cuál enfoque se adapta mejor a tus necesidades y empezar
 
 En los próximos capítulos, exploraremos más a fondo cómo estas tecnologías están transformando cada rincón de las maquiladoras, desde la automatización del control de calidad hasta la optimización de los tiempos de producción. El siguiente paso es entender cómo implementar estas tecnologías de manera efectiva y cuáles son los desafíos que enfrentan las empresas en este proceso de digitalización.
 
-### **1. Conocimiento Técnico en Programación y Lógica**
+**1. Conocimiento Técnico en Programación y Lógica**
 
 Dado que la IA simbólica se basa en reglas predefinidas y condiciones lógicas, es crucial que el candidato tenga sólidos conocimientos de **programación** y **lógica de procesos**. Estos son algunos de los requisitos técnicos:
 
@@ -274,7 +283,7 @@ Dado que la IA simbólica se basa en reglas predefinidas y condiciones lógicas,
 - **Manejo de Reglas Lógicas**: Habilidad para diseñar y gestionar reglas de "si-entonces" (if-then) y otros tipos de reglas lógicas que determinan el comportamiento de los sistemas de IA simbólica.
 - **Diagramas de Flujo**: Capacidad para diseñar, interpretar y modificar diagramas de flujo que describen el funcionamiento del sistema de IA simbólica.
 
-### **2. Conocimiento en Procesos Industriales**
+**2. Conocimiento en Procesos Industriales**
 
 Es fundamental que la persona tenga un buen entendimiento de los procesos específicos de la **industria maquiladora**. Esto permitirá al profesional identificar las áreas donde la IA simbólica puede ser más útil y generar un mayor impacto en la eficiencia y automatización de procesos.
 
@@ -282,33 +291,86 @@ Es fundamental que la persona tenga un buen entendimiento de los procesos espec�
 - **Gestión de Inventarios**: Saber cómo operan los sistemas de inventario y cómo las reglas lógicas pueden automatizar las órdenes de compra y el reabastecimiento.
 - **Mantenimiento de Máquinas**: Conocimiento sobre los ciclos de mantenimiento y cómo establecer reglas simbólicas para alertas y paradas preventivas.
 
-### **3. Habilidad para Diseñar Sistemas Basados en Reglas**
+**3. Habilidad para Diseñar Sistemas Basados en Reglas**
 
 Una de las tareas más importantes de este perfil es diseñar y optimizar las reglas que seguirá la IA simbólica. Esto requiere una capacidad para crear reglas claras y efectivas que cubran todas las posibles condiciones y escenarios que pueden presentarse en la maquiladora.
 
 - **Diseño de Reglas Condicionales**: Capacidad para desarrollar un sistema de reglas eficiente, asegurándose de que todas las situaciones posibles estén cubiertas. Ejemplo: "Si el nivel de vibración de una máquina supera el umbral X, entonces enviar una alerta."
 - **Optimización de Procesos**: Habilidad para analizar y optimizar procesos mediante la creación de flujos lógicos claros, reduciendo tiempos muertos y aumentando la eficiencia de la producción.
 
-### **4. Experiencia en Implementación de Soluciones de IA Simbólica**
+**4. Experiencia en Implementación de Soluciones de IA Simbólica**
 
 El candidato debe tener experiencia práctica en la implementación de sistemas basados en IA simbólica, desde el diseño inicial hasta la puesta en marcha y ajuste de reglas en entornos reales de producción.
 
 - **Configuración e Integración**: Capacidad para configurar la IA simbólica en los sistemas existentes, integrando la tecnología con otras soluciones industriales como ERPs, SCADA, o sistemas de gestión de inventarios.
 - **Pruebas y Validación**: Habilidad para realizar pruebas y validar que las reglas y condiciones están funcionando de acuerdo con lo esperado, ajustando según sea necesario para mejorar la precisión del sistema.
 
-### **5. Competencias en Análisis de Datos**
+**5. Competencias en Análisis de Datos**
 
 Aunque la IA simbólica no aprende de los datos como el Machine Learning, sigue siendo importante que el profesional pueda analizar datos históricos o de producción para definir reglas de manera efectiva.
 
 - **Analizar Patrones**: Capacidad para observar patrones en el comportamiento de las máquinas, en los tiempos de producción o en los niveles de inventario, que puedan traducirse en reglas lógicas.
 - **Generación de Reportes**: Habilidad para generar y analizar reportes de producción, eficiencia, y errores detectados por la IA simbólica, lo que permitirá afinar las reglas y el sistema.
 
-### **6. Trabajo en Equipo y Colaboración**
+**6. Trabajo en Equipo y Colaboración**
 
 La implementación de IA simbólica implica la colaboración con otros departamentos, como el de producción, mantenimiento, calidad, y TI. El perfil debe tener buenas **habilidades de comunicación** y la capacidad de trabajar en equipo para integrar la tecnología sin causar fricciones en las operaciones diarias.
 
 - **Comunicación Interdepartamental**: Capacidad para trabajar con ingenieros, operadores de máquinas y personal de TI para diseñar reglas que se ajusten a las necesidades de producción.
 - **Capacitación al Personal**: Habilidad para entrenar a los operadores y supervisores sobre cómo usar y beneficiarse de los sistemas de IA simbólica.
+
+```{.d2 theme="NeutralDefault" layout="elk" pad=0  width="100%" sketch=true }
+Perfil_de_IA_Simbólica: {
+  shape: text
+  near: top-center
+
+  style: {
+    font-size: 55
+    italic: true
+  }
+  Conocimiento_Técnico: {
+    icon: https://icons.terrastruct.com/dev%2Fpython.svg
+    Lenguajes_de_Programación: "Python, C++, Ladder Logic, Structured Text"
+    Automatización_Industrial: "SCADA, PLC"
+    Manejo_de_Reglas_Lógicas: "Reglas 'si-entonces' (if-then)"
+    Diagramas_de_Flujo: "Diseño e interpretación"
+  }
+
+  Conocimiento_en_Procesos_Industriales: {
+    icon: https://icons.terrastruct.com/aws%2FSecurity%2C%20Identity%2C%20&%20Compliance%2FAWS-Identity-and-Access-Management-IAM_Role_light-bg.svg
+    Control_de_Calidad: "Optimización mediante detección de defectos"
+    Gestión_de_Inventarios: "Automatización de órdenes y reabastecimiento"
+    Mantenimiento_de_Máquinas: "Alertas y paradas preventivas"
+  }
+
+  Diseño_de_Sistemas_Basados_en_Reglas: {
+    icon: https://icons.terrastruct.com/essentials%2F089-data%20analysis.svg
+    Reglas_Condicionales: "Cobertura de situaciones posibles"
+    Optimización_de_Procesos: "Análisis y reducción de tiempos muertos"
+  }
+
+  Implementación_de_Soluciones_de_IA_Simbólica: {
+    icon: https://icons.terrastruct.com/essentials%2F103-wireless%20internet.svg
+    Configuración_e_Integración: "Integración con ERPs, SCADA, etc."
+    Pruebas_y_Validación: "Ajuste y verificación de reglas"
+  }
+
+  Análisis_de_Datos: {
+    icon: https://icons.terrastruct.com/essentials%2F087-menu.svg
+    Análisis_de_Patrones: "Definición de reglas lógicas basadas en datos"
+    Generación_de_Reportes: "Ajuste de reglas según reportes"
+  }
+
+  Trabajo_en_Equipo_y_Colaboración: {
+    icon: https://icons.terrastruct.com/social%2F030-myspace.svg
+    Comunicación_Interdepartamental: "Colaboración con producción, TI, etc."
+    Capacitación: "Entrenamiento en sistemas de IA simbólica"
+  }
+  Trabajo_en_Equipo_y_Colaboración -- Análisis_de_Datos -- Implementación_de_Soluciones_de_IA_Simbólica -- Diseño_de_Sistemas_Basados_en_Reglas -- Conocimiento_en_Procesos_Industriales -- Conocimiento_Técnico
+}
+
+
+```
 
 
 ### **Resumen del Perfil**
@@ -742,6 +804,34 @@ Los proveedores de IA, como **OpenAI** con su GPT o **Google** con Gemini, cobra
 **Ejemplo en la maquiladora**:  
 Si un supervisor pregunta al modelo: "¿Cuántos productos defectuosos se detectaron en la última hora?", esa pregunta puede ser 7 tokens. Si el modelo responde: "Se detectaron 5 productos defectuosos en la línea de producción A", esa respuesta puede costar otros 12 tokens. Así, el costo total de la interacción sería el costo por 19 tokens.
 
+```{.d2 theme="NeutralDefault" layout="elk" pad=0  width="100%" sketch=true }
+Tokens_vs_Costo: {
+  direction: right
+  icon: https://icons.terrastruct.com/azure%2FManagement%20and%20Governance%20Service%20Color%2FCost%20Management%20Billing.svg
+
+  Token_Bajo: {
+    label: "Pocos tokens (Ej: 10)"
+    icon: https://icons.terrastruct.com/essentials%2F263-notepad.svg
+    Costo: "Costo Bajo"
+  }
+
+  Token_Moderado: {
+    label: "Tokens Moderados (Ej: 50)"
+    icon: https://icons.terrastruct.com/essentials%2F171-flag.svg
+    Costo: "Costo Moderado"
+  }
+
+  Token_Alto: {
+    label: "Muchos tokens (Ej: 100+)"
+    icon: https://icons.terrastruct.com/essentials%2F172-flag.svg
+    Costo: "Costo Alto"
+  }
+
+  Token_Bajo -> Token_Moderado -> Token_Alto
+  Costo
+}
+
+```
 
 #### **Ventajas del Cobro por Tokens**
 Este sistema de cobro tiene varias ventajas:

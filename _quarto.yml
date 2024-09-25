@@ -1,111 +1,138 @@
-# Configuración del Proyecto
-project:
-  type: PrettyPDF
+  # Configuración del Proyecto
+  project:
+    type: book
 
-# Configuración de la Ejecución
-execute:
-  freeze: auto
+  # Configuración de la Ejecución
+  execute:
+    freeze: auto
 
-# Metadatos del Libro
-book:
-  title: "iabookMaquiloca"
-  author: "Javier Flores"
-  date: today
-  downloads: ["pdf"]
-  url: "https://xavierflore.com.mx/iabookMaquiloca"
-  reader-mode: true
-  description: "iabookMaquiloca"
-  language: es
-  sidebar:
-    style: docked
-    background: light
-  search: true
-  repo-url: "https://github.com/javierflores/iabookMaquiloca"
-  sharing: ['facebook', 'twitter', 'linkedin']
-  chapters:
-    - index.qmd
-    - intro.qmd
-    - 01-fundamentos.qmd
-    - 02-industria-maquiladora.qmd
-    - 03-aplicaciones-ia.qmd
-    - 04-empresa-lista.qmd
-    - 05-impacto-economico.qmd
-    - 06-futuro-ia.qmd
-    - 07-conclusiones-recomendaciones.qmd
-    - summary.qmd
-    - references.qmd
-bibliography: references.bib
+  # Metadatos del Libro
+  book:
+    title: "iabookMaquiloca"
+    author: "Javier Flores"
+    date: today
+    downloads: ["pdf"]
+    url: "https://xavierflore.com.mx/iabookMaquiloca"
+    reader-mode: true
+    description: "iabookMaquiloca"
+    language: es
+    sidebar:
+      style: docked
+      background: light
+    search: true
+    repo-url: "https://github.com/javierflores/iabookMaquiloca"
+    sharing: ['facebook', 'twitter', 'linkedin']
+    chapters:
+      - index.qmd
+      - intro.qmd
+      - 01-fundamentos.qmd
+      - 02-industria-maquiladora.qmd
+      - 03-aplicaciones-ia.qmd
+      - 05-empresa-lista.qmd
+      - 06-futuro-ia.qmd
+      - 07-conclusiones-recomendaciones.qmd
+      - summary.qmd
+      - references.qmd
+  bibliography: references.bib
+  d2:
+        format: svg
+        embed_mode: raw
 
-# Formatos de Salida
-format:
-  bookup-html:
-    toc: true
-  epub: 
-    toc: true
-    toc-depth: 2
-    fontsize: 1rem
-    linkcolor: highlight
-    urlcolor: highlight
-  pdf:
-    toc: true
-    toc-depth: 2
-    colorlinks: true
-    documentclass: book
-    linkcolor: highlight
-    urlcolor: highlight
-    latex-output-dir: _book
-    fontsize: 10pt
-    geometry: [a5paper, top=2.5cm, bottom=1cm, left=1cm, right=1cm]
+  # Formatos de Salida
+  format:
+    bookup-html:
+      toc: true
+      filters:
+        - d2
+      d2:
+        format: svg
+        embed_mode: raw
+    epub: 
+      toc: true
+      toc-depth: 3
+      fontsize: 1rem
+      linkcolor: highlight
+      urlcolor: highlight
+      filters:
+        - d2
+    pdf:
+      title: joto
+      pdf-engine: lualatex
+      pdf-engine-opts:
+          - '--no-shell-escape'
+          - '--halt-on-error'
+      toc: true
+      toc-depth: 3
+      colorlinks: true
+      documentclass: book
+      linkcolor: highlight
+      urlcolor: highlight
+      keep-tex: true
+      latex-output-dir: _book
+      fontsize: 10pt
+      geometry: [a5paper, top=2.5cm, bottom=1cm, left=1cm, right=1cm]
+      filters:
+        - d2
+      include-in-header:
+        - |
+          % Cargar fuentes y paquetes de estilo
+          \usepackage{fontspec}
+          \usepackage{emoji}
+          \setmainfont{EB Garamond}        
+          \usepackage{xcolor}
+          \definecolor{highlight}{RGB}{29, 120, 200} 
 
-    # Encabezados y pies de página elegantes
-    header-includes:
-      - |
-        % Cargar fuentes y paquetes de estilo
-        \usepackage{fontspec}
-        \setmainfont{IBM Plex Serif}          % Fuente principal para el texto del libro
-        \setsansfont{IBM Plex Sans}           % Fuente sans-serif para los títulos
-        \setmonofont{IBM Plex Mono}           % Fuente para código
-        \usepackage{xcolor}
-        \definecolor{highlight}{RGB}{29, 120, 200} % Definir color de enlace "highlight"
+          % Paquetes para tablas responsivas
+          \usepackage{graphicx}     % Para \resizebox
+          \usepackage{tabularx}     % Para tablas de ancho adaptable
+          \usepackage[raggedrightboxes]{ragged2e} 
 
-        % Paquetes para tablas responsivas
-        \usepackage{graphicx}    % Para \resizebox
-        \usepackage{tabularx}    % Para tablas de ancho adaptable
-        \usepackage[raggedrightboxes]{ragged2e}
+          % Paquete para soporte de idiomas
+          \usepackage{polyglossia}
+          \setmainlanguage{spanish} 
 
-        % Paquete para soporte de idiomas
-        \usepackage{polyglossia}
-        \setmainlanguage{spanish}  % Define español como idioma principal
-        \usepackage{microtype}      % Mejorar la legibilidad
+          % Microtipografía avanzada
+          \usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
 
-        % Paquete para la personalización del título
-        \usepackage{titling}
+          \widowpenalty=10000
+          \clubpenalty=10000
 
-        % Configuración de encabezados y pies de página
-        \usepackage{fancyhdr}
-        \pagestyle{fancy}
-        \fancyhf{}
-        \fancyhead[LE,RO]{\thepage}  % Número de página en las esquinas
-        \fancyhead[RE]{\nouppercase{\leftmark}}  % Nombre del capítulo
-        \fancyhead[LO]{\nouppercase{\rightmark}} % Nombre de la sección
-        \fancyfoot[C]{\thepage}
+          % Control de ríos (ligeramente ragged right)
+          \usepackage[raggedrightboxes]{ragged2e}
 
-    footer-includes:
-      - |
-        \fancyfoot[C]{\thepage}
+          % Gestión de guiones
+          \hyphenpenalty=50 
+          \exhyphenpenalty=50 
+          \emergencystretch=3em
 
-    include-before:
-      - |
-        % Página de título con estilo moderno
-        \begin{titlepage}
-        \centering
-        \vspace*{5cm} % Espacio en blanco antes del título
-        {\Huge \textbf{iabookMaquiloca}}\\[1cm]
-        {\Large Javier Flores}\\[2cm]
-        {\large \today}\\[5cm]
-        \end{titlepage}
+          % Paquete para la personalización del título
+          \usepackage{titling}
 
-    include-after:
-      - |
-        \backmatter
-        \printbibliography
+          % Configuración de encabezados y pies de página
+          \usepackage{fancyhdr}
+          \pagestyle{fancy}
+          \fancyhf{}
+          \fancyhead[LE,RO]{\thepage} 
+          \fancyhead[RE]{\nouppercase{\leftmark}} 
+          \fancyhead[LO]{\nouppercase{\rightmark}}   
+    
+          \fancyfoot[C]{\thepage}
+
+      include-before-body:
+        - |
+            \begin{document}
+
+      include-after-body:
+        - |
+            \end{document}
+      footer-includes:
+        - |
+            \fancyfoot[C]{\thepage}
+
+      include-after:
+        - |
+            \backmatter
+            \printbibliography
+
+
+

@@ -46,7 +46,7 @@ La Inteligencia Artificial (IA) ha llegado para cambiar el juego en la industria
 
 En este capítulo, vamos a explorar más a fondo cómo la IA puede ser aplicada en la maquiladora, desglosando cada área con mayor detalle y proporcionando un listado de tecnologías clave que pueden ser utilizadas en cada caso.
 
-### 1. Optimización del Proceso de Producción
+### Proyecto 1. Optimización del Proceso de Producción
 
 **Ranking de Adaptación:**
 
@@ -106,7 +106,7 @@ La IA también puede ser utilizada para optimizar el flujo de trabajo en la maqu
   - **Análisis de Datos en Tiempo Real:** Herramientas como **Apache Kafka** y **Elasticsearch** que procesan y analizan grandes volúmenes de datos de producción.
   - **Algoritmos de Optimización:** Uso de técnicas como **Programación Lineal** y **Algoritmos Genéticos** para ajustar el flujo de trabajo y maximizar la eficiencia.
 
-### 2. Gestión de la Cadena de Suministro
+### Proyecto 2. Gestión de la Cadena de Suministro
 
 **Ranking de Adaptación:**
 
@@ -161,7 +161,7 @@ La IA puede mejorar significativamente la eficiencia de la logística en la maqu
 
 **En resumen:** La aplicación de la IA en la gestión de la cadena de suministro ofrece a las maquiladoras la oportunidad de optimizar sus operaciones, reducir costos y mejorar la eficiencia en áreas clave como la gestión de inventarios y la logística. La implementación de estas tecnologías puede requerir cierta inversión y adaptación, pero los beneficios potenciales son significativos y pueden contribuir a una mayor competitividad en el mercado. 
 
-### 3. Automatización de Tareas Repetitivas
+### Proyecto 3. Automatización de Tareas Repetitivas
 
 **Ranking de Adaptación:**
 
@@ -212,7 +212,7 @@ La IA también puede agilizar las tareas administrativas repetitivas, liberando 
 
 **En resumen:** La automatización de tareas repetitivas, tanto en la producción como en la administración, es una aplicación de la IA con un alto potencial de adaptación en la maquila. Su baja complejidad técnica, rápida implementación y bajo costo la convierten en una opción atractiva para mejorar la eficiencia, reducir costos y liberar a los empleados para que se centren en tareas más estratégicas y de mayor valor. 
 
-### 4. **Diseño y Desarrollo de Productos**
+### Proyecto 4. **Diseño y Desarrollo de Productos**
 
 **Ranking de Adaptación:**
 - **Complejidad Técnica: Medio (3)**
@@ -243,7 +243,7 @@ La IA también permite personalizar productos según las necesidades del cliente
   - **Software de Fabricación Personalizada:** Plataformas como **Tacton** que permiten la fabricación personalizada basada en configuraciones definidas por el cliente.
   - **Plataformas de Análisis de Mercado:** Herramientas como **IBM Watson Marketing** que analizan datos de clientes para identificar preferencias y tendencias.
 
-### 5. Análisis de Mercado y Servicio al Cliente
+### Proyecto 5. Análisis de Mercado y Servicio al Cliente
 
 **Ranking de Adaptación:**
 
@@ -308,7 +308,7 @@ La implementación de la IA en la maquiladora no es un proceso de una sola vez; 
 
 **Problema Actual:**
 
-En la mayoría de las maquiladoras en Ciudad Juárez, el procesamiento manual de facturas sigue siendo una tarea compleja y repetitiva que consume tiempo y recursos humanos. Imagina un equipo de **100 capturistas** dedicados exclusivamente a la revisión y captura manual de datos de facturas en diferentes formatos, ya sean PDF, imágenes o archivos XML. Este proceso es propenso a errores humanos y puede retrasar la cadena de suministros, lo que afecta la producción y la relación con los proveedores.
+En la mayoría de las maquiladoras en Ciudad Juárez, el procesamiento manual de facturas sigue siendo una tarea compleja y repetitiva que consume tiempo y recursos humanos. Imagina un equipo de **30 capturistas** dedicados exclusivamente a la revisión y captura manual de datos de facturas en diferentes formatos, ya sean PDF, imágenes o archivos XML. Este proceso es propenso a errores humanos y puede retrasar la cadena de suministros, lo que afecta la producción y la relación con los proveedores.
 
 El principal reto aquí es que, aunque la tecnología existe para automatizar este proceso, la mayoría de las maquilas siguen operando con métodos tradicionales, lo que genera ineficiencias que se traducen en costos más altos y tiempos de procesamiento más largos. En un entorno tan competitivo como el de las maquiladoras, esto puede significar una desventaja frente a empresas que ya han implementado tecnologías de automatización.
 
@@ -341,9 +341,37 @@ Por ejemplo, si una factura no incluye los datos necesarios del proveedor o los 
 
 Además de procesar y validar las facturas, **AutoFact 4.0** también puede generar reportes en tiempo real que muestren el estado de cada factura, si ha sido aprobada, si está pendiente de revisión o si presenta alguna anomalía que necesita ser corregida. Este tipo de visibilidad es crucial para agilizar los tiempos de procesamiento y garantizar que no haya demoras que afecten las operaciones.
 
----
 
-#### Ventajas de AutoFact 4.0
+```{.d2 theme="NeutralDefault" layout="elk" pad=0  width="100%" sketch=true }
+Proceso_Facturas: {
+  direction: down
+
+  Paso_1: {
+    label: "Paso 1: Recepción y Análisis de Facturas"
+    icon: https://icons.terrastruct.com/essentials%2F257-file.svg
+    PDFs: "Conversión a texto con OCR y extracción de datos clave"
+    XMLs: "Extracción directa de datos con flexibilidad para distintos formatos"
+  }
+
+  Paso_2: {
+    label: "Paso 2: Validación Basada en Reglas Aduaneras"
+    icon: https://icons.terrastruct.com/essentials%2F263-notepad.svg
+    Validación: "Verificación contra reglas aduaneras y normativas fiscales"
+    Alerta: "AutoFact 4.0 alerta sobre faltas en datos o códigos incorrectos"
+  }
+
+  Paso_3: {
+    label: "Paso 3: Optimización y Reportes en Tiempo Real"
+    icon: https://icons.terrastruct.com/aws%2FManagement%20&%20Governance%2FAmazon-CloudWatch_Event-Time-Based_light-bg.svg
+    Reportes: "Estado en tiempo real de cada factura (aprobada, pendiente, anomalías)"
+    Visibilidad: "Mejora en la visibilidad para evitar demoras en operaciones"
+  }
+
+  Paso_1 -> Paso_2 -> Paso_3
+}
+
+```
+ Ventajas de AutoFact 4.0
 
 **1. Reducción de la Intervención Humana:** Con **AutoFact 4.0**, el número de capturistas se reduce drásticamente. De 100 capturistas a solo un equipo pequeño que supervise el sistema. Esto no solo reduce costos laborales, sino que mejora la precisión y velocidad del proceso.
 
@@ -375,7 +403,10 @@ El proceso completo de implementación incluye:
 | **Tiempo de Implementación**       | Largo (5)  | Implementar **AutoFact 4.0** tomará más de un año debido a la necesidad de desarrollar la comunicación entre modelos LLM y los diferentes formatos de facturas, pruebas exhaustivas, ajustes y capacitaciones. Además, será necesario integrar el sistema con las plataformas actuales de la maquila y ajustar las reglas de validación aduanera.                                                |
 | **Inversión Económica**            | Alta (5)  | Se requiere una inversión considerable en tecnología (LLMs, servidores, software de OCR), infraestructura y capacitación de personal. El costo inicial es alto, pero se justifica por la reducción de costos operativos a largo plazo y la mejora en la eficiencia y precisión de la captura de facturas.                                                                                 |
 | **Capacitación y Adaptación del Personal** | Baja (1)  | El personal necesitará capacitación moderada en el uso de la nueva tecnología, sobre todo en la supervisión y ajuste de las reglas aduaneras, así como en la gestión del flujo de trabajo del sistema. No obstante, una parte significativa del personal que antes realizaba tareas de captura manual podría ser reasignada o necesitar nuevas habilidades.                          |
-| **Impacto en la Cultura Organizacional**    | Alto (5)  | Este proyecto tendrá un impacto profundo en la cultura organizacional, ya que transformará completamente el proceso de captura de facturas, eliminando tareas repetitivas y promoviendo una cultura más digital y automatizada. Se requerirán ajustes en las políticas y procedimientos de la maquila para alinearse con esta nueva forma de operar.                                   |
+| **Impacto en la Cultura Organizacional**    | Alto (5)  | Este proyecto tendrá un impacto profundo en la cultura organizacional, ya que transformará completamente el proceso de captura de facturas, eliminando tareas repetitivas y promoviendo una cultura más digital y automatizada. Se requerirán ajustes en las políticas y procedimientos de la maquila para alinearse con esta nueva forma de operar.    
+                               |
+:  Ranking de Adaptación a la IA para el Proyecto {tbl-colwidths="[25,20,65]"}
+
 ### Proyecto: **Generación Automática de Bill of Materials (BOM)** para la Maquiladora
 
 #### Contexto en la Maquiladora
@@ -419,6 +450,50 @@ La **Generación Automática de BOM** con IA utilizará **LLMs** y **NLP** para 
 5. **Documentos Aduaneros:** Integrar el análisis de documentos aduaneros, como los reglamentos de exportación e importación, que afectan los componentes específicos que pueden utilizarse en la producción.
 
 #### Proceso de Implementación
+
+```{.d2 theme="NeutralDefault" layout="elk" pad=0  width="100%" sketch=true }
+Generación_Automática_de_BOM: {
+  shape: sequence_diagram
+
+  Inicio: {
+    label: "Inicio del Proyecto"
+    icon: https://icons.terrastruct.com/essentials%2F048-launch.svg
+  }
+
+  Paso_1: {
+    label: "Automatizar la Generación de BOM"
+    Descripción: "Implementar IA para procesar documentos y generar listas de materiales"
+  }
+
+  Paso_2: {
+    label: "Integración de Múltiples Formatos"
+    icon: https://icons.terrastruct.com/essentials%2F220-layers.svg
+    Formatos: "CAD, PDF, XML, Excel"
+    Descripción: "Asegurar coherencia en la extracción de información desde múltiples formatos"
+  }
+
+  Paso_3: {
+    label: "Mejorar la Exactitud y Reducción de Errores"
+    icon: https://icons.terrastruct.com/essentials%2F111-idea.svg
+    Descripción: "Minimizar errores humanos y mejorar precisión en la generación de la BOM"
+  }
+
+  Paso_4: {
+    label: "Aceleración del Proceso de Producción"
+    icon: https://icons.terrastruct.com/essentials%2F039-fast%20forward.svg
+    Descripción: "Reducir tiempos de generación de la BOM y optimizar producción"
+  }
+
+  Fin: {
+    label: "Finalización del Proyecto"
+    icon: https://icons.terrastruct.com/essentials%2F059-success.svg
+  }
+
+  Inicio -> Paso_1 -> Paso_2 -> Paso_3 -> Paso_4 -> Fin
+}
+
+
+```
 
 1. **Recopilación de Documentos:** Los archivos CAD, PDFs, XML, Excel y otros documentos son cargados en el sistema para su procesamiento, Estos siguiendo con la lista de **BOM** de los análisis previos hechos a mano por los trabajores se recomienda uso minimo de 4 ejemplos por liena de producto. 
 2. **Análisis y Extracción de Datos:** 
